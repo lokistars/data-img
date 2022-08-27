@@ -358,3 +358,27 @@ I 2022/08/27 11:02:04 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, 
 I 2022/08/27 11:05:15 sync.go:98: sync before exit
 I 2022/08/27 11:05:15 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=2.0 kB] in [0.22s]
 I 2022/08/27 11:05:15 conf.go:370: exited kernel
+I 2022/08/27 11:29:56 working.go:106: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2022/08/27 11:29:56 runtime.go:47: kernel is booting:
+    * ver [2.1.8]
+    * arch [amd64]
+    * runtime mode [prod]
+    * working directory [F:\Tools\AppData\siyuan\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [D:\data-img\SiYuan, data 3.5 MB]
+I 2022/08/27 11:29:56 serve.go:78: kernel is booting [http://127.0.0.1:6806]
+I 2022/08/27 11:29:56 conf.go:531: database size [6.4 MB], block count [1415]
+I 2022/08/27 11:29:56 working.go:146: kernel booted

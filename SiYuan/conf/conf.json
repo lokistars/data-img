@@ -1,7 +1,7 @@
 {
   "logLevel": "debug",
   "appearance": {
-    "mode": 0,
+    "mode": 1,
     "darkThemes": [
       "midnight"
     ],
@@ -194,8 +194,45 @@
                 {
                   "children": [
                     {
-                      "children": {},
-                      "instance": "Tab"
+                      "children": {
+                        "action": "",
+                        "blockId": "20220824115603-juqypwe",
+                        "instance": "Editor",
+                        "mode": "wysiwyg",
+                        "scrollAttr": {
+                          "endId": "20220824115619-3wpjn0l",
+                          "focusEnd": 0,
+                          "focusId": "20220824115619-5uwejjg",
+                          "focusStart": 0,
+                          "scrollTop": 0,
+                          "startId": "20220824115619-5uwejjg"
+                        }
+                      },
+                      "docIcon": "",
+                      "instance": "Tab",
+                      "pin": false,
+                      "title": "Redis 面试题"
+                    },
+                    {
+                      "active": true,
+                      "children": {
+                        "action": "",
+                        "blockId": "20220819113442-2n2aspj",
+                        "instance": "Editor",
+                        "mode": "wysiwyg",
+                        "scrollAttr": {
+                          "endId": "20220826130632-07krx8o",
+                          "focusEnd": 13,
+                          "focusId": "20220826130632-oqzte2h",
+                          "focusStart": 13,
+                          "scrollTop": 0,
+                          "startId": "20220826130632-oqzte2h"
+                        }
+                      },
+                      "docIcon": "",
+                      "instance": "Tab",
+                      "pin": false,
+                      "title": "Redis 数据结构"
                     }
                   ],
                   "height": "",
@@ -417,7 +454,7 @@
     "virtualRefDoc": true
   },
   "stat": {
-    "docCount": 0
+    "docCount": 5
   },
   "api": {
     "token": "uz32v7xf7h2lwe9b"
