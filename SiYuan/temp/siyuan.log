@@ -382,3 +382,4 @@ I 2022/08/27 11:29:56 runtime.go:47: kernel is booting:
 I 2022/08/27 11:29:56 serve.go:78: kernel is booting [http://127.0.0.1:6806]
 I 2022/08/27 11:29:56 conf.go:531: database size [6.4 MB], block count [1415]
 I 2022/08/27 11:29:56 working.go:146: kernel booted
+I 2022/08/27 22:00:40 conf.go:370: exited kernel

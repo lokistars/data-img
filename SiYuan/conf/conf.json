@@ -196,43 +196,43 @@
                     {
                       "children": {
                         "action": "",
-                        "blockId": "20220824115603-juqypwe",
-                        "instance": "Editor",
-                        "mode": "wysiwyg",
-                        "scrollAttr": {
-                          "endId": "20220824115619-3wpjn0l",
-                          "focusEnd": 0,
-                          "focusId": "20220824115619-5uwejjg",
-                          "focusStart": 0,
-                          "scrollTop": 0,
-                          "startId": "20220824115619-5uwejjg"
-                        }
-                      },
-                      "docIcon": "",
-                      "instance": "Tab",
-                      "pin": false,
-                      "title": "Redis 面试题"
-                    },
-                    {
-                      "active": true,
-                      "children": {
-                        "action": "",
                         "blockId": "20220819113442-2n2aspj",
                         "instance": "Editor",
                         "mode": "wysiwyg",
                         "scrollAttr": {
-                          "endId": "20220826130632-07krx8o",
-                          "focusEnd": 13,
-                          "focusId": "20220826130632-oqzte2h",
-                          "focusStart": 13,
-                          "scrollTop": 0,
-                          "startId": "20220826130632-oqzte2h"
+                          "endId": "20220826130632-uy18n03",
+                          "focusEnd": 0,
+                          "focusId": "20220826130632-vd8933o",
+                          "focusStart": 0,
+                          "scrollTop": 2211,
+                          "startId": "20220826132333-ee75srg"
                         }
                       },
                       "docIcon": "",
                       "instance": "Tab",
                       "pin": false,
                       "title": "Redis 数据结构"
+                    },
+                    {
+                      "active": true,
+                      "children": {
+                        "action": "",
+                        "blockId": "20220827152140-qun0hng",
+                        "instance": "Editor",
+                        "mode": "wysiwyg",
+                        "scrollAttr": {
+                          "endId": "20220827152215-ck23lr8",
+                          "focusEnd": 100,
+                          "focusId": "20220827152215-oi41xzd",
+                          "focusStart": 100,
+                          "scrollTop": 2300,
+                          "startId": "20220827152215-c4jgmte"
+                        }
+                      },
+                      "docIcon": "",
+                      "instance": "Tab",
+                      "pin": false,
+                      "title": "Redis 内存优化"
                     }
                   ],
                   "height": "",
@@ -299,7 +299,7 @@
         {
           "hotkeyLangId": "fileTree",
           "icon": "iconFiles",
-          "show": true,
+          "show": false,
           "size": {
             "height": 0,
             "width": 240
@@ -309,7 +309,7 @@
         {
           "hotkeyLangId": "outline",
           "icon": "iconAlignCenter",
-          "show": false,
+          "show": true,
           "size": {
             "height": 0,
             "width": 240
@@ -454,7 +454,7 @@
     "virtualRefDoc": true
   },
   "stat": {
-    "docCount": 5
+    "docCount": 6
   },
   "api": {
     "token": "uz32v7xf7h2lwe9b"
