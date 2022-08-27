@@ -1,0 +1,429 @@
+{
+  "logLevel": "debug",
+  "appearance": {
+    "mode": 0,
+    "darkThemes": [
+      "midnight"
+    ],
+    "lightThemes": [
+      "daylight"
+    ],
+    "themeDark": "midnight",
+    "themeLight": "daylight",
+    "themeVer": "1.0.2",
+    "icons": [
+      "ant",
+      "material"
+    ],
+    "icon": "material",
+    "iconVer": "1.0.6",
+    "nativeEmoji": true,
+    "codeBlockThemeLight": "github",
+    "codeBlockThemeDark": "base16/dracula",
+    "lang": "zh_CN",
+    "customCSS": false,
+    "themeJS": false,
+    "closeButtonBehavior": 0,
+    "hideStatusBar": false
+  },
+  "langs": [
+    {
+      "label": "English",
+      "name": "en_US"
+    },
+    {
+      "label": "Español",
+      "name": "es_ES"
+    },
+    {
+      "label": "Français",
+      "name": "fr_FR"
+    },
+    {
+      "label": "繁體中文",
+      "name": "zh_CHT"
+    },
+    {
+      "label": "简体中文",
+      "name": "zh_CN"
+    }
+  ],
+  "lang": "zh_CN",
+  "fileTree": {
+    "alwaysSelectOpenedFile": false,
+    "openFilesUseCurrentTab": false,
+    "refCreateSavePath": "",
+    "createDocNameTemplate": "",
+    "maxListCount": 512,
+    "maxOpenTabCount": 8,
+    "allowCreateDeeper": false,
+    "removeDocWithoutConfirm": false,
+    "closeTabsOnStart": false,
+    "sort": 6
+  },
+  "tag": {
+    "sort": 4
+  },
+  "editor": {
+    "fontSize": 16,
+    "fontFamily": "",
+    "codeSyntaxHighlightLineNum": true,
+    "codeTabSpaces": 0,
+    "codeLineWrap": false,
+    "codeLigatures": false,
+    "displayBookmarkIcon": true,
+    "displayNetImgMark": true,
+    "generateHistoryInterval": 10,
+    "historyRetentionDays": 30,
+    "emoji": [],
+    "virtualBlockRef": false,
+    "virtualBlockRefExclude": "",
+    "blockRefDynamicAnchorTextMaxLen": 96,
+    "plantUMLServePath": "https://www.plantuml.com/plantuml/svg/~1",
+    "fullWidth": true
+  },
+  "export": {
+    "paragraphBeginningSpace": false,
+    "addTitle": true,
+    "blockRefMode": 4,
+    "blockEmbedMode": 1,
+    "blockRefTextLeft": "",
+    "blockRefTextRight": "",
+    "tagOpenMarker": "#",
+    "tagCloseMarker": "#",
+    "fileAnnotationRefMode": 0,
+    "pandocBin": ""
+  },
+  "graph": {
+    "maxBlocks": 10240,
+    "local": {
+      "dailyNote": false,
+      "type": {
+        "tag": false,
+        "paragraph": false,
+        "heading": false,
+        "math": false,
+        "code": false,
+        "table": false,
+        "list": false,
+        "listItem": false,
+        "blockquote": false,
+        "super": false
+      },
+      "d3": {
+        "nodeSize": 15,
+        "linkWidth": 8,
+        "lineOpacity": 0.36,
+        "centerStrength": 0.01,
+        "collideRadius": 600,
+        "collideStrength": 0.08,
+        "linkDistance": 400,
+        "arrow": true
+      }
+    },
+    "global": {
+      "minRefs": 0,
+      "dailyNote": false,
+      "type": {
+        "tag": false,
+        "paragraph": false,
+        "heading": false,
+        "math": false,
+        "code": false,
+        "table": false,
+        "list": false,
+        "listItem": false,
+        "blockquote": false,
+        "super": false
+      },
+      "d3": {
+        "nodeSize": 15,
+        "linkWidth": 8,
+        "lineOpacity": 0.36,
+        "centerStrength": 0.01,
+        "collideRadius": 600,
+        "collideStrength": 0.08,
+        "linkDistance": 400,
+        "arrow": true
+      }
+    }
+  },
+  "uiLayout": {
+    "bottom": [],
+    "hideDock": false,
+    "layout": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "instance": "Wnd"
+            },
+            {
+              "children": [],
+              "instance": "Wnd",
+              "resize": "lr"
+            }
+          ],
+          "direction": "lr",
+          "instance": "Layout",
+          "size": "0px",
+          "type": "top"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "instance": "Wnd"
+                },
+                {
+                  "children": [],
+                  "instance": "Wnd",
+                  "resize": "tb"
+                }
+              ],
+              "direction": "tb",
+              "instance": "Layout",
+              "size": "240px",
+              "type": "left"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": {},
+                      "instance": "Tab"
+                    }
+                  ],
+                  "height": "",
+                  "instance": "Wnd",
+                  "width": ""
+                }
+              ],
+              "direction": "lr",
+              "instance": "Layout",
+              "resize": "lr",
+              "size": "auto",
+              "type": "center"
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "instance": "Wnd"
+                },
+                {
+                  "children": [],
+                  "instance": "Wnd",
+                  "resize": "tb"
+                }
+              ],
+              "direction": "tb",
+              "instance": "Layout",
+              "resize": "lr",
+              "size": "0px",
+              "type": "right"
+            }
+          ],
+          "direction": "lr",
+          "instance": "Layout",
+          "resize": "tb",
+          "size": "auto",
+          "type": "normal"
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "instance": "Wnd"
+            },
+            {
+              "children": [],
+              "instance": "Wnd",
+              "resize": "lr"
+            }
+          ],
+          "direction": "lr",
+          "instance": "Layout",
+          "resize": "tb",
+          "size": "0px",
+          "type": "bottom"
+        }
+      ],
+      "direction": "tb",
+      "instance": "Layout",
+      "type": "normal"
+    },
+    "left": [
+      [
+        {
+          "hotkeyLangId": "fileTree",
+          "icon": "iconFiles",
+          "show": true,
+          "size": {
+            "height": 0,
+            "width": 240
+          },
+          "type": "file"
+        },
+        {
+          "hotkeyLangId": "outline",
+          "icon": "iconAlignCenter",
+          "show": false,
+          "size": {
+            "height": 0,
+            "width": 240
+          },
+          "type": "outline"
+        },
+        {
+          "hotkeyLangId": "inbox",
+          "icon": "iconInbox",
+          "show": false,
+          "size": {
+            "height": 0,
+            "width": 252
+          },
+          "type": "inbox"
+        }
+      ],
+      [
+        {
+          "hotkeyLangId": "bookmark",
+          "icon": "iconBookmark",
+          "show": false,
+          "size": {
+            "height": 0,
+            "width": 240
+          },
+          "type": "bookmark"
+        },
+        {
+          "hotkeyLangId": "tag",
+          "icon": "iconTags",
+          "show": false,
+          "size": {
+            "height": 0,
+            "width": 240
+          },
+          "type": "tag"
+        }
+      ]
+    ],
+    "right": [
+      [
+        {
+          "hotkeyLangId": "graphView",
+          "icon": "iconGraph",
+          "show": false,
+          "size": {
+            "height": 0,
+            "width": 360
+          },
+          "type": "graph"
+        },
+        {
+          "hotkeyLangId": "globalGraph",
+          "icon": "iconGlobalGraph",
+          "show": false,
+          "size": {
+            "height": 0,
+            "width": 360
+          },
+          "type": "globalGraph"
+        }
+      ],
+      [
+        {
+          "hotkeyLangId": "backlinks",
+          "icon": "iconLink",
+          "show": false,
+          "size": {
+            "height": 0,
+            "width": 360
+          },
+          "type": "backlink"
+        }
+      ]
+    ],
+    "top": []
+  },
+  "userData": "",
+  "account": {
+    "displayTitle": true,
+    "displayVIP": true
+  },
+  "readonly": false,
+  "localIPs": [
+    "192.168.11.43",
+    "127.0.0.1"
+  ],
+  "accessAuthCode": "",
+  "system": {
+    "id": "ec56ec85-b2e3-4d85-a264-e61c5bf1bead",
+    "kernelVersion": "2.1.8",
+    "os": "windows",
+    "container": "std",
+    "isInsider": false,
+    "homeDir": "C:\\Users\\53276",
+    "workspaceDir": "D:\\data-img\\SiYuan",
+    "appDir": "F:\\Tools\\AppData\\siyuan\\resources",
+    "confDir": "D:\\data-img\\SiYuan\\conf",
+    "dataDir": "D:\\data-img\\SiYuan\\data",
+    "networkServe": false,
+    "networkProxy": {
+      "scheme": "",
+      "host": "",
+      "port": ""
+    },
+    "uploadErrLog": false
+  },
+  "keymap": {},
+  "sync": {
+    "cloudName": "main",
+    "enabled": false,
+    "mode": 1,
+    "synced": 0,
+    "stat": ""
+  },
+  "search": {
+    "document": true,
+    "heading": true,
+    "list": true,
+    "listItem": true,
+    "codeBlock": true,
+    "mathBlock": true,
+    "table": true,
+    "blockquote": true,
+    "superBlock": true,
+    "paragraph": true,
+    "htmlBlock": true,
+    "limit": 64,
+    "caseSensitive": false,
+    "name": true,
+    "alias": true,
+    "memo": true,
+    "custom": false,
+    "backlinkMentionName": true,
+    "backlinkMentionAlias": false,
+    "backlinkMentionAnchor": true,
+    "backlinkMentionDoc": true,
+    "virtualRefName": true,
+    "virtualRefAlias": false,
+    "virtualRefAnchor": true,
+    "virtualRefDoc": true
+  },
+  "stat": {
+    "docCount": 0
+  },
+  "api": {
+    "token": "uz32v7xf7h2lwe9b"
+  },
+  "repo": {
+    "key": null
+  },
+  "newbie": false
+}

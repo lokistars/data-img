@@ -1,0 +1,910 @@
+{
+	"ID": "20220819113442-2n2aspj",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20220819113442-2n2aspj",
+		"scroll": "{\u0026amp;quot;startId\u0026amp;quot;:\u0026amp;quot;20220819113442-sm1d0zi\u0026amp;quot;,\u0026amp;quot;endId\u0026amp;quot;:\u0026amp;quot;20220822091951-3jrkm90\u0026amp;quot;,\u0026amp;quot;scrollTop\u0026amp;quot;:0,\u0026amp;quot;focusId\u0026amp;quot;:\u0026amp;quot;20220822091951-3jrkm90\u0026amp;quot;,\u0026amp;quot;focusStart\u0026amp;quot;:0,\u0026amp;quot;focusEnd\u0026amp;quot;:0}",
+		"title": "Redis 数据结构",
+		"updated": "20220824103658"
+	},
+	"Children": [
+		{
+			"ID": "20220824103658-chi63y9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-chi63y9",
+				"updated": "20220824103715"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "一、数据类型与数据结构的关系"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-y60o19u",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-y60o19u",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/633d78a766aa41c38934ec8665f8a8f6-20220824103658-hub78ea.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-o0h9ij9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-o0h9ij9",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、redis的dict"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-ni2hdly",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-ni2hdly",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、字符串 （String）"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-bd5el92",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-bd5el92",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "String 是一组字节，在redis 数据库中，字符串是二进制安全的。"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-opy6w8l",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-opy6w8l",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "应用场景：验证码、计数器、发号器、订单重复提交令牌、热点商品卡片、分布式锁"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-sh71ojz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-sh71ojz",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Redis 的字符串是动态字符串，是可以修改的字符串，内部结构实现上类似于 Java 的 ArrayList，采用预分配冗余空间的方式来减少内存的频繁分配"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-qm464kc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-qm464kc",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当字符串长度小于 1M 时，扩容都是加倍现有的空间，如果超过 1M，扩容时一次只会多扩 1M 的空间。字符串最大长度为 512M"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-a5i73ny",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-a5i73ny",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "数据结构：SDS  (simple dynamic string)"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-ab9nms3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-ab9nms3",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1)、新增命令"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-mjaarlw",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220824103658-mjaarlw",
+				"updated": "20220824104336"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "c2hlbGw="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "help @string   // 可以查看所以的string 类型命令\n//ex设置过期时间,PX NX:不存在设置值,存在不允许设置 XX:只有存在的时候才可以修改\nSET key value [expiration EX seconds|PX milliseconds] [NX|XX]\nSETNX // 成功返回1 不成功返回0\nMSET/MGET key value [key value ...]   // 批量设置或获取多个key\nGETSET key value //将给定 key 的值设为 value ，并返回 key 的旧值(old value)。\nAPPEND key value   // 在当前value后面追加\nSETRANGE key offset value // offset 偏移量 从那个下标开始 覆盖后面的值\nSTRLEN key // 获取value 长度\nINCR [key] // 是int类型的数据会自动加1 返回值\nINCRBY [key] //\nDECR [key]  //减一\n// 二进制位操作  一个字节八个二进制位, 存在反向索引, 最后一个 -1, 起始位置是字节数,不是二进制\nGETBIT key offset //对 key 所储存的字符串值，获取指定偏移量上的位(bit)。\nSETBIT key offset value // offset 偏移量 二进制位的下标  value 只有0 和1\nBITCOUNT key [start end]  //统计二进制区间出现了多少次 -1 表示最后一位, -2 倒数第二位\nBITPOS key bit [start] [end]  //查询二进制 0和1 在那个区间。\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-vyinuet",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-vyinuet",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2）、查询命令"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-fk526ps",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220824103658-fk526ps",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "c2hlbGw="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "GET key\nGETRANGE key start end   //根据下标取对于的值，redis 的数据有正负向索引，可以通过1,3拿到前三个数，-1,-2拿到最后两位\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-0bw6i52",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-0bw6i52",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2、哈希\t(hash)"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-12nswnm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-12nswnm",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "哈希是键值对的集合。在Redis中，哈希是字符串字段和字符串值之间的映射"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-yglt2nb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-yglt2nb",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "应用场景: 购物车,用户个人信息,商品详情"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-ys6lvw8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-ys6lvw8",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Redis Hash通过分桶的方式解决 hash 冲突。它是无序字典。内部实现结构是同样的数组 + 链表二维结构。第一维 hash 的数组位置碰撞时，就会将碰撞的元素使用链表串接起来。第一维是数组，第二维是链表。数组中存储的是第二维链表的第一个元素的指针"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-q8rchpt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-q8rchpt",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1）、新增"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-4wmaus5",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220824103658-4wmaus5",
+				"updated": "20220824104358"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "HSET key field value   // 设置key\nHKEYS key\nHVALUE key\nHDEL   key             // 删除指定的key\nHMSET\nHINCRBYFLOAT key field increment  //hash value 是int类型可以进行加减操作\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-5hsrl1f",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-5hsrl1f",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2)、查询"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-114fmqu",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220824103658-114fmqu",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "HSET key field value   // 获取key\nHMGET\nHGETALL  key           // 返回key指定的哈希集中所有字段\nHEXISTS  key           // 返回hash里面的field是否存在\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-zz5xbzv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-zz5xbzv",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3、列表（list）"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-3amcw5g",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-3amcw5g",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Redis列表定义为字符串列表，按插入顺序排序。可以将元素添加到Redis列表的头部或尾部。"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-yfp0ucj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-yfp0ucj",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "应用场景：简单队列、最新评论列表、非实时排行榜、定时计算榜单"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-c8ryakb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-c8ryakb",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Redis 的列表相当于 Java 语言中的 LinkedList，注意它是链表而不是数组。这意味着 list 的插入和删除操作非常快，时间复杂度为 O(1)，但是索引定位很慢，时间复杂度为 O(n)"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-6akoj2e",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-6akoj2e",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1）、新增"
+				}
+			]
+		},
+		{
+			"ID": "20220824104431-eais5uh",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220824104431-eais5uh",
+				"updated": "20220824104520"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "LPUSH key value [value ...]  // 将一个或多个插入列表头部, 从左边开始放值 先进后出\nRPUSH  //用尾部开始放值，先进先出\nRPOP   //移除并获取列表最后一个元素\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-rlyoj0z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-rlyoj0z",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2）、查询"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-sonew5z",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220824103658-sonew5z",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "LPOP key   //弹出左边第一个元素    RPOP  右边\nLINDEX key index  //根据下标取出数据， -1最后一个\nLREM key count value   //删除,可以指定删除个数\nLLEN  链表长度，元素个数\nLRANGE  key start stop //获取key对应的list指定下标范围 0,-1 获取所有\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-q12q5ln",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-q12q5ln",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3)、支持阻塞单播队列"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-9uglg3m",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220824103658-9uglg3m",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "BLPOP key [key ...] timeout //如果没有数据会一直等待，设置阻塞时间, 先进先出形式\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-a6matlj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-a6matlj",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4、集合（set）"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-glo1j1l",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-glo1j1l",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "集合（set）是Redis数据库中的无序字符串集合。在Redis中，添加，删除和查找的时间复杂度是O(1)。"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-6ldzh47",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-6ldzh47",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "应用场景：去重、社交应用关注、粉丝、共同好友"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-bdq4369",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-bdq4369",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "set和字典非常类似，其内部实现就是上述的hashTable的特殊实现，在新增数据时会进行去重。"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-nosk54c",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-nosk54c",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1）、新增"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-sgrrj0z",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220824103658-sgrrj0z",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "SADD key member [member ...]     //添加一个或多个指定的meber元素到指定的key中\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-icbwfoh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-icbwfoh",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2）、查询"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-hrl7e4m",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220824103658-hrl7e4m",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "SMEMBERS key  取出所以数据\nSISMEMBER key member  //判断指定key中指定value是否存在集合中，返回 0 或 1\nSCARD key 返回指定key对应的集合长度\nSRANDMEMBER key [count]  //返回指定count数量的随机数，如果count是正数，则返回的是不重复的随机数，如果count是负数，则返回的可能会出现重复的随机数\nSPOP key  随机的移除key对应的集合中的某个元素，并返回移除的该元素\nSDIFF  key [key ...]  //已第一个key为基准，获取两个key对应集合的差集\nSINTER key [key ...] //获取指定的众多key对应的集合的并集\nSUNION key [key ...] //获取指定的众多key对应的集合的并集\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-mzkxj95",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-mzkxj95",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3）、删除"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-wqd1sx1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-wqd1sx1",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "SREM key member [member ...]  移除指定key中的value集合，并返回移除的值的数量"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-qx1qobb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-qx1qobb",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "5、有序集合（sorted set）"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-0577zvt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-0577zvt",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Redis有序集合类似于Redis集合，也是一组非重复的字符串集合。但是，排序集的每个成员都与一个分数相关联，该分数用于获取从最小到最高分数的有序排序集。虽然成员是独特的，但可以重复分数。"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-8qb016o",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-8qb016o",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "应用场景：实时排行榜、优先级任务、队列、文章点赞-取消"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-l4pc7l0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-l4pc7l0",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "zset是Redis非常有特色的数据结构，它是基于Set并提供排序的有序集合。其中最为重要的特点就是支持通过score的权重来指定权重。一些排行榜、延迟任务比如指定1小时后执行, 就是使用这个数据结构实现的"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-nsfoizx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-nsfoizx",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1）、新增"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-hlbea9b",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220824103658-hlbea9b",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "ZADD key [NX|XX] [CH] [INCR] score member [score member ...] //向有序集合添加一个或多个成员，或者更新已存在成员的分数\nZINCRBY key //有序集合中对指定成员的分数递增\nZREM  key member   //移除有序集合中一个或多个成员\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-ovhjvuh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220824103658-ovhjvuh",
+				"updated": "20220824103658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2）、查询"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-les6j74",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220824103658-les6j74",
+				"updated": "20220824103836"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "ZCARD key //获取有序集合的成员数\nZCOUNT key min max  //计算在有序集合中指定区间分数的成员数\nZSCORE key member  //返回有序集中，成员的分数值k\nZREVRANGE key start stop  //通过索引返回有序集合中指定区间内成员\nZREVRANK key       // 返回有序集合中指定成员的排名\nZRANK    key       // 返回有序集合key中成员member的排名\n可以根据分值取， 根据key取，根据下标取\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220824103658-3mj2shq",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220824103658-3mj2shq",
+				"updated": "20220824103822"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eWFtbA=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "spring:\n  redis:\n    host: 47.107.81.14\n    password: redis123\n    port: 6379\n    database: 8  # Redis数据库索引\n    pool:\n      max-active: 8 # 连接池最大连接数（使用负值表示没有限制）\n      min-idle: 0 # 连接池中的最小空闲连接\n      max-idle: 8 # 连接池中的最大空闲连接\n      max-wait: 100000 # 连接池最大阻塞等待时间（使用负值表示没有限制）\n    timeout: 5000 # 连接超时时间\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		}
+	]
+}

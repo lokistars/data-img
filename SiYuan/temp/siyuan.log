@@ -1,0 +1,360 @@
+I 2022/08/22 15:15:43 working.go:106: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2022/08/22 15:15:43 runtime.go:47: kernel is booting:
+    * ver [2.1.8]
+    * arch [amd64]
+    * runtime mode [prod]
+    * working directory [F:\Tools\AppData\siyuan\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [F:\Tools\AppData\data, data 20 kB]
+I 2022/08/22 15:15:43 conf.go:120: initialized language [zh_CN] based on device locale
+I 2022/08/22 15:15:43 serve.go:78: kernel is booting [http://127.0.0.1:6806]
+I 2022/08/22 15:15:43 database.go:85: reinitialized database [F:\Tools\AppData\data\temp\siyuan.db]
+I 2022/08/22 15:15:43 conf.go:531: database size [4.1 kB], block count [0]
+I 2022/08/22 15:15:43 working.go:146: kernel booted
+E 2022/08/22 15:16:50 repository.go:88: import data repo key failed: illegal base64 data at input byte 4
+I 2022/08/22 15:18:07 repository.go:540: synced data repo [ufc=1, dfc=31, ucc=0, dcc=0, ub=1.4 kB, db=2.0 MB] in [2.00s]
+I 2022/08/22 15:18:07 database.go:85: reinitialized database [F:\Tools\AppData\data\temp\siyuan.db]
+I 2022/08/22 15:18:07 index.go:183: rebuilt database for notebook [20220819105309-j99s8xg] in [0.00s], tree [count=1, size=774 B]
+I 2022/08/22 15:18:07 index.go:183: rebuilt database for notebook [20220819105620-a7ytb0z] in [0.00s], tree [count=0, size=0 B]
+I 2022/08/22 15:18:07 index.go:183: rebuilt database for notebook [20220819105838-dkj95s4] in [0.00s], tree [count=1, size=2.8 kB]
+I 2022/08/22 15:18:07 index.go:183: rebuilt database for notebook [20220819112317-h5u276n] in [0.01s], tree [count=2, size=8.9 kB]
+I 2022/08/22 15:18:07 index.go:320: resolved refs [0] in [6ms]
+I 2022/08/22 15:18:39 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.12s]
+I 2022/08/22 15:19:58 sync.go:98: sync before exit
+I 2022/08/22 15:19:58 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.08s]
+I 2022/08/22 15:19:58 conf.go:370: exited kernel
+I 2022/08/22 15:20:01 working.go:106: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2022/08/22 15:20:01 runtime.go:47: kernel is booting:
+    * ver [2.1.8]
+    * arch [amd64]
+    * runtime mode [prod]
+    * working directory [F:\Tools\AppData\siyuan\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [F:\Tools\AppData\data, data 2.1 MB]
+I 2022/08/22 15:20:01 serve.go:78: kernel is booting [http://127.0.0.1:6806]
+I 2022/08/22 15:20:01 sync.go:95: sync before boot
+I 2022/08/22 15:20:01 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.25s]
+I 2022/08/22 15:20:01 conf.go:531: database size [160 kB], block count [23]
+I 2022/08/22 15:20:01 working.go:146: kernel booted
+I 2022/08/22 15:28:02 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.23s]
+I 2022/08/22 15:36:03 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.29s]
+I 2022/08/22 15:44:04 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.24s]
+I 2022/08/22 16:00:06 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.25s]
+I 2022/08/22 16:32:09 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.20s]
+I 2022/08/22 17:36:11 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.23s]
+W 2022/08/22 17:40:47 sync.go:927: upload object [F:\Tools\AppData\data\repo\objects\54\57222c36cf7b9beb8fe55f4da18db8a717770e] exists: file exists
+I 2022/08/22 17:40:48 repository.go:540: synced data repo [ufc=2, dfc=0, ucc=2, dcc=0, ub=2.1 kB, db=1.5 kB] in [1.21s]
+I 2022/08/22 17:48:49 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.32s]
+I 2022/08/22 17:56:50 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.28s]
+I 2022/08/22 18:04:51 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.27s]
+I 2022/08/22 18:19:19 sync.go:98: sync before exit
+I 2022/08/22 18:19:20 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.25s]
+I 2022/08/22 18:19:20 conf.go:370: exited kernel
+I 2022/08/22 18:19:37 working.go:106: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2022/08/22 18:19:37 runtime.go:47: kernel is booting:
+    * ver [2.1.8]
+    * arch [amd64]
+    * runtime mode [prod]
+    * working directory [F:\Tools\AppData\siyuan\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [F:\Tools\AppData\data, data 2.1 MB]
+I 2022/08/22 18:19:37 serve.go:78: kernel is booting [http://127.0.0.1:6806]
+I 2022/08/22 18:19:37 sync.go:95: sync before boot
+I 2022/08/22 18:19:37 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.27s]
+I 2022/08/22 18:19:37 conf.go:531: database size [164 kB], block count [23]
+I 2022/08/22 18:19:37 working.go:146: kernel booted
+I 2022/08/22 18:20:24 sync.go:98: sync before exit
+I 2022/08/22 18:20:24 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.08s]
+I 2022/08/22 18:20:24 conf.go:370: exited kernel
+I 2022/08/22 18:21:49 working.go:106: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2022/08/22 18:21:50 runtime.go:47: kernel is booting:
+    * ver [2.1.8]
+    * arch [amd64]
+    * runtime mode [prod]
+    * working directory [F:\Tools\AppData\siyuan\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [F:\Tools\AppData\data, data 2.1 MB]
+I 2022/08/22 18:21:50 serve.go:78: kernel is booting [http://127.0.0.1:6806]
+I 2022/08/22 18:21:50 sync.go:95: sync before boot
+I 2022/08/22 18:21:50 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.25s]
+I 2022/08/22 18:21:50 conf.go:531: database size [164 kB], block count [23]
+I 2022/08/22 18:21:50 working.go:146: kernel booted
+I 2022/08/22 18:29:51 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.24s]
+I 2022/08/22 18:37:52 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.26s]
+I 2022/08/22 18:45:53 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.26s]
+I 2022/08/22 18:46:54 sync.go:98: sync before exit
+I 2022/08/22 18:46:55 repository.go:540: synced data repo [ufc=1, dfc=0, ucc=1, dcc=0, ub=3.7 kB, db=1.5 kB] in [1.02s]
+I 2022/08/22 18:46:55 conf.go:370: exited kernel
+I 2022/08/22 18:51:20 working.go:106: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2022/08/22 18:51:20 runtime.go:47: kernel is booting:
+    * ver [2.1.8]
+    * arch [amd64]
+    * runtime mode [prod]
+    * working directory [F:\Tools\AppData\siyuan\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [F:\Tools\AppData\data, data 2.1 MB]
+I 2022/08/22 18:51:20 serve.go:78: kernel is booting [http://127.0.0.1:6806]
+I 2022/08/22 18:51:20 sync.go:95: sync before boot
+I 2022/08/22 18:51:20 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.29s]
+I 2022/08/22 18:51:20 conf.go:531: database size [164 kB], block count [23]
+I 2022/08/22 18:51:20 working.go:146: kernel booted
+I 2022/08/22 18:59:21 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.25s]
+I 2022/08/22 19:07:22 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.33s]
+I 2022/08/22 19:15:23 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.25s]
+I 2022/08/22 19:31:25 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.23s]
+I 2022/08/22 20:03:29 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.23s]
+I 2022/08/22 21:07:30 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.33s]
+I 2022/08/24 10:36:40 working.go:106: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2022/08/24 10:36:40 runtime.go:47: kernel is booting:
+    * ver [2.1.8]
+    * arch [amd64]
+    * runtime mode [prod]
+    * working directory [F:\Tools\AppData\siyuan\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [F:\Tools\AppData\data, data 2.1 MB]
+I 2022/08/24 10:36:41 serve.go:78: kernel is booting [http://127.0.0.1:6806]
+I 2022/08/24 10:36:41 sync.go:95: sync before boot
+I 2022/08/24 10:36:41 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.5 kB] in [0.32s]
+I 2022/08/24 10:36:41 conf.go:531: database size [164 kB], block count [23]
+I 2022/08/24 10:36:41 working.go:146: kernel booted
+I 2022/08/24 10:39:13 repository.go:540: synced data repo [ufc=2, dfc=0, ucc=2, dcc=0, ub=74 kB, db=1.5 kB] in [1.30s]
+I 2022/08/24 10:46:14 repository.go:540: synced data repo [ufc=1, dfc=0, ucc=1, dcc=0, ub=6.5 kB, db=1.6 kB] in [1.01s]
+I 2022/08/24 10:46:24 sync.go:98: sync before exit
+I 2022/08/24 10:46:24 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.6 kB] in [0.14s]
+I 2022/08/24 10:46:24 conf.go:370: exited kernel
+I 2022/08/24 11:55:31 working.go:106: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2022/08/24 11:55:32 runtime.go:47: kernel is booting:
+    * ver [2.1.8]
+    * arch [amd64]
+    * runtime mode [prod]
+    * working directory [F:\Tools\AppData\siyuan\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [F:\Tools\AppData\data, data 2.2 MB]
+I 2022/08/24 11:55:32 serve.go:78: kernel is booting [http://127.0.0.1:6806]
+I 2022/08/24 11:55:32 sync.go:95: sync before boot
+I 2022/08/24 11:55:32 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.6 kB] in [0.50s]
+I 2022/08/24 11:55:32 conf.go:531: database size [373 kB], block count [71]
+I 2022/08/24 11:55:32 working.go:146: kernel booted
+I 2022/08/24 11:58:48 repository.go:540: synced data repo [ufc=1, dfc=0, ucc=1, dcc=0, ub=59 kB, db=1.6 kB] in [0.92s]
+I 2022/08/24 12:06:49 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.6 kB] in [0.26s]
+I 2022/08/24 12:14:50 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.6 kB] in [0.27s]
+I 2022/08/24 12:22:51 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.6 kB] in [0.24s]
+I 2022/08/24 12:38:53 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.6 kB] in [0.24s]
+I 2022/08/24 13:10:57 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.6 kB] in [0.27s]
+I 2022/08/24 13:39:40 repository.go:540: synced data repo [ufc=1, dfc=0, ucc=1, dcc=0, ub=58 kB, db=1.6 kB] in [0.85s]
+I 2022/08/24 13:47:41 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.6 kB] in [0.23s]
+I 2022/08/24 13:55:42 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.6 kB] in [0.22s]
+I 2022/08/24 14:03:43 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.6 kB] in [0.24s]
+I 2022/08/24 14:19:44 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.6 kB] in [0.26s]
+I 2022/08/24 14:51:48 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.6 kB] in [0.24s]
+I 2022/08/24 15:55:49 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.6 kB] in [0.35s]
+I 2022/08/24 18:03:51 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.6 kB] in [0.26s]
+I 2022/08/24 22:19:56 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.6 kB] in [0.21s]
+I 2022/08/24 23:00:57 sync.go:98: sync before exit
+I 2022/08/24 23:00:57 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.6 kB] in [0.21s]
+I 2022/08/24 23:00:57 conf.go:370: exited kernel
+I 2022/08/26 11:47:01 working.go:106: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2022/08/26 11:47:01 runtime.go:47: kernel is booting:
+    * ver [2.1.8]
+    * arch [amd64]
+    * runtime mode [prod]
+    * working directory [F:\Tools\AppData\siyuan\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [F:\Tools\AppData\data, data 2.7 MB]
+I 2022/08/26 11:47:01 serve.go:78: kernel is booting [http://127.0.0.1:6806]
+I 2022/08/26 11:47:02 sync.go:95: sync before boot
+I 2022/08/26 11:47:02 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.6 kB] in [0.41s]
+I 2022/08/26 11:47:02 conf.go:531: database size [4.7 MB], block count [1020]
+I 2022/08/26 11:47:02 working.go:146: kernel booted
+I 2022/08/26 11:55:05 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.6 kB] in [0.26s]
+I 2022/08/26 12:03:06 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.6 kB] in [0.25s]
+I 2022/08/26 12:11:07 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.6 kB] in [0.24s]
+I 2022/08/26 12:27:09 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.6 kB] in [0.30s]
+I 2022/08/26 12:59:12 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.6 kB] in [0.29s]
+I 2022/08/26 13:10:49 repository.go:540: synced data repo [ufc=1, dfc=0, ucc=1, dcc=0, ub=30 kB, db=1.6 kB] in [1.17s]
+I 2022/08/26 13:12:25 repository.go:540: synced data repo [ufc=1, dfc=0, ucc=1, dcc=0, ub=30 kB, db=1.6 kB] in [0.88s]
+I 2022/08/26 13:20:26 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=1.6 kB] in [0.25s]
+I 2022/08/26 13:21:22 repository.go:540: synced data repo [ufc=1, dfc=0, ucc=1, dcc=0, ub=30 kB, db=1.6 kB] in [0.82s]
+I 2022/08/26 13:22:18 repository.go:540: synced data repo [ufc=2, dfc=0, ucc=2, dcc=0, ub=108 kB, db=1.6 kB] in [0.77s]
+I 2022/08/26 13:24:15 repository.go:540: synced data repo [ufc=9, dfc=0, ucc=9, dcc=0, ub=538 kB, db=1.7 kB] in [1.31s]
+I 2022/08/26 13:32:16 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=2.0 kB] in [0.26s]
+I 2022/08/26 13:36:17 repository.go:540: synced data repo [ufc=1, dfc=0, ucc=1, dcc=0, ub=31 kB, db=2.0 kB] in [1.02s]
+I 2022/08/26 13:44:18 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=2.0 kB] in [0.23s]
+I 2022/08/26 13:52:19 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=2.0 kB] in [0.27s]
+I 2022/08/26 14:00:20 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=2.0 kB] in [0.23s]
+I 2022/08/26 14:16:22 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=2.0 kB] in [0.25s]
+I 2022/08/26 14:48:25 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=2.0 kB] in [0.26s]
+I 2022/08/26 15:52:26 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=2.0 kB] in [0.33s]
+I 2022/08/26 18:00:28 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=2.0 kB] in [0.26s]
+I 2022/08/26 19:34:28 sync.go:98: sync before exit
+I 2022/08/26 19:34:28 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=2.0 kB] in [0.30s]
+I 2022/08/26 19:34:29 conf.go:370: exited kernel
+I 2022/08/27 10:09:32 working.go:106: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2022/08/27 10:09:32 runtime.go:47: kernel is booting:
+    * ver [2.1.8]
+    * arch [amd64]
+    * runtime mode [prod]
+    * working directory [F:\Tools\AppData\siyuan\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [F:\Tools\AppData\data, data 3.5 MB]
+I 2022/08/27 10:09:32 serve.go:78: kernel is booting [http://127.0.0.1:6806]
+I 2022/08/27 10:09:32 sync.go:95: sync before boot
+I 2022/08/27 10:09:33 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=2.0 kB] in [0.28s]
+I 2022/08/27 10:09:33 conf.go:531: database size [6.4 MB], block count [1415]
+I 2022/08/27 10:09:33 working.go:146: kernel booted
+I 2022/08/27 10:17:34 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=2.0 kB] in [0.24s]
+I 2022/08/27 10:25:35 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=2.0 kB] in [0.32s]
+I 2022/08/27 10:33:37 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=2.0 kB] in [0.23s]
+I 2022/08/27 10:35:37 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=2.0 kB] in [0.16s]
+I 2022/08/27 10:36:24 sync.go:98: sync before exit
+I 2022/08/27 10:36:24 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=2.0 kB] in [0.07s]
+I 2022/08/27 10:36:24 conf.go:370: exited kernel
+I 2022/08/27 10:37:31 working.go:106: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2022/08/27 10:37:31 runtime.go:47: kernel is booting:
+    * ver [2.1.8]
+    * arch [amd64]
+    * runtime mode [prod]
+    * working directory [F:\Tools\AppData\siyuan\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [F:\Tools\AppData\data, data 3.5 MB]
+I 2022/08/27 10:37:31 serve.go:78: kernel is booting [http://127.0.0.1:6806]
+I 2022/08/27 10:37:31 sync.go:95: sync before boot
+I 2022/08/27 10:37:31 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=2.0 kB] in [0.24s]
+I 2022/08/27 10:37:31 conf.go:531: database size [6.4 MB], block count [1415]
+I 2022/08/27 10:37:31 working.go:146: kernel booted
+I 2022/08/27 10:45:32 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=2.0 kB] in [0.20s]
+I 2022/08/27 10:54:03 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=2.0 kB] in [0.20s]
+I 2022/08/27 11:02:04 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=2.0 kB] in [0.26s]
+I 2022/08/27 11:05:15 sync.go:98: sync before exit
+I 2022/08/27 11:05:15 repository.go:540: synced data repo [ufc=0, dfc=1, ucc=0, dcc=0, ub=0 B, db=2.0 kB] in [0.22s]
+I 2022/08/27 11:05:15 conf.go:370: exited kernel
