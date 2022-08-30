@@ -222,10 +222,10 @@
                         "mode": "wysiwyg",
                         "scrollAttr": {
                           "endId": "20220827152215-ck23lr8",
-                          "focusEnd": 100,
-                          "focusId": "20220827152215-oi41xzd",
-                          "focusStart": 100,
-                          "scrollTop": 2300,
+                          "focusEnd": 32,
+                          "focusId": "20220827152215-54s0coh",
+                          "focusStart": 32,
+                          "scrollTop": 6427.94091796875,
                           "startId": "20220827152215-c4jgmte"
                         }
                       },
@@ -233,6 +233,26 @@
                       "instance": "Tab",
                       "pin": false,
                       "title": "Redis 内存优化"
+                    },
+                    {
+                      "children": {
+                        "action": "",
+                        "blockId": "20220819113442-2n2aspj",
+                        "instance": "Editor",
+                        "mode": "wysiwyg",
+                        "scrollAttr": {
+                          "endId": "20220826130632-49qizas",
+                          "focusEnd": 2,
+                          "focusId": "20220826130632-qy02xcs",
+                          "focusStart": 2,
+                          "scrollTop": 300,
+                          "startId": "20220826130632-oqzte2h"
+                        }
+                      },
+                      "docIcon": "",
+                      "instance": "Tab",
+                      "pin": false,
+                      "title": "Redis 数据结构"
                     }
                   ],
                   "height": "",
@@ -395,7 +415,7 @@
   },
   "readonly": false,
   "localIPs": [
-    "192.168.11.43",
+    "172.16.11.140",
     "127.0.0.1"
   ],
   "accessAuthCode": "",

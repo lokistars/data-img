@@ -5,7 +5,7 @@
 		"id": "20220819113442-2n2aspj",
 		"scroll": "{\u0026amp;quot;startId\u0026amp;quot;:\u0026amp;quot;20220826130632-oqzte2h\u0026amp;quot;,\u0026amp;quot;endId\u0026amp;quot;:\u0026amp;quot;20220826130632-49qizas\u0026amp;quot;,\u0026amp;quot;scrollTop\u0026amp;quot;:2300,\u0026amp;quot;focusId\u0026amp;quot;:\u0026amp;quot;20220826130632-ftonrki\u0026amp;quot;,\u0026amp;quot;focusStart\u0026amp;quot;:50,\u0026amp;quot;focusEnd\u0026amp;quot;:50}",
 		"title": "Redis 数据结构",
-		"updated": "20220827151453"
+		"updated": "20220829172431"
 	},
 	"Children": [
 		{
@@ -120,7 +120,7 @@
 			"Type": "NodeParagraph",
 			"Properties": {
 				"id": "20220826130632-qy02xcs",
-				"updated": "20220826132234"
+				"updated": "20220829172431"
 			},
 			"Children": [
 				{
@@ -134,8 +134,7 @@
 							"Type": "NodeOpenBracket"
 						},
 						{
-							"Type": "NodeLinkText",
-							"Data": "1_46XLDI_@@HLPG7G38"
+							"Type": "NodeLinkText"
 						},
 						{
 							"Type": "NodeCloseBracket"
