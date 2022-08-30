@@ -222,10 +222,10 @@
                         "mode": "wysiwyg",
                         "scrollAttr": {
                           "endId": "20220827152215-ck23lr8",
-                          "focusEnd": 32,
-                          "focusId": "20220827152215-54s0coh",
-                          "focusStart": 32,
-                          "scrollTop": 6427.94091796875,
+                          "focusEnd": 60,
+                          "focusId": "20220827152215-ymr9gwd",
+                          "focusStart": 60,
+                          "scrollTop": 3927,
                           "startId": "20220827152215-c4jgmte"
                         }
                       },
@@ -415,19 +415,19 @@
   },
   "readonly": false,
   "localIPs": [
-    "172.16.11.140",
+    "192.168.1.7",
     "127.0.0.1"
   ],
   "accessAuthCode": "",
   "system": {
-    "id": "ec56ec85-b2e3-4d85-a264-e61c5bf1bead",
-    "kernelVersion": "2.1.8",
+    "id": "ad8ac2b0-ec5b-48dc-a254-d7cff8a50da1",
+    "kernelVersion": "2.1.9",
     "os": "windows",
     "container": "std",
     "isInsider": false,
     "homeDir": "C:\\Users\\53276",
     "workspaceDir": "D:\\data-img\\SiYuan",
-    "appDir": "F:\\Tools\\AppData\\siyuan\\resources",
+    "appDir": "E:\\tool\\AppData\\SiYuan\\resources",
     "confDir": "D:\\data-img\\SiYuan\\conf",
     "dataDir": "D:\\data-img\\SiYuan\\data",
     "networkServe": false,
