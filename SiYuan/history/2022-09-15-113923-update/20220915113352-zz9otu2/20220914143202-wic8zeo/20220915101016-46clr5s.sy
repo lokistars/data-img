@@ -1,0 +1,615 @@
+{
+	"ID": "20220915101016-46clr5s",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20220915101016-46clr5s",
+		"title": "Ribbon ",
+		"updated": "20220915113845"
+	},
+	"Children": [
+		{
+			"ID": "20220915111720-qja5agh",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20220915111720-qja5agh",
+				"updated": "20220915111733"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、概念"
+				}
+			]
+		},
+		{
+			"ID": "20220915111733-u90qxtg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220915111733-u90qxtg",
+				"updated": "20220915111758"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Ribbon是Netflix公司提供的一个基于HTTP和TCP的客户端负载均衡工具"
+				}
+			]
+		},
+		{
+			"ID": "20220915111822-s22x6dh",
+			"Type": "NodeHeading",
+			"HeadingLevel": 6,
+			"Properties": {
+				"id": "20220915111822-s22x6dh",
+				"updated": "20220915112021"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、简化远程调用"
+				}
+			]
+		},
+		{
+			"ID": "20220915112016-rl08xq1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220915112016-rl08xq1",
+				"updated": "20220915112016"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "使用 Ribbon 简化restTemplate调用"
+				}
+			]
+		},
+		{
+			"ID": "20220915112016-ksf20nk",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20220915112016-ksf20nk",
+				"updated": "20220915112016"
+			},
+			"Children": [
+				{
+					"ID": "20220915112016-v0rw1wh",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20220915112016-v0rw1wh",
+						"updated": "20220915112016"
+					},
+					"Children": [
+						{
+							"ID": "20220915112016-jckxhbf",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20220915112016-jckxhbf",
+								"updated": "20220915112016"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "在声明restTemplate的Bean时候，添加一个注解：@LoadBalanced"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20220915112016-fkvxb7y",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20220915112016-fkvxb7y",
+						"updated": "20220915112016"
+					},
+					"Children": [
+						{
+							"ID": "20220915112016-buyco7p",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20220915112016-buyco7p",
+								"updated": "20220915112016"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "在使用restTemplate发起请求时，需要定义url时，host:port可以替换为 服务提供方的 应用名称"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20220915111854-hkyuskv",
+			"Type": "NodeHeading",
+			"HeadingLevel": 6,
+			"Properties": {
+				"id": "20220915111854-hkyuskv",
+				"updated": "20220915112019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2、负载均衡"
+				}
+			]
+		},
+		{
+			"ID": "20220915112628-d7v08ja",
+			"Type": "NodeList",
+			"ListData": {
+				"Typ": 1
+			},
+			"Properties": {
+				"id": "20220915112628-d7v08ja",
+				"updated": "20220915112710"
+			},
+			"Children": [
+				{
+					"ID": "20220915112628-91epmjt",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "MS4=",
+						"Num": 1
+					},
+					"Properties": {
+						"id": "20220915112628-91epmjt",
+						"updated": "20220915112628"
+					},
+					"Children": [
+						{
+							"ID": "20220915112628-c72mg2q",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20220915112628-c72mg2q",
+								"updated": "20220915112640"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "随机：RandomRule"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20220915112634-y5dil0g",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Mi4=",
+						"Num": 2
+					},
+					"Properties": {
+						"id": "20220915112634-y5dil0g"
+					},
+					"Children": [
+						{
+							"ID": "20220915112634-gkw8z4r",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20220915112634-gkw8z4r",
+								"updated": "20220915112642"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "轮询 ：RoundRobinRule（默认的负载均衡策略）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20220915112643-wzotdu8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "My4=",
+						"Num": 3
+					},
+					"Properties": {
+						"id": "20220915112643-wzotdu8"
+					},
+					"Children": [
+						{
+							"ID": "20220915112643-hjky9ic",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20220915112643-hjky9ic",
+								"updated": "20220915112646"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "最小并发：BestAvailableRule（服务A-1，服务A-2，服务A-3,这三个服务中谁最闲一般认为是性能高）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20220915112652-x2gs3hy",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NC4=",
+						"Num": 4
+					},
+					"Properties": {
+						"id": "20220915112652-x2gs3hy"
+					},
+					"Children": [
+						{
+							"ID": "20220915112652-hz2pm3v",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20220915112652-hz2pm3v",
+								"updated": "20220915112654"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "过滤：AvailabilityFilteringRule（坏的服务过滤掉）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20220915112659-lbeuemo",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "NS4=",
+						"Num": 5
+					},
+					"Properties": {
+						"id": "20220915112659-lbeuemo"
+					},
+					"Children": [
+						{
+							"ID": "20220915112659-xeki4bu",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20220915112659-xeki4bu",
+								"updated": "20220915112659"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "响应时间：WeightedResponseTimeRule（发送一个数据包到三个服务中，看谁最先响应，谁快就调用谁）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20220915112700-9z6vved",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Ni4=",
+						"Num": 6
+					},
+					"Properties": {
+						"id": "20220915112700-9z6vved"
+					},
+					"Children": [
+						{
+							"ID": "20220915112700-dcu5pnh",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20220915112700-dcu5pnh",
+								"updated": "20220915112706"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "轮询重试：RetryRule（默认轮询10次，如果节点出现问题，会去找第二个，如果轮询到10次都挂了那就响应失败）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20220915112709-bcx1yx4",
+					"Type": "NodeListItem",
+					"ListData": {
+						"Typ": 1,
+						"Delimiter": 46,
+						"Marker": "Ny4=",
+						"Num": 7
+					},
+					"Properties": {
+						"id": "20220915112709-bcx1yx4",
+						"updated": "20220915112710"
+					},
+					"Children": [
+						{
+							"ID": "20220915112709-bfz2btz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20220915112709-bfz2btz",
+								"updated": "20220915112710"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "性能可用性：ZoneAvoidanceRule（综合考虑性能和可用性，看谁分数高就用谁）"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20220915112819-322kain",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220915112819-322kain",
+				"updated": "20220915113845"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "//使用RestTemplate 调用服务\n@Autowired\nprivate RestTemplateBuilder builder;\n@LoadBalanced     //通过此注解使rest 拥有负载均衡能力\n@Bean\npublic RestTemplate restTemplate() {\n    return builder.setConnectTimeout(Duration.ofDays(15000)).setReadTimeout(Duration.ofDays(15000)).build();\n}\n@Bean\npublic AsyncRestTemplate asyncRestTemplate() {\n    SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();\n    //设置链接超时时间\n    factory.setConnectTimeout(15000);\n    //设置读取资料超时时间\n    factory.setReadTimeout(15000);\n    //设置异步任务（线程不会重用，每次调用时都会重新启动一个新的线程）\n    factory.setTaskExecutor(new SimpleAsyncTaskExecutor());\n    return new AsyncRestTemplate(factory);\n}\n\n// 创建一个配置类设置负载方式\n@Configuration\n// name：设置 服务提供方的 应用名称 configuration:设置负载均衡Bean\n@RibbonClient(name = \"my-provider\",configuration = MyRule.class)\npublic class MyRule {\n    @Bean\n    public IRule rule(){\n        return new RandomRule();\n    }\n}\n第二中方式：\n# 配置的方式设置Ribbon的负载均衡策略\nEUREKA-PROVIDER: # 设置的服务提供方的 应用名称\n  ribbon:\n    NFloadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule # 策略类(全路径名)\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220915113132-1vh4nto",
+			"Type": "NodeHeading",
+			"HeadingLevel": 6,
+			"Properties": {
+				"id": "20220915113132-1vh4nto",
+				"updated": "20220915113141"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3、超时时间设置"
+				}
+			]
+		},
+		{
+			"ID": "20220915113142-wpqirvc",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220915113142-wpqirvc",
+				"updated": "20220915113252"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eWFtbA=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "ribbon:\n  ReadTimeout: 5000 #指建立连接所需要时间，适用于网络状况正常情况下，两端建立连接所用实际\n  ConnectTimeout: 5000 #指建立连接后从服务端获取资源所用时间\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220915101016-mp44ujl",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"fold": "1",
+				"id": "20220915101016-mp44ujl",
+				"updated": "20220915111717"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、Ribbon 获取注册列表"
+				}
+			]
+		},
+		{
+			"ID": "20220915111656-nfz7gpy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"fold": "1",
+				"heading-fold": "1",
+				"id": "20220915111656-nfz7gpy"
+			}
+		},
+		{
+			"ID": "20220915101206-fb7obqi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"fold": "1",
+				"heading-fold": "1",
+				"id": "20220915101206-fb7obqi",
+				"updated": "20220915105834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "配置类：org.springframework.cloud.netflix.ribbon.RibbonAutoConfiguration"
+				}
+			]
+		},
+		{
+			"ID": "20220915111120-kjgq5ql",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"fold": "1",
+				"heading-fold": "1",
+				"id": "20220915111120-kjgq5ql",
+				"updated": "20220915111153"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在配置类中会初始化"
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "RibbonLoadBalancerClient"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "，"
+				}
+			]
+		},
+		{
+			"ID": "20220915111238-8fdpoed",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"fold": "1",
+				"heading-fold": "1",
+				"id": "20220915111238-8fdpoed",
+				"updated": "20220915111258"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public \u003cT\u003e T execute(String serviceId, LoadBalancerRequest\u003cT\u003e request, Object hint) throws IOException {\n    ILoadBalancer loadBalancer = this.getLoadBalancer(serviceId);\n    Server server = this.getServer(loadBalancer, hint);\n    if (server == null) {\n       throw new IllegalStateException(\"No instances available for \" + serviceId);\n    } else {\n        RibbonServer ribbonServer = new RibbonServer(serviceId, server, this.isSecure(server, serviceId), this.serverIntrospector(serviceId).getMetadata(server));\n        return this.execute(serviceId, (ServiceInstance)ribbonServer, (LoadBalancerRequest)request);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220915110619-xreuox5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"fold": "1",
+				"heading-fold": "1",
+				"id": "20220915110619-xreuox5",
+				"updated": "20220915110620"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ZoneAwareLoadBalancer的父类是"
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "DynamicServerListLoadBalancer"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "，DynamicServerListLoadBalancer构造函数中会调用"
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "restOfInit()"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "方法（其中会获取到所有的服务实例）"
+				}
+			]
+		},
+		{
+			"ID": "20220915110621-3lq4dpw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"fold": "1",
+				"heading-fold": "1",
+				"id": "20220915110621-3lq4dpw"
+			}
+		}
+	]
+}

@@ -1,0 +1,262 @@
+{
+	"ID": "20220915101016-46clr5s",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20220915101016-46clr5s",
+		"title": "Ribbon ",
+		"updated": "20220915111922"
+	},
+	"Children": [
+		{
+			"ID": "20220915111720-qja5agh",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20220915111720-qja5agh",
+				"updated": "20220915111733"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、概念"
+				}
+			]
+		},
+		{
+			"ID": "20220915111733-u90qxtg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220915111733-u90qxtg",
+				"updated": "20220915111758"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Ribbon是Netflix公司提供的一个基于HTTP和TCP的客户端负载均衡工具"
+				}
+			]
+		},
+		{
+			"ID": "20220915111822-s22x6dh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220915111822-s22x6dh",
+				"updated": "20220915111854"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "简化远程调用："
+				}
+			]
+		},
+		{
+			"ID": "20220915111854-hkyuskv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220915111854-hkyuskv"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "\t"
+				}
+			]
+		},
+		{
+			"ID": "20220915111840-z1r43yg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220915111840-z1r43yg",
+				"updated": "20220915111851"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "负载均衡"
+				}
+			]
+		},
+		{
+			"ID": "20220915101016-mp44ujl",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20220915101016-mp44ujl",
+				"updated": "20220915111717"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、Ribbon 获取注册列表"
+				}
+			]
+		},
+		{
+			"ID": "20220915111656-nfz7gpy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220915111656-nfz7gpy",
+				"updated": "20220915111922"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "\t"
+				},
+				{
+					"Type": "NodeKbd",
+					"Data": "kbd",
+					"Children": [
+						{
+							"Type": "NodeKbdOpenMarker"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "1"
+						},
+						{
+							"Type": "NodeKbdCloseMarker"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20220915101206-fb7obqi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220915101206-fb7obqi",
+				"updated": "20220915105834"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "配置类：org.springframework.cloud.netflix.ribbon.RibbonAutoConfiguration"
+				}
+			]
+		},
+		{
+			"ID": "20220915111120-kjgq5ql",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220915111120-kjgq5ql",
+				"updated": "20220915111153"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在配置类中会初始化"
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "RibbonLoadBalancerClient"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "，"
+				}
+			]
+		},
+		{
+			"ID": "20220915111238-8fdpoed",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220915111238-8fdpoed",
+				"updated": "20220915111258"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public \u003cT\u003e T execute(String serviceId, LoadBalancerRequest\u003cT\u003e request, Object hint) throws IOException {\n    ILoadBalancer loadBalancer = this.getLoadBalancer(serviceId);\n    Server server = this.getServer(loadBalancer, hint);\n    if (server == null) {\n       throw new IllegalStateException(\"No instances available for \" + serviceId);\n    } else {\n        RibbonServer ribbonServer = new RibbonServer(serviceId, server, this.isSecure(server, serviceId), this.serverIntrospector(serviceId).getMetadata(server));\n        return this.execute(serviceId, (ServiceInstance)ribbonServer, (LoadBalancerRequest)request);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220915110619-xreuox5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220915110619-xreuox5",
+				"updated": "20220915110620"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ZoneAwareLoadBalancer的父类是"
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "DynamicServerListLoadBalancer"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "，DynamicServerListLoadBalancer构造函数中会调用"
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "restOfInit()"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "方法（其中会获取到所有的服务实例）"
+				}
+			]
+		},
+		{
+			"ID": "20220915110621-3lq4dpw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220915110621-3lq4dpw"
+			}
+		}
+	]
+}
