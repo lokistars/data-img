@@ -224,12 +224,21 @@
                         "instance": "Editor",
                         "mode": "wysiwyg",
                         "scrollAttr": {
+<<<<<<< HEAD
                           "endId": "20220915202009-yoqu9e7",
                           "focusEnd": 13,
                           "focusId": "20220915121843-8sjwfsy",
                           "focusStart": 13,
                           "scrollTop": 800,
                           "startId": "20220915121843-8sjwfsy"
+=======
+                          "endId": "20220827152215-ck23lr8",
+                          "focusEnd": 60,
+                          "focusId": "20220827152215-ymr9gwd",
+                          "focusStart": 60,
+                          "scrollTop": 3927,
+                          "startId": "20220827152215-c4jgmte"
+>>>>>>> 8f521f697bd58aaa2ba7e5149432beb574e4d857
                         }
                       },
                       "docIcon": "",
@@ -418,19 +427,19 @@
   },
   "readonly": false,
   "localIPs": [
-    "172.16.11.140",
+    "192.168.1.7",
     "127.0.0.1"
   ],
   "accessAuthCode": "",
   "system": {
-    "id": "ec56ec85-b2e3-4d85-a264-e61c5bf1bead",
-    "kernelVersion": "2.1.8",
+    "id": "ad8ac2b0-ec5b-48dc-a254-d7cff8a50da1",
+    "kernelVersion": "2.1.9",
     "os": "windows",
     "container": "std",
     "isInsider": false,
     "homeDir": "C:\\Users\\53276",
     "workspaceDir": "D:\\data-img\\SiYuan",
-    "appDir": "F:\\Tools\\AppData\\siyuan\\resources",
+    "appDir": "E:\\tool\\AppData\\SiYuan\\resources",
     "confDir": "D:\\data-img\\SiYuan\\conf",
     "dataDir": "D:\\data-img\\SiYuan\\data",
     "networkServe": false,

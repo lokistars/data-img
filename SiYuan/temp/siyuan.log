@@ -433,7 +433,11 @@ I 2022/08/30 08:45:05 serve.go:78: kernel is booting [http://127.0.0.1:6806]
 I 2022/08/30 08:45:05 conf.go:531: database size [6.4 MB], block count [1668]
 I 2022/08/30 08:45:05 working.go:146: kernel booted
 I 2022/08/30 17:37:53 conf.go:370: exited kernel
+<<<<<<< HEAD
 I 2022/08/31 23:47:13 working.go:106: 
+=======
+I 2022/08/30 19:23:50 working.go:106: 
+>>>>>>> 8f521f697bd58aaa2ba7e5149432beb574e4d857
       ___                                   ___           ___           ___
      /  /\        ___           ___        /__/\         /  /\         /__/\
     /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
@@ -445,15 +449,24 @@ I 2022/08/31 23:47:13 working.go:106:
    \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
      /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
      \__\/                                 \__\/         \__\/         \__\/
+<<<<<<< HEAD
 I 2022/08/31 23:47:13 runtime.go:47: kernel is booting:
     * ver [2.1.8]
     * arch [amd64]
     * runtime mode [prod]
     * working directory [F:\Tools\AppData\siyuan\resources]
+=======
+I 2022/08/30 19:23:50 runtime.go:47: kernel is booting:
+    * ver [2.1.9]
+    * arch [amd64]
+    * runtime mode [prod]
+    * working directory [E:\tool\AppData\SiYuan\resources]
+>>>>>>> 8f521f697bd58aaa2ba7e5149432beb574e4d857
     * read only [false]
     * container [std]
     * database [ver=20220501]
     * workspace directory [D:\data-img\SiYuan, data 4.8 MB]
+<<<<<<< HEAD
 I 2022/08/31 23:47:13 serve.go:78: kernel is booting [http://127.0.0.1:6806]
 I 2022/08/31 23:47:13 conf.go:531: database size [6.4 MB], block count [1668]
 I 2022/08/31 23:47:13 working.go:146: kernel booted
@@ -562,3 +575,9 @@ I 2022/09/15 11:33:52 index.go:320: resolved refs [0] in [12ms]
 I 2022/09/15 12:17:23 index.go:183: rebuilt database for notebook [20210808180117-czj9bvb] in [0.46s], tree [count=49, size=1.2 MB]
 I 2022/09/15 12:17:23 index.go:320: resolved refs [78] in [66ms]
 I 2022/09/15 20:24:16 conf.go:370: exited kernel
+=======
+I 2022/08/30 19:23:50 serve.go:78: kernel is booting [http://127.0.0.1:6806]
+I 2022/08/30 19:23:50 conf.go:533: database size [6.4 MB], block count [1668]
+I 2022/08/30 19:23:50 working.go:146: kernel booted
+I 2022/08/30 19:24:10 conf.go:370: exited kernel
+>>>>>>> 8f521f697bd58aaa2ba7e5149432beb574e4d857
