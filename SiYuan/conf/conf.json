@@ -75,10 +75,7 @@
     "displayNetImgMark": true,
     "generateHistoryInterval": 10,
     "historyRetentionDays": 30,
-    "emoji": [
-      "1f5c3",
-      "1f4c1"
-    ],
+    "emoji": [],
     "virtualBlockRef": false,
     "virtualBlockRefExclude": "",
     "blockRefDynamicAnchorTextMaxLen": 96,
@@ -197,74 +194,119 @@
                 {
                   "children": [
                     {
+                      "active": true,
                       "children": {
                         "action": "",
-                        "blockId": "20220915101016-46clr5s",
+                        "blockId": "20220915235549-45znu14",
                         "instance": "Editor",
                         "mode": "wysiwyg",
                         "scrollAttr": {
-                          "endId": "20220915121916-tjm8c19",
-                          "focusEnd": 0,
-                          "focusId": "20220915121916-tjm8c19",
-                          "focusStart": 0,
-                          "scrollTop": 0,
-                          "startId": "20220915111720-qja5agh"
+                          "endId": "20220916015042-f6xkwwa",
+                          "focusEnd": 12,
+                          "focusId": "20220916010454-qv1yi8i",
+                          "focusStart": 12,
+                          "scrollTop": 200,
+                          "startId": "20220915235549-j6722mv"
                         }
                       },
                       "docIcon": "",
                       "instance": "Tab",
                       "pin": false,
-                      "title": "Ribbon 使用"
+                      "title": "Mapper"
                     },
                     {
-                      "active": true,
+                      "children": {
+                        "action": "",
+                        "blockId": "20220819112321-i76ug4y",
+                        "instance": "Editor",
+                        "mode": "wysiwyg",
+                        "scrollAttr": {
+                          "endId": "20220822092412-azzobb1",
+                          "scrollTop": 0,
+                          "startId": "20220819112728-b01sz8u"
+                        }
+                      },
+                      "docIcon": "1f4c1",
+                      "instance": "Tab",
+                      "pin": false,
+                      "title": "Redis"
+                    },
+                    {
+                      "children": {
+                        "action": "",
+                        "blockId": "20220827152140-qun0hng",
+                        "instance": "Editor",
+                        "mode": "wysiwyg",
+                        "scrollAttr": {
+                          "endId": "20220827152215-fk270pu",
+                          "focusEnd": 26,
+                          "focusId": "20220827152215-fojt7dh",
+                          "focusStart": 26,
+                          "scrollTop": 4000,
+                          "startId": "20220827152215-c4jgmte"
+                        }
+                      },
+                      "docIcon": "",
+                      "instance": "Tab",
+                      "pin": false,
+                      "title": "Redis 内存优化"
+                    },
+                    {
+                      "children": {
+                        "action": "",
+                        "blockId": "20220819113442-2n2aspj",
+                        "instance": "Editor",
+                        "mode": "wysiwyg",
+                        "scrollAttr": {
+                          "endId": "20220826130632-07krx8o",
+                          "focusEnd": 32,
+                          "focusId": "20220826130632-4aj008x",
+                          "focusStart": 32,
+                          "scrollTop": 400,
+                          "startId": "20220826130632-oqzte2h"
+                        }
+                      },
+                      "docIcon": "",
+                      "instance": "Tab",
+                      "pin": false,
+                      "title": "Redis 数据结构"
+                    },
+                    {
+                      "children": {
+                        "action": "",
+                        "blockId": "20220824115603-juqypwe",
+                        "instance": "Editor",
+                        "mode": "wysiwyg",
+                        "scrollAttr": {
+                          "endId": "20220824115619-3wpjn0l",
+                          "scrollTop": 300,
+                          "startId": "20220824115619-5uwejjg"
+                        }
+                      },
+                      "docIcon": "",
+                      "instance": "Tab",
+                      "pin": false,
+                      "title": "Redis 面试题"
+                    },
+                    {
                       "children": {
                         "action": "",
                         "blockId": "20220915121359-md1t6a6",
                         "instance": "Editor",
                         "mode": "wysiwyg",
                         "scrollAttr": {
-<<<<<<< HEAD
-                          "endId": "20220915202009-yoqu9e7",
-                          "focusEnd": 13,
-                          "focusId": "20220915121843-8sjwfsy",
-                          "focusStart": 13,
-                          "scrollTop": 800,
+                          "endId": "20220915193043-gxtmnaq",
+                          "focusEnd": 21,
+                          "focusId": "20220915121843-1odw2x2",
+                          "focusStart": 21,
+                          "scrollTop": 1500,
                           "startId": "20220915121843-8sjwfsy"
-=======
-                          "endId": "20220827152215-ck23lr8",
-                          "focusEnd": 60,
-                          "focusId": "20220827152215-ymr9gwd",
-                          "focusStart": 60,
-                          "scrollTop": 3927,
-                          "startId": "20220827152215-c4jgmte"
->>>>>>> 8f521f697bd58aaa2ba7e5149432beb574e4d857
                         }
                       },
                       "docIcon": "",
                       "instance": "Tab",
                       "pin": false,
                       "title": "Ribbon 初始化配置"
-                    },
-                    {
-                      "children": {
-                        "action": "",
-                        "blockId": "20220914143533-xjkwf2t",
-                        "instance": "Editor",
-                        "mode": "wysiwyg",
-                        "scrollAttr": {
-                          "endId": "20220914154933-zoh9zg5",
-                          "focusEnd": 4,
-                          "focusId": "20220914145557-9qfzvvz",
-                          "focusStart": 4,
-                          "scrollTop": 510,
-                          "startId": "20220914143533-1orch5b"
-                        }
-                      },
-                      "docIcon": "",
-                      "instance": "Tab",
-                      "pin": false,
-                      "title": "Nacos 注册"
                     }
                   ],
                   "height": "",
@@ -331,7 +373,7 @@
         {
           "hotkeyLangId": "fileTree",
           "icon": "iconFiles",
-          "show": true,
+          "show": false,
           "size": {
             "height": 0,
             "width": 240
@@ -341,10 +383,10 @@
         {
           "hotkeyLangId": "outline",
           "icon": "iconAlignCenter",
-          "show": false,
+          "show": true,
           "size": {
             "height": 0,
-            "width": 199
+            "width": 240
           },
           "type": "outline"
         },
@@ -427,7 +469,7 @@
   },
   "readonly": false,
   "localIPs": [
-    "192.168.1.7",
+    "192.168.10.2",
     "127.0.0.1"
   ],
   "accessAuthCode": "",
@@ -450,414 +492,7 @@
     },
     "uploadErrLog": false
   },
-  "keymap": {
-    "editor": {
-      "general": {
-        "alignCenter": {
-          "custom": "⌥C",
-          "default": "⌥C"
-        },
-        "alignLeft": {
-          "custom": "⌥L",
-          "default": "⌥L"
-        },
-        "alignRight": {
-          "custom": "⌥R",
-          "default": "⌥R"
-        },
-        "attr": {
-          "custom": "⌥⌘A",
-          "default": "⌥⌘A"
-        },
-        "backlinks": {
-          "custom": "⌥B",
-          "default": "⌥B"
-        },
-        "copyBlockEmbed": {
-          "custom": "⇧⌘E",
-          "default": "⇧⌘E"
-        },
-        "copyBlockRef": {
-          "custom": "⇧⌘C",
-          "default": "⇧⌘C"
-        },
-        "copyHPath": {
-          "custom": "⇧⌘P",
-          "default": "⇧⌘P"
-        },
-        "copyID": {
-          "custom": "",
-          "default": ""
-        },
-        "copyProtocol": {
-          "custom": "⇧⌘H",
-          "default": "⇧⌘H"
-        },
-        "fullscreen": {
-          "custom": "⌥Y",
-          "default": "⌥Y"
-        },
-        "graphView": {
-          "custom": "⌥G",
-          "default": "⌥G"
-        },
-        "hLayout": {
-          "custom": "",
-          "default": ""
-        },
-        "insertAfter": {
-          "custom": "⇧⌘A",
-          "default": "⇧⌘A"
-        },
-        "insertBefore": {
-          "custom": "⇧⌘B",
-          "default": "⇧⌘B"
-        },
-        "jumpToParentNext": {
-          "custom": "⇧⌘N",
-          "default": "⇧⌘N"
-        },
-        "moveToDown": {
-          "custom": "⇧⌘↓",
-          "default": "⇧⌘↓"
-        },
-        "moveToUp": {
-          "custom": "⇧⌘↑",
-          "default": "⇧⌘↑"
-        },
-        "netImg2LocalAsset": {
-          "custom": "",
-          "default": ""
-        },
-        "newContentFile": {
-          "custom": "F4",
-          "default": "F4"
-        },
-        "newNameFile": {
-          "custom": "F3",
-          "default": "F3"
-        },
-        "outline": {
-          "custom": "⌥O",
-          "default": "⌥O"
-        },
-        "pasteAsPlainText": {
-          "custom": "⇧⌘V",
-          "default": "⇧⌘V"
-        },
-        "preview": {
-          "custom": "⌥⌘9",
-          "default": "⌥⌘9"
-        },
-        "redo": {
-          "custom": "⌘Y",
-          "default": "⌘Y"
-        },
-        "refBottom": {
-          "custom": "⇧\u003e",
-          "default": "⇧\u003e"
-        },
-        "refPopover": {
-          "custom": "⌥⌘.",
-          "default": "⌥⌘."
-        },
-        "refRight": {
-          "custom": "⌥.",
-          "default": "⌥."
-        },
-        "refTab": {
-          "custom": "⇧⌘.",
-          "default": "⇧⌘."
-        },
-        "refresh": {
-          "custom": "F5",
-          "default": "F5"
-        },
-        "rename": {
-          "custom": "F2",
-          "default": "F2"
-        },
-        "showInFolder": {
-          "custom": "⌥A",
-          "default": "⌥A"
-        },
-        "undo": {
-          "custom": "⌘Z",
-          "default": "⌘Z"
-        },
-        "vLayout": {
-          "custom": "",
-          "default": ""
-        },
-        "wysiwyg": {
-          "custom": "⌥⌘7",
-          "default": "⌥⌘7"
-        }
-      },
-      "heading": {
-        "heading1": {
-          "custom": "⌘1",
-          "default": "⌥⌘1"
-        },
-        "heading2": {
-          "custom": "⌘2",
-          "default": "⌥⌘2"
-        },
-        "heading3": {
-          "custom": "⌘3",
-          "default": "⌥⌘3"
-        },
-        "heading4": {
-          "custom": "⌘4",
-          "default": "⌥⌘4"
-        },
-        "heading5": {
-          "custom": "⌘5",
-          "default": "⌥⌘5"
-        },
-        "heading6": {
-          "custom": "⌘6",
-          "default": "⌥⌘6"
-        }
-      },
-      "insert": {
-        "blockRef": {
-          "custom": "⌥[",
-          "default": "⌥["
-        },
-        "bold": {
-          "custom": "⌘B",
-          "default": "⌘B"
-        },
-        "check": {
-          "custom": "⌘L",
-          "default": "⌘L"
-        },
-        "code": {
-          "custom": "⇧⌘K",
-          "default": "⇧⌘K"
-        },
-        "font": {
-          "custom": "⌥⌘X",
-          "default": "⌥⌘X"
-        },
-        "inline-code": {
-          "custom": "⌘G",
-          "default": "⌘G"
-        },
-        "inline-math": {
-          "custom": "⌘M",
-          "default": "⌘M"
-        },
-        "italic": {
-          "custom": "⌘I",
-          "default": "⌘I"
-        },
-        "kbd": {
-          "custom": "⌘'",
-          "default": "⌘'"
-        },
-        "lastUsed": {
-          "custom": "⌥X",
-          "default": "⌥X"
-        },
-        "link": {
-          "custom": "⌘K",
-          "default": "⌘K"
-        },
-        "mark": {
-          "custom": "⌘E",
-          "default": "⌘E"
-        },
-        "strike": {
-          "custom": "⌘D",
-          "default": "⌘D"
-        },
-        "sub": {
-          "custom": "⌘J",
-          "default": "⌘J"
-        },
-        "sup": {
-          "custom": "⌘H",
-          "default": "⌘H"
-        },
-        "table": {
-          "custom": "⌘O",
-          "default": "⌘O"
-        },
-        "tag": {
-          "custom": "⌘T",
-          "default": "⌘T"
-        },
-        "underline": {
-          "custom": "⌘U",
-          "default": "⌘U"
-        }
-      },
-      "list": {
-        "checkToggle": {
-          "custom": "⌘↩",
-          "default": "⌘↩"
-        },
-        "indent": {
-          "custom": "⇥",
-          "default": "⇥"
-        },
-        "outdent": {
-          "custom": "⇧⇥",
-          "default": "⇧⇥"
-        }
-      },
-      "table": {
-        "delete-column": {
-          "custom": "⇧⌘-",
-          "default": "⇧⌘-"
-        },
-        "delete-row": {
-          "custom": "⌘-",
-          "default": "⌘-"
-        },
-        "insertColumnLeft": {
-          "custom": "⇧⌘L",
-          "default": "⇧⌘L"
-        },
-        "insertColumnRight": {
-          "custom": "⇧⌘R",
-          "default": "⇧⌘R"
-        },
-        "insertRowAbove": {
-          "custom": "⇧⌘T",
-          "default": "⇧⌘T"
-        },
-        "insertRowBelow": {
-          "custom": "⇧⌘D",
-          "default": "⇧⌘D"
-        },
-        "moveToDown": {
-          "custom": "⌥⌘B",
-          "default": "⌥⌘B"
-        },
-        "moveToLeft": {
-          "custom": "⌥⌘L",
-          "default": "⌥⌘L"
-        },
-        "moveToRight": {
-          "custom": "⌥⌘R",
-          "default": "⌥⌘R"
-        },
-        "moveToUp": {
-          "custom": "⌥⌘T",
-          "default": "⌥⌘T"
-        }
-      }
-    },
-    "general": {
-      "backlinks": {
-        "custom": "⌥7",
-        "default": "⌥7"
-      },
-      "bookmark": {
-        "custom": "⌥3",
-        "default": "⌥3"
-      },
-      "closeTab": {
-        "custom": "⌘W",
-        "default": "⌘W"
-      },
-      "config": {
-        "custom": "⌥P",
-        "default": "⌥P"
-      },
-      "dailyNote": {
-        "custom": "⌥5",
-        "default": "⌥5"
-      },
-      "enter": {
-        "custom": "⌥→",
-        "default": "⌥→"
-      },
-      "enterBack": {
-        "custom": "⌥←",
-        "default": "⌥←"
-      },
-      "fileTree": {
-        "custom": "⌥1",
-        "default": "⌥1"
-      },
-      "globalGraph": {
-        "custom": "⌥9",
-        "default": "⌥9"
-      },
-      "globalSearch": {
-        "custom": "⌘P",
-        "default": "⌘P"
-      },
-      "goBack": {
-        "custom": "⌘[",
-        "default": "⌘["
-      },
-      "goForward": {
-        "custom": "⌘]",
-        "default": "⌘]"
-      },
-      "graphView": {
-        "custom": "⌥8",
-        "default": "⌥8"
-      },
-      "history": {
-        "custom": "⌥H",
-        "default": "⌥H"
-      },
-      "inbox": {
-        "custom": "⌥6",
-        "default": "⌥6"
-      },
-      "lockScreen": {
-        "custom": "⌥N",
-        "default": "⌥N"
-      },
-      "move": {
-        "custom": "",
-        "default": ""
-      },
-      "newFile": {
-        "custom": "⌘N",
-        "default": "⌘N"
-      },
-      "outline": {
-        "custom": "⌥2",
-        "default": "⌥2"
-      },
-      "replace": {
-        "custom": "⌘R",
-        "default": "⌘R"
-      },
-      "search": {
-        "custom": "⌘F",
-        "default": "⌘F"
-      },
-      "selectOpen1": {
-        "custom": "",
-        "default": ""
-      },
-      "stickSearch": {
-        "custom": "⇧⌘F",
-        "default": "⇧⌘F"
-      },
-      "syncNow": {
-        "custom": "F9",
-        "default": "F9"
-      },
-      "tag": {
-        "custom": "⌥4",
-        "default": "⌥4"
-      },
-      "toggleWin": {
-        "custom": "⌥M",
-        "default": "⌥M"
-      }
-    }
-  },
+  "keymap": {},
   "sync": {
     "cloudName": "main",
     "enabled": false,
@@ -893,10 +528,10 @@
     "virtualRefDoc": true
   },
   "stat": {
-    "docCount": 11
+    "docCount": 12
   },
   "api": {
-    "token": "uz32v7xf7h2lwe9b"
+    "token": "3j2g7w89jh5546x1"
   },
   "repo": {
     "key": null

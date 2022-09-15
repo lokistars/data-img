@@ -1,0 +1,133 @@
+{
+	"ID": "20220915235549-45znu14",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20220915235549-45znu14",
+		"title": "Mapper",
+		"updated": "20220916000932"
+	},
+	"Children": [
+		{
+			"ID": "20220915235549-j6722mv",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20220915235549-j6722mv",
+				"updated": "20220915235722"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、概念"
+				}
+			]
+		},
+		{
+			"ID": "20220915235726-3ce7m3v",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220915235726-3ce7m3v",
+				"updated": "20220915235806"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ES中的mapping有点类似与RDB中“表结构”的概念，在MySQL中，表结构里包含了字段名称，字段的类型还有索引信息等。在Mapping里也包含了一些属性，比如字段名称、类型、字段使用的分词器、是否评分、是否创建索引等属性，并且在ES中一个字段可以有对个类型。分词器、评分等概念在后面的课程讲解。"
+				}
+			]
+		},
+		{
+			"ID": "20220915235812-pgq03y8",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20220915235812-pgq03y8",
+				"updated": "20220916000833"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、ES数据类型"
+				}
+			]
+		},
+		{
+			"ID": "20220916000857-6tn0i5x",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20220916000857-6tn0i5x",
+				"updated": "20220916000932"
+			},
+			"Children": [
+				{
+					"ID": "20220916000917-gr1bnzw",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20220916000917-gr1bnzw",
+						"updated": "20220916000932"
+					},
+					"Children": [
+						{
+							"ID": "20220916000917-285y494",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20220916000917-285y494",
+								"updated": "20220916000922"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "常见类型"
+								}
+							]
+						},
+						{
+							"ID": "20220916000923-25q8bl4",
+							"Type": "NodeList",
+							"ListData": {},
+							"Properties": {
+								"id": "20220916000923-25q8bl4",
+								"updated": "20220916000932"
+							},
+							"Children": [
+								{
+									"ID": "20220916000922-daf70l5",
+									"Type": "NodeListItem",
+									"ListData": {
+										"BulletChar": 42,
+										"Marker": "Kg=="
+									},
+									"Properties": {
+										"id": "20220916000922-daf70l5",
+										"updated": "20220916000932"
+									},
+									"Children": [
+										{
+											"ID": "20220916000922-vktfl4s",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20220916000922-vktfl4s",
+												"updated": "20220916000932"
+											},
+											"Children": [
+												{
+													"Type": "NodeText",
+													"Data": "数字类型："
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
