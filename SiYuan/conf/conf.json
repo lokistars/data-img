@@ -194,18 +194,17 @@
                 {
                   "children": [
                     {
-                      "active": true,
                       "children": {
                         "action": "",
                         "blockId": "20220915235549-45znu14",
                         "instance": "Editor",
                         "mode": "wysiwyg",
                         "scrollAttr": {
-                          "endId": "20220916003051-3t6jdsi",
-                          "focusEnd": 15,
-                          "focusId": "20220916002753-vem1yez",
-                          "focusStart": 15,
-                          "scrollTop": 1500,
+                          "endId": "20220916003102-amfn6yj",
+                          "focusEnd": 22,
+                          "focusId": "20220916001632-mfilp77",
+                          "focusStart": 22,
+                          "scrollTop": 3400,
                           "startId": "20220915235549-j6722mv"
                         }
                       },
@@ -213,6 +212,44 @@
                       "instance": "Tab",
                       "pin": false,
                       "title": "Mapper"
+                    },
+                    {
+                      "active": true,
+                      "children": {
+                        "action": "",
+                        "blockId": "20220915121359-md1t6a6",
+                        "instance": "Editor",
+                        "mode": "wysiwyg",
+                        "scrollAttr": {
+                          "endId": "20220915202058-43e13ff",
+                          "focusEnd": 87,
+                          "focusId": "20220915123359-dy6hajc",
+                          "focusStart": 87,
+                          "scrollTop": 1358,
+                          "startId": "20220915121843-lkmc643"
+                        }
+                      },
+                      "docIcon": "",
+                      "instance": "Tab",
+                      "pin": false,
+                      "title": "Ribbon 初始化配置"
+                    },
+                    {
+                      "children": {
+                        "action": "",
+                        "blockId": "20220914143533-xjkwf2t",
+                        "instance": "Editor",
+                        "mode": "wysiwyg",
+                        "scrollAttr": {
+                          "endId": "20220914154933-zoh9zg5",
+                          "scrollTop": 0,
+                          "startId": "20220914143533-1orch5b"
+                        }
+                      },
+                      "docIcon": "",
+                      "instance": "Tab",
+                      "pin": false,
+                      "title": "Nacos 注册"
                     }
                   ],
                   "height": "",
@@ -292,7 +329,7 @@
           "show": false,
           "size": {
             "height": 0,
-            "width": 240
+            "width": 426
           },
           "type": "outline"
         },
@@ -375,20 +412,19 @@
   },
   "readonly": false,
   "localIPs": [
-    "172.16.11.140",
-    "192.168.137.1",
+    "192.168.10.2",
     "127.0.0.1"
   ],
   "accessAuthCode": "",
   "system": {
-    "id": "ec56ec85-b2e3-4d85-a264-e61c5bf1bead",
-    "kernelVersion": "2.1.8",
+    "id": "ad8ac2b0-ec5b-48dc-a254-d7cff8a50da1",
+    "kernelVersion": "2.1.9",
     "os": "windows",
     "container": "std",
     "isInsider": false,
     "homeDir": "C:\\Users\\53276",
     "workspaceDir": "D:\\data-img\\SiYuan",
-    "appDir": "F:\\Tools\\AppData\\siyuan\\resources",
+    "appDir": "E:\\tool\\AppData\\SiYuan\\resources",
     "confDir": "D:\\data-img\\SiYuan\\conf",
     "dataDir": "D:\\data-img\\SiYuan\\data",
     "networkServe": false,

@@ -4,7 +4,7 @@
 	"Properties": {
 		"id": "20220915235549-45znu14",
 		"title": "Mapper",
-		"updated": "20220916015042"
+		"updated": "20220919004757"
 	},
 	"Children": [
 		{
@@ -57,7 +57,7 @@
 			"ListData": {},
 			"Properties": {
 				"id": "20220916000857-6tn0i5x",
-				"updated": "20220916010719"
+				"updated": "20220919004757"
 			},
 			"Children": [
 				{
@@ -69,7 +69,7 @@
 					},
 					"Properties": {
 						"id": "20220916000917-gr1bnzw",
-						"updated": "20220916010719"
+						"updated": "20220919004757"
 					},
 					"Children": [
 						{
@@ -92,7 +92,7 @@
 							"ListData": {},
 							"Properties": {
 								"id": "20220916000923-25q8bl4",
-								"updated": "20220916010719"
+								"updated": "20220919004757"
 							},
 							"Children": [
 								{
@@ -527,7 +527,8 @@
 										"Marker": "Kg=="
 									},
 									"Properties": {
-										"id": "20220916001632-adalgu7"
+										"id": "20220916001632-adalgu7",
+										"updated": "20220919004757"
 									},
 									"Children": [
 										{
@@ -535,12 +536,12 @@
 											"Type": "NodeParagraph",
 											"Properties": {
 												"id": "20220916001632-mfilp77",
-												"updated": "20220916001658"
+												"updated": "20220919004757"
 											},
 											"Children": [
 												{
 													"Type": "NodeText",
-													"Data": "Dates : 时间类型 包括 date和 date_nanos"
+													"Data": "Dates : 时间类型 包括 date和y date_nanos"
 												}
 											]
 										}
@@ -1050,7 +1051,7 @@
 					},
 					"Properties": {
 						"id": "20220916002122-zenfij9",
-						"updated": "20220916010146"
+						"updated": "20220918012703"
 					},
 					"Children": [
 						{
@@ -1073,7 +1074,7 @@
 							"ListData": {},
 							"Properties": {
 								"id": "20220916002127-df8lofy",
-								"updated": "20220916010146"
+								"updated": "20220918012703"
 							},
 							"Children": [
 								{
@@ -1112,7 +1113,8 @@
 										"Marker": "Kg=="
 									},
 									"Properties": {
-										"id": "20220916002137-h7l81pb"
+										"id": "20220916002137-h7l81pb",
+										"updated": "20220918012703"
 									},
 									"Children": [
 										{
@@ -1120,7 +1122,7 @@
 											"Type": "NodeParagraph",
 											"Properties": {
 												"id": "20220916002137-rzmz586",
-												"updated": "20220916002335"
+												"updated": "20220918012703"
 											},
 											"Children": [
 												{
@@ -1142,7 +1144,7 @@
 														},
 														{
 															"Type": "NodeLinkDest",
-															"Data": "#completion-suggester"
+															"Data": "https://www.elastic.co/guide/en/elasticsearch/reference/8.1/search-suggesters.html#completion-suggester"
 														},
 														{
 															"Type": "NodeCloseParen"
@@ -1151,7 +1153,7 @@
 												},
 												{
 													"Type": "NodeText",
-													"Data": "： 提供自动完成建议"
+													"Data": "： 提供自动完成建议 搜索推荐 suggest"
 												}
 											]
 										}
@@ -2421,7 +2423,7 @@
 			"ListData": {},
 			"Properties": {
 				"id": "20220916003102-amfn6yj",
-				"updated": "20220916004405"
+				"updated": "20220918011426"
 			},
 			"Children": [
 				{
@@ -2745,7 +2747,7 @@
 					},
 					"Properties": {
 						"id": "20220916003302-lgsr3ko",
-						"updated": "20220916004040"
+						"updated": "20220918011426"
 					},
 					"Children": [
 						{
@@ -2753,12 +2755,12 @@
 							"Type": "NodeParagraph",
 							"Properties": {
 								"id": "20220916003302-30qsm7k",
-								"updated": "20220916004040"
+								"updated": "20220918011426"
 							},
 							"Children": [
 								{
 									"Type": "NodeText",
-									"Data": "fielddata：查询时内存数据结构，在首次用当前字段聚合、排序或者在脚本中使用时，需要字段为fielddata数据结构，并且创建倒排索引保存到堆中"
+									"Data": "fielddata：查询时内存数据结构，在首次用当前字段聚合、排序或者在脚本中使用时，需要字段为fielddata数据结构，并且创建倒排索引保存到堆中,非常消耗性能，一般禁用"
 								}
 							]
 						}
@@ -3244,9 +3246,165 @@
 		},
 		{
 			"ID": "20220916015042-f6xkwwa",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20220916015042-f6xkwwa",
+				"updated": "20220918012949"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "六、搜索推荐 suggest"
+				}
+			]
+		},
+		{
+			"ID": "20220918013003-u49x5hf",
 			"Type": "NodeParagraph",
 			"Properties": {
-				"id": "20220916015042-f6xkwwa"
+				"id": "20220918013003-u49x5hf",
+				"updated": "20220918013019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "补全分类主要分为四类"
+				}
+			]
+		},
+		{
+			"ID": "20220918013019-s0206u2",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20220918013019-s0206u2",
+				"updated": "20220918013054"
+			},
+			"Children": [
+				{
+					"ID": "20220918013022-4rrdwx9",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20220918013022-4rrdwx9",
+						"updated": "20220918013022"
+					},
+					"Children": [
+						{
+							"ID": "20220918013032-ndwlbaw",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20220918013032-ndwlbaw",
+								"updated": "20220918013032"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Term Suggester（纠错补全，输入错误的情况下补全正确的单词）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20220918013035-6cjccuc",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20220918013035-6cjccuc"
+					},
+					"Children": [
+						{
+							"ID": "20220918013041-3rgecm1",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20220918013041-3rgecm1",
+								"updated": "20220918013041"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Phrase Suggester（自动补全短语，输入一个单词补全整个短语）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20220918013043-y8yh4ri",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20220918013043-y8yh4ri"
+					},
+					"Children": [
+						{
+							"ID": "20220918013052-fwf4uk7",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20220918013052-fwf4uk7",
+								"updated": "20220918013052"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Completion Suggester(完成补全单词，输出如前半部分，补全整个单词）"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20220918013054-ctc2v1i",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20220918013054-ctc2v1i"
+					},
+					"Children": [
+						{
+							"ID": "20220918013059-5jhz8bo",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20220918013059-5jhz8bo",
+								"updated": "20220918013059"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Context Suggester（上下文补全）"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20220918012950-9ydjopl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220918012950-9ydjopl"
+			}
+		},
+		{
+			"ID": "20220918012848-lmgn2q3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220918012848-lmgn2q3"
 			}
 		}
 	]
