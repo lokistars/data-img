@@ -111,10 +111,10 @@
         "super": false
       },
       "d3": {
-        "nodeSize": 15,
+        "nodeSize": 16,
         "linkWidth": 8,
         "lineOpacity": 0.36,
-        "centerStrength": 0.01,
+        "centerStrength": 0.015,
         "collideRadius": 600,
         "collideStrength": 0.08,
         "linkDistance": 400,
@@ -186,7 +186,7 @@
               ],
               "direction": "tb",
               "instance": "Layout",
-              "size": "240px",
+              "size": "252px",
               "type": "left"
             },
             {
@@ -194,62 +194,25 @@
                 {
                   "children": [
                     {
-                      "children": {
-                        "action": "",
-                        "blockId": "20220915235549-45znu14",
-                        "instance": "Editor",
-                        "mode": "wysiwyg",
-                        "scrollAttr": {
-                          "endId": "20220916003102-amfn6yj",
-                          "focusEnd": 22,
-                          "focusId": "20220916001632-mfilp77",
-                          "focusStart": 22,
-                          "scrollTop": 3400,
-                          "startId": "20220915235549-j6722mv"
-                        }
-                      },
-                      "docIcon": "",
-                      "instance": "Tab",
-                      "pin": false,
-                      "title": "Mapper"
-                    },
-                    {
                       "active": true,
                       "children": {
                         "action": "",
-                        "blockId": "20220915121359-md1t6a6",
+                        "blockId": "20220924171601-phc8ovl",
                         "instance": "Editor",
                         "mode": "wysiwyg",
                         "scrollAttr": {
-                          "endId": "20220915202058-43e13ff",
-                          "focusEnd": 87,
-                          "focusId": "20220915123359-dy6hajc",
-                          "focusStart": 87,
-                          "scrollTop": 1358,
-                          "startId": "20220915121843-lkmc643"
+                          "endId": "20220924171627-8rk0e45",
+                          "focusEnd": 0,
+                          "focusId": "20220924171601-4yluwsd",
+                          "focusStart": 0,
+                          "scrollTop": 133.8235321044922,
+                          "startId": "20220924171601-4yluwsd"
                         }
                       },
                       "docIcon": "",
                       "instance": "Tab",
                       "pin": false,
-                      "title": "Ribbon 初始化配置"
-                    },
-                    {
-                      "children": {
-                        "action": "",
-                        "blockId": "20220914143533-xjkwf2t",
-                        "instance": "Editor",
-                        "mode": "wysiwyg",
-                        "scrollAttr": {
-                          "endId": "20220914154933-zoh9zg5",
-                          "scrollTop": 0,
-                          "startId": "20220914143533-1orch5b"
-                        }
-                      },
-                      "docIcon": "",
-                      "instance": "Tab",
-                      "pin": false,
-                      "title": "Nacos 注册"
+                      "title": "分布式原理"
                     }
                   ],
                   "height": "",
@@ -316,7 +279,7 @@
         {
           "hotkeyLangId": "fileTree",
           "icon": "iconFiles",
-          "show": true,
+          "show": false,
           "size": {
             "height": 0,
             "width": 240
@@ -326,10 +289,10 @@
         {
           "hotkeyLangId": "outline",
           "icon": "iconAlignCenter",
-          "show": false,
+          "show": true,
           "size": {
             "height": 0,
-            "width": 426
+            "width": 252
           },
           "type": "outline"
         },
@@ -412,19 +375,20 @@
   },
   "readonly": false,
   "localIPs": [
-    "192.168.10.2",
+    "192.168.11.165",
+    "192.168.137.1",
     "127.0.0.1"
   ],
   "accessAuthCode": "",
   "system": {
-    "id": "ad8ac2b0-ec5b-48dc-a254-d7cff8a50da1",
-    "kernelVersion": "2.1.9",
+    "id": "ec56ec85-b2e3-4d85-a264-e61c5bf1bead",
+    "kernelVersion": "2.1.8",
     "os": "windows",
     "container": "std",
     "isInsider": false,
     "homeDir": "C:\\Users\\53276",
     "workspaceDir": "D:\\data-img\\SiYuan",
-    "appDir": "E:\\tool\\AppData\\SiYuan\\resources",
+    "appDir": "F:\\Tools\\AppData\\siyuan\\resources",
     "confDir": "D:\\data-img\\SiYuan\\conf",
     "dataDir": "D:\\data-img\\SiYuan\\data",
     "networkServe": false,
@@ -435,7 +399,414 @@
     },
     "uploadErrLog": false
   },
-  "keymap": {},
+  "keymap": {
+    "editor": {
+      "general": {
+        "alignCenter": {
+          "custom": "⌥C",
+          "default": "⌥C"
+        },
+        "alignLeft": {
+          "custom": "⌥L",
+          "default": "⌥L"
+        },
+        "alignRight": {
+          "custom": "⌥R",
+          "default": "⌥R"
+        },
+        "attr": {
+          "custom": "⌥⌘A",
+          "default": "⌥⌘A"
+        },
+        "backlinks": {
+          "custom": "⌥B",
+          "default": "⌥B"
+        },
+        "copyBlockEmbed": {
+          "custom": "⇧⌘E",
+          "default": "⇧⌘E"
+        },
+        "copyBlockRef": {
+          "custom": "⇧⌘C",
+          "default": "⇧⌘C"
+        },
+        "copyHPath": {
+          "custom": "⇧⌘P",
+          "default": "⇧⌘P"
+        },
+        "copyID": {
+          "custom": "",
+          "default": ""
+        },
+        "copyProtocol": {
+          "custom": "⇧⌘H",
+          "default": "⇧⌘H"
+        },
+        "fullscreen": {
+          "custom": "⌥Y",
+          "default": "⌥Y"
+        },
+        "graphView": {
+          "custom": "⌥G",
+          "default": "⌥G"
+        },
+        "hLayout": {
+          "custom": "",
+          "default": ""
+        },
+        "insertAfter": {
+          "custom": "⇧⌘A",
+          "default": "⇧⌘A"
+        },
+        "insertBefore": {
+          "custom": "⇧⌘B",
+          "default": "⇧⌘B"
+        },
+        "jumpToParentNext": {
+          "custom": "⇧⌘N",
+          "default": "⇧⌘N"
+        },
+        "moveToDown": {
+          "custom": "⇧⌘↓",
+          "default": "⇧⌘↓"
+        },
+        "moveToUp": {
+          "custom": "⇧⌘↑",
+          "default": "⇧⌘↑"
+        },
+        "netImg2LocalAsset": {
+          "custom": "",
+          "default": ""
+        },
+        "newContentFile": {
+          "custom": "F4",
+          "default": "F4"
+        },
+        "newNameFile": {
+          "custom": "F3",
+          "default": "F3"
+        },
+        "outline": {
+          "custom": "⌥O",
+          "default": "⌥O"
+        },
+        "pasteAsPlainText": {
+          "custom": "⇧⌘V",
+          "default": "⇧⌘V"
+        },
+        "preview": {
+          "custom": "⌥⌘9",
+          "default": "⌥⌘9"
+        },
+        "redo": {
+          "custom": "⌘Y",
+          "default": "⌘Y"
+        },
+        "refBottom": {
+          "custom": "⇧\u003e",
+          "default": "⇧\u003e"
+        },
+        "refPopover": {
+          "custom": "⌥⌘.",
+          "default": "⌥⌘."
+        },
+        "refRight": {
+          "custom": "⌥.",
+          "default": "⌥."
+        },
+        "refTab": {
+          "custom": "⇧⌘.",
+          "default": "⇧⌘."
+        },
+        "refresh": {
+          "custom": "F5",
+          "default": "F5"
+        },
+        "rename": {
+          "custom": "F2",
+          "default": "F2"
+        },
+        "showInFolder": {
+          "custom": "⌥A",
+          "default": "⌥A"
+        },
+        "undo": {
+          "custom": "⌘Z",
+          "default": "⌘Z"
+        },
+        "vLayout": {
+          "custom": "",
+          "default": ""
+        },
+        "wysiwyg": {
+          "custom": "⌥⌘7",
+          "default": "⌥⌘7"
+        }
+      },
+      "heading": {
+        "heading1": {
+          "custom": "⌘1",
+          "default": "⌥⌘1"
+        },
+        "heading2": {
+          "custom": "⌘2",
+          "default": "⌥⌘2"
+        },
+        "heading3": {
+          "custom": "⌘3",
+          "default": "⌥⌘3"
+        },
+        "heading4": {
+          "custom": "⌘4",
+          "default": "⌥⌘4"
+        },
+        "heading5": {
+          "custom": "⌘5",
+          "default": "⌥⌘5"
+        },
+        "heading6": {
+          "custom": "⌘6",
+          "default": "⌥⌘6"
+        }
+      },
+      "insert": {
+        "blockRef": {
+          "custom": "⌥[",
+          "default": "⌥["
+        },
+        "bold": {
+          "custom": "⌘B",
+          "default": "⌘B"
+        },
+        "check": {
+          "custom": "⌘L",
+          "default": "⌘L"
+        },
+        "code": {
+          "custom": "⇧⌘K",
+          "default": "⇧⌘K"
+        },
+        "font": {
+          "custom": "⌥⌘X",
+          "default": "⌥⌘X"
+        },
+        "inline-code": {
+          "custom": "⌘G",
+          "default": "⌘G"
+        },
+        "inline-math": {
+          "custom": "⌘M",
+          "default": "⌘M"
+        },
+        "italic": {
+          "custom": "⌘I",
+          "default": "⌘I"
+        },
+        "kbd": {
+          "custom": "⌘'",
+          "default": "⌘'"
+        },
+        "lastUsed": {
+          "custom": "⌥X",
+          "default": "⌥X"
+        },
+        "link": {
+          "custom": "⌘K",
+          "default": "⌘K"
+        },
+        "mark": {
+          "custom": "⌘E",
+          "default": "⌘E"
+        },
+        "strike": {
+          "custom": "⌘D",
+          "default": "⌘D"
+        },
+        "sub": {
+          "custom": "⌘J",
+          "default": "⌘J"
+        },
+        "sup": {
+          "custom": "⌘H",
+          "default": "⌘H"
+        },
+        "table": {
+          "custom": "⌘O",
+          "default": "⌘O"
+        },
+        "tag": {
+          "custom": "⌘T",
+          "default": "⌘T"
+        },
+        "underline": {
+          "custom": "⌘U",
+          "default": "⌘U"
+        }
+      },
+      "list": {
+        "checkToggle": {
+          "custom": "⌘↩",
+          "default": "⌘↩"
+        },
+        "indent": {
+          "custom": "⇥",
+          "default": "⇥"
+        },
+        "outdent": {
+          "custom": "⇧⇥",
+          "default": "⇧⇥"
+        }
+      },
+      "table": {
+        "delete-column": {
+          "custom": "⇧⌘-",
+          "default": "⇧⌘-"
+        },
+        "delete-row": {
+          "custom": "⌘-",
+          "default": "⌘-"
+        },
+        "insertColumnLeft": {
+          "custom": "⇧⌘L",
+          "default": "⇧⌘L"
+        },
+        "insertColumnRight": {
+          "custom": "⇧⌘R",
+          "default": "⇧⌘R"
+        },
+        "insertRowAbove": {
+          "custom": "⇧⌘T",
+          "default": "⇧⌘T"
+        },
+        "insertRowBelow": {
+          "custom": "⇧⌘D",
+          "default": "⇧⌘D"
+        },
+        "moveToDown": {
+          "custom": "⌥⌘B",
+          "default": "⌥⌘B"
+        },
+        "moveToLeft": {
+          "custom": "⌥⌘L",
+          "default": "⌥⌘L"
+        },
+        "moveToRight": {
+          "custom": "⌥⌘R",
+          "default": "⌥⌘R"
+        },
+        "moveToUp": {
+          "custom": "⌥⌘T",
+          "default": "⌥⌘T"
+        }
+      }
+    },
+    "general": {
+      "backlinks": {
+        "custom": "⌥7",
+        "default": "⌥7"
+      },
+      "bookmark": {
+        "custom": "⌥3",
+        "default": "⌥3"
+      },
+      "closeTab": {
+        "custom": "⌘W",
+        "default": "⌘W"
+      },
+      "config": {
+        "custom": "⌥P",
+        "default": "⌥P"
+      },
+      "dailyNote": {
+        "custom": "⌥5",
+        "default": "⌥5"
+      },
+      "enter": {
+        "custom": "⌥→",
+        "default": "⌥→"
+      },
+      "enterBack": {
+        "custom": "⌥←",
+        "default": "⌥←"
+      },
+      "fileTree": {
+        "custom": "⌥1",
+        "default": "⌥1"
+      },
+      "globalGraph": {
+        "custom": "⌥9",
+        "default": "⌥9"
+      },
+      "globalSearch": {
+        "custom": "⌘P",
+        "default": "⌘P"
+      },
+      "goBack": {
+        "custom": "⌘[",
+        "default": "⌘["
+      },
+      "goForward": {
+        "custom": "⌘]",
+        "default": "⌘]"
+      },
+      "graphView": {
+        "custom": "⌥8",
+        "default": "⌥8"
+      },
+      "history": {
+        "custom": "⌥H",
+        "default": "⌥H"
+      },
+      "inbox": {
+        "custom": "⌥6",
+        "default": "⌥6"
+      },
+      "lockScreen": {
+        "custom": "⌥N",
+        "default": "⌥N"
+      },
+      "move": {
+        "custom": "",
+        "default": ""
+      },
+      "newFile": {
+        "custom": "⌘N",
+        "default": "⌘N"
+      },
+      "outline": {
+        "custom": "⌥2",
+        "default": "⌥2"
+      },
+      "replace": {
+        "custom": "⌘R",
+        "default": "⌘R"
+      },
+      "search": {
+        "custom": "⌘F",
+        "default": "⌘F"
+      },
+      "selectOpen1": {
+        "custom": "",
+        "default": ""
+      },
+      "stickSearch": {
+        "custom": "⇧⌘F",
+        "default": "⇧⌘F"
+      },
+      "syncNow": {
+        "custom": "F9",
+        "default": "F9"
+      },
+      "tag": {
+        "custom": "⌥4",
+        "default": "⌥4"
+      },
+      "toggleWin": {
+        "custom": "⌥M",
+        "default": "⌥M"
+      }
+    }
+  },
   "sync": {
     "cloudName": "main",
     "enabled": false,
@@ -471,7 +842,7 @@
     "virtualRefDoc": true
   },
   "stat": {
-    "docCount": 12
+    "docCount": 13
   },
   "api": {
     "token": "3j2g7w89jh5546x1"

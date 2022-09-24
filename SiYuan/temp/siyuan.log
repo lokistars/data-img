@@ -710,3 +710,152 @@ I 2022/09/18 11:34:06 serve.go:78: kernel is booting [http://127.0.0.1:6806]
 I 2022/09/18 11:34:11 conf.go:533: database size [7.8 MB], block count [2092]
 I 2022/09/18 11:34:11 working.go:146: kernel booted
 I 2022/09/19 01:19:10 conf.go:370: exited kernel
+I 2022/09/19 15:36:44 working.go:106: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2022/09/19 15:36:44 runtime.go:47: kernel is booting:
+    * ver [2.1.8]
+    * arch [amd64]
+    * runtime mode [prod]
+    * working directory [F:\Tools\AppData\siyuan\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [D:\data-img\SiYuan, data 5.3 MB]
+I 2022/09/19 15:36:45 serve.go:78: kernel is booting [http://127.0.0.1:6806]
+I 2022/09/19 15:36:45 conf.go:531: database size [7.8 MB], block count [2092]
+I 2022/09/19 15:36:45 working.go:146: kernel booted
+I 2022/09/19 20:52:09 conf.go:370: exited kernel
+I 2022/09/20 14:19:12 working.go:106: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2022/09/20 14:19:12 runtime.go:47: kernel is booting:
+    * ver [2.1.8]
+    * arch [amd64]
+    * runtime mode [prod]
+    * working directory [F:\Tools\AppData\siyuan\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [D:\data-img\SiYuan, data 5.2 MB]
+I 2022/09/20 14:19:12 serve.go:78: kernel is booting [http://127.0.0.1:6806]
+I 2022/09/20 14:19:12 conf.go:531: database size [7.8 MB], block count [2092]
+I 2022/09/20 14:19:12 working.go:146: kernel booted
+I 2022/09/23 20:24:16 working.go:106: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2022/09/23 20:24:16 runtime.go:47: kernel is booting:
+    * ver [2.1.8]
+    * arch [amd64]
+    * runtime mode [prod]
+    * working directory [F:\Tools\AppData\siyuan\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [D:\data-img\SiYuan, data 5.2 MB]
+I 2022/09/23 20:24:16 serve.go:78: kernel is booting [http://127.0.0.1:6806]
+I 2022/09/23 20:24:16 conf.go:531: database size [7.8 MB], block count [2092]
+I 2022/09/23 20:24:16 working.go:146: kernel booted
+I 2022/09/23 20:26:50 conf.go:370: exited kernel
+I 2022/09/24 15:00:45 working.go:106: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2022/09/24 15:00:45 runtime.go:47: kernel is booting:
+    * ver [2.1.8]
+    * arch [amd64]
+    * runtime mode [prod]
+    * working directory [F:\Tools\AppData\siyuan\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [D:\data-img\SiYuan, data 5.2 MB]
+I 2022/09/24 15:00:45 serve.go:78: kernel is booting [http://127.0.0.1:6806]
+I 2022/09/24 15:00:45 conf.go:531: database size [7.8 MB], block count [2092]
+I 2022/09/24 15:00:45 working.go:146: kernel booted
+I 2022/09/24 17:15:16 conf.go:370: exited kernel
+I 2022/09/24 17:15:25 working.go:106: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2022/09/24 17:15:25 runtime.go:47: kernel is booting:
+    * ver [2.1.8]
+    * arch [amd64]
+    * runtime mode [prod]
+    * working directory [F:\Tools\AppData\siyuan\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [D:\data-img\SiYuan, data 5.3 MB]
+I 2022/09/24 17:15:25 serve.go:78: kernel is booting [http://127.0.0.1:6806]
+I 2022/09/24 17:15:25 conf.go:531: database size [8.3 MB], block count [2204]
+I 2022/09/24 17:15:25 working.go:146: kernel booted
+I 2022/09/24 17:19:22 conf.go:370: exited kernel
+I 2022/09/24 17:19:25 working.go:106: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2022/09/24 17:19:25 runtime.go:47: kernel is booting:
+    * ver [2.1.8]
+    * arch [amd64]
+    * runtime mode [prod]
+    * working directory [F:\Tools\AppData\siyuan\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [D:\data-img\SiYuan, data 5.6 MB]
+I 2022/09/24 17:19:25 serve.go:78: kernel is booting [http://127.0.0.1:6806]
+I 2022/09/24 17:19:25 conf.go:531: database size [9.7 MB], block count [2643]
+I 2022/09/24 17:19:25 working.go:146: kernel booted
+I 2022/09/24 17:33:45 conf.go:370: exited kernel

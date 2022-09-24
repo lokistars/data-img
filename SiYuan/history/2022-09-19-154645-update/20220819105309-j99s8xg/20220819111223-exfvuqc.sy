@@ -1,0 +1,20 @@
+{
+	"ID": "20220819111223-exfvuqc",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20220819111223-exfvuqc",
+		"scroll": "{\u0026amp;quot;startId\u0026amp;quot;:\u0026amp;quot;20220819111223-fwu6pff\u0026amp;quot;,\u0026amp;quot;endId\u0026amp;quot;:\u0026amp;quot;20220819111223-fwu6pff\u0026amp;quot;,\u0026amp;quot;scrollTop\u0026amp;quot;:0,\u0026amp;quot;focusId\u0026amp;quot;:\u0026amp;quot;20220819111223-fwu6pff\u0026amp;quot;,\u0026amp;quot;focusStart\u0026amp;quot;:0,\u0026amp;quot;focusEnd\u0026amp;quot;:0}",
+		"title": "基本数据类型",
+		"updated": "20220819112220"
+	},
+	"Children": [
+		{
+			"ID": "20220819111223-fwu6pff",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220819111223-fwu6pff",
+				"updated": "20220819111223"
+			}
+		}
+	]
+}
