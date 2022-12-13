@@ -1,0 +1,2309 @@
+{
+	"ID": "20220819111223-exfvuqc",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20220819111223-exfvuqc",
+		"scroll": "{\u0026amp;quot;startId\u0026amp;quot;:\u0026amp;quot;20220819111223-fwu6pff\u0026amp;quot;,\u0026amp;quot;endId\u0026amp;quot;:\u0026amp;quot;20220924153955-j4ey1hr\u0026amp;quot;,\u0026amp;quot;scrollTop\u0026amp;quot;:1800,\u0026amp;quot;focusId\u0026amp;quot;:\u0026amp;quot;20220924151700-k33v8x7\u0026amp;quot;,\u0026amp;quot;focusStart\u0026amp;quot;:4,\u0026amp;quot;focusEnd\u0026amp;quot;:4}",
+		"title": "ObjectMapper 对象使用",
+		"updated": "20220924155253"
+	},
+	"Children": [
+		{
+			"ID": "20220819111223-fwu6pff",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20220819111223-fwu6pff",
+				"updated": "20220924151035"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、前言"
+				}
+			]
+		},
+		{
+			"ID": "20220924151036-vmf3vu8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924151036-vmf3vu8",
+				"updated": "20220924151045"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Jackson和Fastjson都是比较出名的JSON解析库，SpringMVC默认使用的是Jackson，而且在企业项目中也大多使用的是Jackson，感觉还是很有必要熟悉Jackson的基本使用的。"
+				}
+			]
+		},
+		{
+			"ID": "20220924151046-1ortn58",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20220924151046-1ortn58",
+				"updated": "20220924151117"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、引入Jackson"
+				}
+			]
+		},
+		{
+			"ID": "20220924151140-hnergmu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924151140-hnergmu",
+				"updated": "20220924151145"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果是使用了SpringBoot的项目，引入spring-boot-starter-web就会自动引入Jackson。"
+				}
+			]
+		},
+		{
+			"ID": "20220924151118-d3twsqd",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924151118-d3twsqd",
+				"updated": "20220924151138"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "eG1s"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "        \u003cdependency\u003e\n            \u003cgroupId\u003ecom.fasterxml.jackson.core\u003c/groupId\u003e\n            \u003cartifactId\u003ejackson-databind\u003c/artifactId\u003e\n            \u003cversion\u003e2.13.1\u003c/version\u003e\n        \u003c/dependency\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924151146-i4wxl1t",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20220924151146-i4wxl1t",
+				"updated": "20220924151158"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、ObjectMapper"
+				}
+			]
+		},
+		{
+			"ID": "20220924151159-ao0xjq1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924151159-ao0xjq1",
+				"updated": "20220924151207"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们使用Jackson等工具时，最常见的场景就是JSON的序列化和反序列化。而Jackson最常用的的就是ObjectMapper, 它提供了丰富的方法。"
+				}
+			]
+		},
+		{
+			"ID": "20220924151207-69f3cdl",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20220924151207-69f3cdl",
+				"updated": "20220924151224"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、创建ObjectMapper"
+				}
+			]
+		},
+		{
+			"ID": "20220924151225-gn16qha",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924151225-gn16qha",
+				"updated": "20220924151247"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Autowired\nprivate ObjectMapper objectMapper;\nprivate ObjectMapper mapper = new ObjectMapper();\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924151248-nou4cuy",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20220924151248-nou4cuy",
+				"updated": "20220924151258"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2、序列化"
+				}
+			]
+		},
+		{
+			"ID": "20220924151329-z5w8crb",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924151329-z5w8crb",
+				"updated": "20220924151342"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.1、java对象转JSON"
+				}
+			]
+		},
+		{
+			"ID": "20220924151344-r3dxeti",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924151344-r3dxeti",
+				"updated": "20220924151356"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "Student student = getStudent();\nString studentStr = mapper.writeValueAsString(student);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924151326-8o3bkiz",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924151326-8o3bkiz",
+				"updated": "20220924151409"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.2、Java List 转 JSON"
+				}
+			]
+		},
+		{
+			"ID": "20220924151410-lu7fkts",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924151410-lu7fkts",
+				"updated": "20220924151430"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "List\u003cStudent\u003e studentList= getStudentList();\nString studentListStr = mapper.writeValueAsString(studentList);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924151409-qdht744",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924151409-qdht744",
+				"updated": "20220924151514"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.3、Java Map 转 JSON"
+				}
+			]
+		},
+		{
+			"ID": "20220924151439-aih4q7j",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924151439-aih4q7j",
+				"updated": "20220924151459"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "Map\u003cString, Object\u003e studentMap = new HashMap\u003c\u003e();\nstudentMap.put(\"id\", \"1\");\nstudentMap.put(\"name\", \"亚瑟\");\nstudentMap.put(\"age\", 33);\n\nString studentJsonStr = mapper.writeValueAsString(studentMap);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924151501-6v4i7zt",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924151501-6v4i7zt",
+				"updated": "20220924151511"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.4、 美化输出格式"
+				}
+			]
+		},
+		{
+			"ID": "20220924151515-8fh1fvv",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924151515-8fh1fvv",
+				"updated": "20220924151536"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "// 在调writeValueAsString之前先调writerWithDefaultPrettyPrinter\nString studentStr = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(student);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924151538-9uf7zf2",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924151538-9uf7zf2",
+				"updated": "20220924151552"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.5、 序列化结果写文件"
+				}
+			]
+		},
+		{
+			"ID": "20220924151553-p1xrz8k",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924151553-p1xrz8k",
+				"updated": "20220924151607"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "mapper.writeValue(new File(filePath), student);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924151608-b3fun1b",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20220924151608-b3fun1b",
+				"updated": "20220924151621"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3、反序列化"
+				}
+			]
+		},
+		{
+			"ID": "20220924151622-brw827v",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924151622-brw827v",
+				"updated": "20220924151636"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3.1、 JSON 转 Java对象"
+				}
+			]
+		},
+		{
+			"ID": "20220924151637-5tf2t1y",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924151637-5tf2t1y",
+				"updated": "20220924151646"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "String studentStr = getStudentString();\nStudent student = mapper.readValue(studentStr, Student.class);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924151647-stwzsjt",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924151647-stwzsjt",
+				"updated": "20220924151658"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3.2、 JSON 转 Java List"
+				}
+			]
+		},
+		{
+			"ID": "20220924151700-k33v8x7",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924151700-k33v8x7",
+				"updated": "20220924151722"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "List\u003cStudent\u003e studentList1 = mapper.readValue(studentListStr , new TypeReference\u003c\u003e() {});\n或者\nList\u003cStudent\u003e studentList2 = Arrays.asList(mapper.readValue(studentListStr, Student[].class));\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924151726-r0f7lbw",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924151726-r0f7lbw",
+				"updated": "20220924151739"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3.3、 JSON 转 Java Map"
+				}
+			]
+		},
+		{
+			"ID": "20220924151740-3dn4fsq",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924151740-3dn4fsq",
+				"updated": "20220924151748"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "HashMap studentMap = mapper.readValue(studentStr, HashMap.class);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924151804-bdxwr0r",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924151804-bdxwr0r",
+				"updated": "20220924151808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3.4、 JSON File 转 Java对象"
+				}
+			]
+		},
+		{
+			"ID": "20220924151809-lfht2qv",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924151809-lfht2qv",
+				"updated": "20220924151823"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "File file = new File(filePath);\nStudent student = mapper.readValue(file, Student.class);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924151834-7o0tya6",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924151834-7o0tya6",
+				"updated": "20220924151838"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3.5、 JSON Reader 转 Java对象"
+				}
+			]
+		},
+		{
+			"ID": "20220924151839-irnwgqn",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924151839-irnwgqn",
+				"updated": "20220924151859"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "File file = new File(filePath);\nReader reader = new java.io.FileReader(file);\nStudent student = mapper.readValue(reader, Student.class);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924151908-z5y8xv4",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924151908-z5y8xv4",
+				"updated": "20220924151912"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3.6、 JSON InputStream 转 Java对象"
+				}
+			]
+		},
+		{
+			"ID": "20220924151913-c115a8z",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924151913-c115a8z",
+				"updated": "20220924151921"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "InputStream inputStream = new FileInputStream(OBJECT_FILE_PATH_FROM_SRC);\nStudent student = mapper.readValue(inputStream, Student.class);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924151931-4yrs1lb",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924151931-4yrs1lb",
+				"updated": "20220924151947"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3.7、JSON Byte Array 转 Java对象"
+				}
+			]
+		},
+		{
+			"ID": "20220924151930-03d7jd9",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924151930-03d7jd9",
+				"updated": "20220924151956"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "Student student = mapper.readValue(studentStr.getBytes(StandardCharsets.UTF_8), Student.class);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924152002-r0lljhk",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924152002-r0lljhk",
+				"updated": "20220924152005"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3.8、 JSON via URL 转 Java对象"
+				}
+			]
+		},
+		{
+			"ID": "20220924152006-g3co3u8",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924152006-g3co3u8",
+				"updated": "20220924152016"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "URL url = new URL(\"file:\" + OBJECT_FILE_PATH_FROM_SRC);\nStudent student6 = mapper.readValue(url, Student.class);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924152018-l5l26g5",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20220924152018-l5l26g5",
+				"updated": "20220924152032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、Jackson注解"
+				}
+			]
+		},
+		{
+			"ID": "20220924152033-2ssg77r",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20220924152033-2ssg77r",
+				"updated": "20220924152045"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、序列化/反序列化都生效注解"
+				}
+			]
+		},
+		{
+			"ID": "20220924152050-4o3mnat",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924152050-4o3mnat",
+				"updated": "20220924152055"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.1、 @JsonIgnore"
+				}
+			]
+		},
+		{
+			"ID": "20220924152044-rc0cct0",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924152044-rc0cct0",
+				"updated": "20220924152103"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "工作中一般会修饰Java类的属性上，无论序列化还是反序列化，Jackson都会忽略这个属性。\n举个例子：@JsonIgnore修饰id属性"
+				}
+			]
+		},
+		{
+			"ID": "20220924152104-l8lpz9f",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924152104-l8lpz9f",
+				"updated": "20220924152159"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Data\n@AllArgsConstructor\n@NoArgsConstructor\npublic class StudentTestForJsonIgnore {\n    // 忽略id属性\n    @JsonIgnore\n    private String id;\n\n    private String name;\n  \n    //注意得用Integer，而不能用int\n    private Integer age;\n}\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924152201-id1zu3b",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924152201-id1zu3b",
+				"updated": "20220924152210"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2、 @JsonIgnoreProperties"
+				}
+			]
+		},
+		{
+			"ID": "20220924152228-qccgcfv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924152228-qccgcfv",
+				"updated": "20220924152231"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "@JsonIgnoreProperties的作用和@JsonIgnore类似，但是@JsonIgnoreProperties修饰在Java类上，它可设置忽略多个属性，且可以设置ignoreUnknown = true，反序列化时，忽略在JSON中存在，但在Java类中不存在的字段，而不报异常。\n举个例子：@JsonIgnoreProperties设置了\"id\", “age”，且设ignoreUnknown = true"
+				},
+				{
+					"Type": "NodeBr",
+					"Data": "br"
+				}
+			]
+		},
+		{
+			"ID": "20220924152211-g1og4o9",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924152211-g1og4o9",
+				"updated": "20220924152636"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Data\n@AllArgsConstructor\n@NoArgsConstructor\n@JsonIgnoreProperties(value = {\"id\", \"age\"}, ignoreUnknown = true)\npublic class StudentTestForJsonIgnoreProperties {\n    // 被忽略\n    private String id;\n\n    private String name;\n    // 被忽略\n    private Integer age;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924152518-tax6bfd",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924152518-tax6bfd",
+				"updated": "20220924152525"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.3、 @JsonIgnoreType"
+				}
+			]
+		},
+		{
+			"ID": "20220924152526-213w0uh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924152526-213w0uh",
+				"updated": "20220924152533"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当其他类有该类作为属性时，该属性将被忽略。\n举例：关于Student的类，添加了englishName属性。"
+				}
+			]
+		},
+		{
+			"ID": "20220924152534-cgdencc",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924152534-cgdencc",
+				"updated": "20220924152624"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Data\n@AllArgsConstructor\n@NoArgsConstructor\npublic class StudentTestForJsonIgnoreType {\n\n    private String id;\n\n    private String name;\n    // 被忽略\n    private EnglishName englishName;\n\n    private Integer age;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924152557-shkwvlq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924152557-shkwvlq",
+				"updated": "20220924152558"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "EnglishName 类定义如下，用@JsonIgnoreType修饰"
+				}
+			]
+		},
+		{
+			"ID": "20220924152559-66cn5gg",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924152559-66cn5gg",
+				"updated": "20220924152618"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Data\n@NoArgsConstructor\n@AllArgsConstructor\n@JsonIgnoreType \npublic class EnglishName {\n    public String firstName;\n    public String lastName;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924152647-z543j41",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924152647-z543j41",
+				"updated": "20220924152652"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.4、 @JsonProperty"
+				}
+			]
+		},
+		{
+			"ID": "20220924152701-hu14huv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924152701-hu14huv",
+				"updated": "20220924152702"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果JSON中字段名和Java类中的属性名不一致时，可以用@JsonProperty修饰在属性上。"
+				}
+			]
+		},
+		{
+			"ID": "20220924152653-fiacwc4",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924152653-fiacwc4",
+				"updated": "20220924152712"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Data\n@AllArgsConstructor\n@NoArgsConstructor\npublic class StudentTestForJsonProperty {\n\n    private String id;\n\n    @JsonProperty(\"studentName\")\n    private String name;\n\n    private Integer age;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924152737-qi8j3w2",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924152737-qi8j3w2",
+				"updated": "20220924152746"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.5、 @JsonAnyGetter和@JsonAnySetter"
+				}
+			]
+		},
+		{
+			"ID": "20220924152756-97gpwdu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924152756-97gpwdu",
+				"updated": "20220924152756"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "@JsonAnyGetter\n1.方法是非静态，没有参数的,方法名随意\n2.方法返回值必须是Map类型\n3.在一个实体类中仅仅用在一个方法上\n4.序列化的时候json字段的key就是返回Map的key,value就是Map的value"
+				}
+			]
+		},
+		{
+			"ID": "20220924152756-rqwml3w",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924152756-rqwml3w",
+				"updated": "20220924152759"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "@JsonAnySetter\n1.用在非静态方法上，注解的方法必须有两个参数，第一个是json字段中的key，第二个是value，方法名随意\n2.也可以用在Map对象属性上面，建议用在Map对象属性上面\n3.反序列化的时候将对应不上的字段全部放到Map里面"
+				},
+				{
+					"Type": "NodeBr",
+					"Data": "br"
+				}
+			]
+		},
+		{
+			"ID": "20220924152747-t8fps6i",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924152747-t8fps6i",
+				"updated": "20220924152822"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Data\n@AllArgsConstructor\n@NoArgsConstructor\npublic class StudentTestForJsonGetSet {\n\n    private String id;\n\n    private String name;\n\n    private Integer age;\n\n    private Map\u003cString, Object\u003e otherAttributes = new HashMap\u003c\u003e();\n\n    @JsonAnyGetter\n    public Map\u003cString, Object\u003e getOtherAttributes() {\n        return this.otherAttributes;\n    }\n\n    @JsonAnySetter\n    public void setOtherAttributes(String name, Object value) {\n        this.otherAttributes.put(name, value);\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924153227-ir6egxb",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20220924153227-ir6egxb",
+				"updated": "20220924153307"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2、仅序列化时生效注解"
+				}
+			]
+		},
+		{
+			"ID": "20220924153308-h8bvu2m",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924153308-h8bvu2m",
+				"updated": "20220924153318"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.1、 @JsonFormat"
+				}
+			]
+		},
+		{
+			"ID": "20220924153306-l7zkb4n",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924153306-l7zkb4n",
+				"updated": "20220924153324"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在序列化日期/时间值时指定格式。\n下面@JsonFormat注解指定时间序列化后的格式。"
+				}
+			]
+		},
+		{
+			"ID": "20220924153324-neex050",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924153324-neex050",
+				"updated": "20220924153336"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Data\n@AllArgsConstructor\n@NoArgsConstructor\npublic class StudentTestForJsonFormat {\n\n    private String id;\n\n    private String name;\n\n    private Integer age;\n\n    //默认情况下，Date序列化为自1970年1月1日以来的毫秒数（long类型）\n    @JsonFormat(pattern = \"yyyy-MM-dd HH:mm:ss\", timezone = \"GMT+8\")\n    private Date time;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924153348-tjmkm0p",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924153348-tjmkm0p",
+				"updated": "20220924153352"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.2、 @JsonInclude"
+				}
+			]
+		},
+		{
+			"ID": "20220924153353-hebopjs",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924153353-hebopjs",
+				"updated": "20220924153359"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "@JsonInclude是非常重要的且常用的注解，它可以修饰在类名上或者属性上，但是一般为了更加细粒度的控制，都修饰在属性上。"
+				}
+			]
+		},
+		{
+			"ID": "20220924153359-n4fpktn",
+			"Type": "NodeTable",
+			"TableAligns": [
+				0,
+				0
+			],
+			"Properties": {
+				"colgroup": "|",
+				"id": "20220924153359-n4fpktn",
+				"updated": "20220924153558"
+			},
+			"Children": [
+				{
+					"Type": "NodeTableHead",
+					"Data": "thead",
+					"Children": [
+						{
+							"Type": "NodeTableRow",
+							"Data": "tr",
+							"Children": [
+								{
+									"Type": "NodeTableCell",
+									"Data": "th",
+									"Children": [
+										{
+											"Type": "NodeText",
+											"Data": "类型"
+										}
+									]
+								},
+								{
+									"Type": "NodeTableCell",
+									"Data": "th",
+									"Children": [
+										{
+											"Type": "NodeText",
+											"Data": "说明"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "ALWAYS"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "这个是默认值，无论属性值是否为空，都参加序列化"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "NON_NULL"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "属性值不是NULL，才参加序列化"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "NON_ABSENT"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "NON_NULL的增强版，Optional类型不是null，且isPresent()为true，才参加序列化。 "
+								},
+								{
+									"Type": "NodeBr",
+									"Data": "br"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "实际开发中并不建议在实体类定义Optional类型的属性，如果你非要用，一定要赋默认值，比如Optional.empty()。"
+								},
+								{
+									"Type": "NodeBr",
+									"Data": "br"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "NON_EMPTY"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "属性值不是NULL，也不是\"\"，如果是集合则isEmpty() = false，才参加序列化"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "NON_DEFAULT"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "属性值为缺省值时不序列化，比如int类型=0，String类型=null，这样不参加序列化。 "
+								},
+								{
+									"Type": "NodeBr",
+									"Data": "br"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "实际开发中不要在实体类中用基础类型(如int，float)，要用Integer代替int，"
+								},
+								{
+									"Type": "NodeBr",
+									"Data": "br"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Type": "NodeTableRow",
+					"Data": "tr",
+					"Children": [
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "CUSTOM"
+								}
+							]
+						},
+						{
+							"Type": "NodeTableCell",
+							"Data": "td",
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "结合注解JsonInclude.valueFilter和JsonInclude.contentFilter使用，这两个注解会指定一个Class，"
+								},
+								{
+									"Type": "NodeBr",
+									"Data": "br"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "然后默认调用这个Class的空参构造方法，返回的对象eques属性值的话，序列化时就忽略。"
+								},
+								{
+									"Type": "NodeBr",
+									"Data": "br"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20220924153605-essrsfn",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924153605-essrsfn",
+				"updated": "20220924153720"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Data\n@AllArgsConstructor\n@NoArgsConstructor\npublic class StudentTestForJsonInclude {\n\n    //哪怕是null，也会参与序列化\n    @JsonInclude\n    private String id;\n\n    //非NULL\n    @JsonInclude(JsonInclude.Include.NON_NULL)\n    private String name;\n\n    //非NULL，非Optional.empty()\n    @JsonInclude(JsonInclude.Include.NON_ABSENT)\n    private Optional\u003cString\u003e nickName;\n\n    @JsonInclude(JsonInclude.Include.NON_ABSENT)\n    private Optional\u003cString\u003e nickName2;\n\n    //非NULL，非“”，\n    @JsonInclude(JsonInclude.Include.NON_EMPTY)\n    private String englishName;\n\n    //非NULL，集合isEmpty() = false\n    @JsonInclude(JsonInclude.Include.NON_EMPTY)\n    private List\u003cCourseScore\u003e courseScores;\n\n    //属性值为缺省值时，不序列化\n    @JsonInclude(JsonInclude.Include.NON_DEFAULT)\n    private Integer age = 0;\n}\n\n//注意要设置这个，用来支持Optional类型\nmapper.registerModule(new Jdk8Module());\n\nStudentTestForJsonInclude stu = new StudentTestForJsonInclude();\nstu.setId(null);\nstu.setName(null);\nstu.setNickName(Optional.ofNullable(\"亚瑟\"));\nstu.setNickName2(Optional.empty());\nstu.setEnglishName(\"\");\nstu.setCourseScores(new ArrayList\u003c\u003e());\nstu.setAge(0);\n\n//序列化\nString stuStr = mapper.writeValueAsString(stu);\nSystem.out.println(stuStr);\n\n//结果\n{\"id\":null,\"nickName\":\"亚瑟\"}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924153725-fp1twh9",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924153725-fp1twh9",
+				"updated": "20220924153735"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.3、 @JsonPropertyOrder"
+				}
+			]
+		},
+		{
+			"ID": "20220924153732-eq26nhs",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924153732-eq26nhs",
+				"updated": "20220924153743"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在序列化的时候自定义属性输出顺序\n在类上修饰@JsonPropertyOrder，指定序列化后的JSON字段顺序为\"age\", “studentName”, “id”"
+				}
+			]
+		},
+		{
+			"ID": "20220924153744-rshu6wf",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924153744-rshu6wf",
+				"updated": "20220924153757"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "@Data\n@AllArgsConstructor\n@NoArgsConstructor\n@JsonPropertyOrder(value = {\"age\", \"studentName\", \"id\"})\npublic class StudentTestForJsonPropertyOrder {\n\n    private String id;\n\n    @JsonProperty(\"studentName\")\n    private String name;\n\n    private Integer age;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924153805-ytiug1p",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924153805-ytiug1p",
+				"updated": "20220924153808"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.4、 @JsonView"
+				}
+			]
+		},
+		{
+			"ID": "20220924153809-2flktkr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924153809-2flktkr",
+				"updated": "20220924153815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "@JsonView是Jackson的一个很实用的注解，比如一个类的对象，要根据当前登录人的权限来分别序列化成他只能看到的字段。比如数据库里一条员工信息，老板和小组长的权限不同，应该看到的数据范围也不同。"
+				}
+			]
+		},
+		{
+			"ID": "20220924153816-925gs1i",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924153816-925gs1i",
+				"updated": "20220924153839"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class Views {\n\n    public static class NameOnly{};\n\n\t//NameAndAge 继承了 NameOnly\n    public static class NameAndAge extends NameOnly{};\n}\n\n@Data\n@AllArgsConstructor\n@NoArgsConstructor\npublic class StudentTestForJsonView {\n\n    private String id;\n\n    @JsonView(Views.NameOnly.class)\n    private String name;\n\n    @JsonView(Views.NameAndAge.class)\n    private Integer age;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924153952-aaum7en",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924153952-aaum7en",
+				"updated": "20220924153952"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.5 @JsonRawValue"
+				}
+			]
+		},
+		{
+			"ID": "20220924154003-7688c6o",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924154003-7688c6o",
+				"updated": "20220924154007"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "@JsonRawValue完全按照原样序列化属性的值"
+				}
+			]
+		},
+		{
+			"ID": "20220924153955-j4ey1hr",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924153955-j4ey1hr",
+				"updated": "20220924154002"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class RawBean {\n    public String name;\n \n    @JsonRawValue\n    public String json;\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924154031-u9514hy",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20220924154031-u9514hy",
+				"updated": "20220924154054"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "四、JsonNode，ObjectNode"
+				}
+			]
+		},
+		{
+			"ID": "20220924154106-n0qmuis",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20220924154106-n0qmuis",
+				"updated": "20220924154124"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、JsonNode作用"
+				}
+			]
+		},
+		{
+			"ID": "20220924154124-36lgsdz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924154124-36lgsdz",
+				"updated": "20220924154130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "JsonNode是Jackson中为了处理JOSN文本的树模型(tree model)。可以将JSON文本转成JsonNode，也可以将JsonNode转成JOSN文本。JsonNode是只读的，不可修改，用它可以方便的获取JSON中某字段的值。"
+				}
+			]
+		},
+		{
+			"ID": "20220924154134-ly4jpr1",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924154134-ly4jpr1",
+				"updated": "20220924154134"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2. JsonNode VS ObjectNode"
+				}
+			]
+		},
+		{
+			"ID": "20220924154142-kkdwxhs",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924154142-kkdwxhs",
+				"updated": "20220924154142"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ObjectNode和ArrayNode都是JsonNode类的扩展，不同的是JsonNode是只读的，而ObjectNode和ArrayNode是可以修改的。如果只是从JSON文本中读取数据，用JsonNode就够了。"
+				}
+			]
+		},
+		{
+			"ID": "20220924154142-n1wn929",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924154142-n1wn929",
+				"updated": "20220924154207"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ObjectNode是一个JSON对象节点，ArrayNode就是一个数组，可以包含多个ObjectNode。"
+				},
+				{
+					"Type": "NodeBr",
+					"Data": "br"
+				}
+			]
+		},
+		{
+			"ID": "20220924154200-yuaiklk",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924154200-yuaiklk",
+				"updated": "20220924154203"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3、只读的JsonNode"
+				}
+			]
+		},
+		{
+			"ID": "20220924154204-k7pxaeg",
+			"Type": "NodeHeading",
+			"HeadingLevel": 5,
+			"Properties": {
+				"id": "20220924154204-k7pxaeg",
+				"updated": "20220924154223"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3.1、JSON 和 JsonNode 相互转换"
+				}
+			]
+		},
+		{
+			"ID": "20220924154236-q39wpt5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924154236-q39wpt5",
+				"updated": "20220924154236"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "使用ObjectMapper 的readTree方法可以轻松将JSON转JsonNode"
+				}
+			]
+		},
+		{
+			"ID": "20220924154225-87vbo93",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924154225-87vbo93",
+				"updated": "20220924154248"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "FileReader fileReader = new FileReader(filePath);\nString studentStr = fileReader.readString();\n\nObjectMapper mapper = new ObjectMapper();\nJsonNode rootNode = mapper.readTree(studentStr);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924154255-yekjho5",
+			"Type": "NodeHeading",
+			"HeadingLevel": 5,
+			"Properties": {
+				"id": "20220924154255-yekjho5",
+				"updated": "20220924154301"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3.2、JsonNode 转 JSON："
+				}
+			]
+		},
+		{
+			"ID": "20220924154303-0jihavb",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924154303-0jihavb",
+				"updated": "20220924154310"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "String json = mapper.writeValueAsString(rootNode);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924154313-na6n9if",
+			"Type": "NodeHeading",
+			"HeadingLevel": 5,
+			"Properties": {
+				"id": "20220924154313-na6n9if",
+				"updated": "20220924154323"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3.3、JsonNode 转 Java对象："
+				}
+			]
+		},
+		{
+			"ID": "20220924154313-09ys72f",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924154313-09ys72f",
+				"updated": "20220924154331"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "Student student = mapper.treeToValue(rootNode, Student.class);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924154313-4atafoy",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924154313-4atafoy",
+				"updated": "20220924154344"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4、使用get方法取值"
+				}
+			]
+		},
+		{
+			"ID": "20220924154314-djvljll",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924154314-djvljll",
+				"updated": "20220924154422"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "get方法定义如下,get方法也是返回一个JsonNode。"
+				}
+			]
+		},
+		{
+			"ID": "20220924154430-fpxuuuw",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20220924154430-fpxuuuw",
+				"updated": "20220924154430"
+			},
+			"Children": [
+				{
+					"ID": "20220924154430-759lenm",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20220924154430-759lenm",
+						"updated": "20220924154430"
+					},
+					"Children": [
+						{
+							"ID": "20220924154430-92bmdyi",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20220924154430-92bmdyi",
+								"updated": "20220924154430"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果 fieldName是在JSON中不存在的字段，则直接返回null。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20220924154430-285bn1t",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20220924154430-285bn1t"
+					},
+					"Children": [
+						{
+							"ID": "20220924154435-7633u81",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20220924154435-7633u81",
+								"updated": "20220924154435"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "如果字段的值本来就是null，比如\"nickName\"，那么会返回一个NullNode，这个NullNode的textValue()就是\"null\"。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20220924154405-yutja33",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924154405-yutja33",
+				"updated": "20220924154624"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public JsonNode get(String fieldName)\nget(\"不存在的字段\") = null      rootNode.get(\"不存在的字段\");\nget(\"studentName\") = \"王三\"    rootNode.get(\"studentName\");\nget(\"nickName\") = null        rootNode.get(\"nickName\").textValue();\nget(\"age\").intValue() = 32    rootNode.get(\"age\").intValue();\nget(\"age\").textValue() = null rootNode.get(\"age\").textValue();\nget(\"joinDate\") = \"2019-03-10 11:15:39\"        rootNode.get(\"joinDate\");\nget(\"valid\") = true         rootNode.get(\"valid\");\nget(\"courseScores\") = [{\"course\":\"Java\",\"score\":95}]    rootNode.get(\"courseScores\");\nget(\"courseScoresGroup\") = {\"A\":[\"Java\",\"C#\"],\"B\":[\"C++\"]}} rootNode.get(\"courseScoresGroup\");\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924154417-bs6ka71",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20220924154417-bs6ka71",
+				"updated": "20220924154649"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "5、使用path方法取值"
+				}
+			]
+		},
+		{
+			"ID": "20220924154649-clorkto",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924154649-clorkto",
+				"updated": "20220924154653"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "path方法和get方法类似，但是如果取一个不存在的字段的值，返回的是MissingNode对象，它可以调用textValue()，这样的好处可以避免一些空指针问题，所以一定要注意get和path的区别。"
+				}
+			]
+		},
+		{
+			"ID": "20220924154654-d89on6e",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924154654-d89on6e",
+				"updated": "20220924154939"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "path(\"不存在的字段\") =                  rootNode.path(\"不存在的字段\"));\npath(\"不存在的字段\").textValue() = null rootNode.path(\"不存在的字段\").textValue());\npath(\"studentName\") = \"王三\"           rootNode.path(\"studentName\"));\npath(\"nickName\") = null               rootNode.path(\"nickName\"));\npath(\"age\") = 32   \t\t      rootNode.path(\"age\"));\npath(\"courseScores\") = [{\"course\":\"Java\",\"score\":95}]  rootNode.path(\"courseScores\"));\npath(\"courseScoresGroup\") = {\"A\":[\"Java\",\"C#\"],\"B\":[\"C++\"]}   rootNode.path(\"courseScoresGroup\"));\n\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924154946-gfb4u20",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924154946-gfb4u20",
+				"updated": "20220924154952"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "6、 使用at方法取值"
+				}
+			]
+		},
+		{
+			"ID": "20220924154948-s5xrfmc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924154948-s5xrfmc",
+				"updated": "20220924155002"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "因为JSON是有层级的数据格式，可以用at方法指定字段的路径，获取下面层级的字段。\n如果指定了一个不存在的路径，返回的是MissingNode对象，这个特点和path相同。"
+				}
+			]
+		},
+		{
+			"ID": "20220924155003-9vpmerg",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924155003-9vpmerg",
+				"updated": "20220924155030"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "rootNode.at(\"/studentName\")\nJsonNode at1 = rootNode.at(\"/courseScoresGroup/A\");\nJsonNode at2 = rootNode.at(\"/courseScoresGroup/E\");\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924155115-6llb7z6",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20220924155115-6llb7z6",
+				"updated": "20220924155118"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2、可修改的ObjectNode"
+				}
+			]
+		},
+		{
+			"ID": "20220924155121-ikiptgw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924155121-ikiptgw",
+				"updated": "20220924155135"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "用ObjectNode可以自己构建JSON的内容，然后把ObjectNode转成JSON文本。"
+				}
+			]
+		},
+		{
+			"ID": "20220924155135-2a61lir",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924155135-2a61lir",
+				"updated": "20220924155150"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "ObjectMapper mapper = new ObjectMapper();\nObjectNode studentNode = mapper.createObjectNode();\nstudentNode.put(\"id\", \"1\");\nstudentNode.put(\"name\", \"亚瑟\");\nstudentNode.put(\"age\", 30);\n//添加一个数组\nList\u003cCourseScore\u003e courseScores = new ArrayList\u003c\u003e();\ncourseScores.add(new CourseScore(\"Java\", 100));\ncourseScores.add(new CourseScore(\"C++\", 90));\nstudentNode.put(\"courseScores\", courseScores.toString());\nSystem.out.println(studentNode.toPrettyString());\n//删除一个属性\nstudentNode.remove(\"name\");\nSystem.out.println(studentNode.toPrettyString());\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924154054-hh7ymcz",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"fold": "1",
+				"id": "20220924154054-hh7ymcz",
+				"updated": "20220924154104"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "五、可修改的ArrayNode"
+				}
+			]
+		},
+		{
+			"ID": "20220924154047-kq467s7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"fold": "1",
+				"heading-fold": "1",
+				"id": "20220924154047-kq467s7"
+			}
+		},
+		{
+			"ID": "20220924154045-fllnv0a",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"fold": "1",
+				"heading-fold": "1",
+				"id": "20220924154045-fllnv0a"
+			}
+		},
+		{
+			"ID": "20220924154648-lo9pjhi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924154648-lo9pjhi",
+				"updated": "20220924155205"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果属性的值是数组，你不需要对其修改时，直接用JsonNode 就行，isArray()判断是否是数组"
+				}
+			]
+		},
+		{
+			"ID": "20220924155206-muzhm02",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924155206-muzhm02",
+				"updated": "20220924155217"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "JsonNode courseScores = rootNode.get(\"courseScores\");\nif (courseScores.isArray() \u0026\u0026 !courseScores.isEmpty()) {\n    Iterator\u003cJsonNode\u003e elements = courseScores.elements();\n    while (elements.hasNext()) {\n        JsonNode score = elements.next();\n        System.out.println(score.toString());\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924155221-f0vigsm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924155221-f0vigsm",
+				"updated": "20220924155221"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果需要对值进行修改编辑，就得用ArrayNode 。"
+				}
+			]
+		},
+		{
+			"ID": "20220924155222-dqjxr2b",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20220924155222-dqjxr2b",
+				"updated": "20220924155232"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "//创建一个pythonNode \nObjectNode pythonNode = mapper.createObjectNode();\npythonNode.put(\"course\", \"python\");\npythonNode.put(\"score\", 100);\n\nArrayNode arrayNode = (ArrayNode)rootNode.get(\"courseScores\");\nif (arrayNode.isArray() \u0026\u0026 !arrayNode.isEmpty()) {\n    //删除第一个Java\n    arrayNode.remove(0);\n  \n    //又添加了一个python\n    arrayNode.add(pythonNode);\n    Iterator\u003cJsonNode\u003e elements = arrayNode.elements();\n    while (elements.hasNext()) {\n        JsonNode score = elements.next();\n        System.out.println(score.toString());\n    }\n}\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20220924155236-6dutn6u",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220924155236-6dutn6u"
+			}
+		}
+	]
+}

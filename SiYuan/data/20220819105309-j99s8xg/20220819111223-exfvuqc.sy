@@ -3,9 +3,9 @@
 	"Type": "NodeDocument",
 	"Properties": {
 		"id": "20220819111223-exfvuqc",
-		"scroll": "{\u0026amp;quot;startId\u0026amp;quot;:\u0026amp;quot;20220819111223-fwu6pff\u0026amp;quot;,\u0026amp;quot;endId\u0026amp;quot;:\u0026amp;quot;20220924155236-6dutn6u\u0026amp;quot;,\u0026amp;quot;scrollTop\u0026amp;quot;:0,\u0026amp;quot;focusId\u0026amp;quot;:\u0026amp;quot;20220924151146-i4wxl1t\u0026amp;quot;,\u0026amp;quot;focusStart\u0026amp;quot;:2,\u0026amp;quot;focusEnd\u0026amp;quot;:14}",
+		"scroll": "{\u0026amp;quot;startId\u0026amp;quot;:\u0026amp;quot;20220819111223-fwu6pff\u0026amp;quot;,\u0026amp;quot;endId\u0026amp;quot;:\u0026amp;quot;20220924153955-j4ey1hr\u0026amp;quot;,\u0026amp;quot;scrollTop\u0026amp;quot;:1800,\u0026amp;quot;focusId\u0026amp;quot;:\u0026amp;quot;20220924151700-k33v8x7\u0026amp;quot;,\u0026amp;quot;focusStart\u0026amp;quot;:4,\u0026amp;quot;focusEnd\u0026amp;quot;:4}",
 		"title": "ObjectMapper 对象使用",
-		"updated": "20220924155253"
+		"updated": "20221204004048"
 	},
 	"Children": [
 		{
@@ -86,6 +86,48 @@
 				{
 					"Type": "NodeCodeBlockCode",
 					"Data": "        \u003cdependency\u003e\n            \u003cgroupId\u003ecom.fasterxml.jackson.core\u003c/groupId\u003e\n            \u003cartifactId\u003ejackson-databind\u003c/artifactId\u003e\n            \u003cversion\u003e2.13.1\u003c/version\u003e\n        \u003c/dependency\u003e\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20221203143631-jxljw2p",
+			"Type": "NodeHeading",
+			"HeadingLevel": 5,
+			"Properties": {
+				"id": "20221203143631-jxljw2p",
+				"updated": "20221203143642"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、1 全局设置"
+				}
+			]
+		},
+		{
+			"ID": "20221203143643-ek9x5on",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20221203143643-ek9x5on",
+				"updated": "20221203232406"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "spring:\n  jackson:\n    constructor-detector: EXPLICIT_ONLY\n    # 设置日志格式化格式，配置为日期格式字符串或完全限定的日期格式类名。例如 yyyy-MM-dd HH:mm:ss\n    date-format: yyyy-MM-dd HH:mm:ss\n    # 宽松的全局默认设置\n    default-leniency: true\n    # 控制序列化期间包含的属性。使用 Jackson 的 JsonInclude.Include 枚举中的值之一进行配置。\n   //JsonInclude.Include.ALWAYS 默认 \n   //JsonInclude.Include.NON_DEFAULT 属性为默认值不序列化 \n   //JsonInclude.Include.NON_EMPTY 属性为 空（\"\"） 或者为 NULL 都不序列化 \n   //JsonInclude.Include.NON_NULL 属性为NULL 不序列化\n    default-property-inclusion: always\n    # 序列化配置 ，MAP 集合 ， Map\u003cSerializationFeature, Boolean\u003e\n    serialization:\n      EAGER_SERIALIZER_FETCH: true\n    # 反序列化特征，Map\u003cDeserializationFeature, Boolean\u003e\n    deserialization:\n      USE_BIG_DECIMAL_FOR_FLOATS: true\n    # ObjectMapper/JsonMapper特征,Map\u003cMapperFeature, Boolean\u003e\n    mapper:\n      AUTO_DETECT_GETTERS: true\n    # 生成器JsonGenerator.Feature，Map\u003ccom.fasterxml.jackson.core.JsonGenerator.Feature, Boolean\u003e\n    generator:\n      AUTO_CLOSE_TARGET: true\n    # 地区\n    locale: zh_CN\n    # 解析器 Map\u003cFeature, Boolean\u003e\n    # parser:\n    # 设置属性命名策略,对应jackson下PropertyNamingStrategy中的常量值，SNAKE_CASE-返回的json驼峰式转下划线，json body下划线传到后端自动转驼峰式\n    property-naming-strategy: SNAKE_CASE\n    # 全局时区\n    time-zone: GMT+8\n    # 可见性阈值，可用于限制自动检测哪些方法（和字段）。\n    visibility:\n      GETTER: ANY\n"
 				},
 				{
 					"Type": "NodeCodeBlockFenceCloseMarker",
@@ -390,6 +432,48 @@
 			]
 		},
 		{
+			"ID": "20221203141233-9jaxcp5",
+			"Type": "NodeHeading",
+			"HeadingLevel": 5,
+			"Properties": {
+				"id": "20221203141233-9jaxcp5",
+				"updated": "20221203141307"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.6、Map 转对象 或 对象转map"
+				}
+			]
+		},
+		{
+			"ID": "20221203141308-q5bro2a",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20221203141308-q5bro2a",
+				"updated": "20221203141336"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "mapper.convertValue(map, Student.class);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
 			"ID": "20220924151608-b3fun1b",
 			"Type": "NodeHeading",
 			"HeadingLevel": 3,
@@ -467,7 +551,7 @@
 			"IsFencedCodeBlock": true,
 			"Properties": {
 				"id": "20220924151700-k33v8x7",
-				"updated": "20220924151722"
+				"updated": "20221204004048"
 			},
 			"Children": [
 				{
@@ -480,7 +564,7 @@
 				},
 				{
 					"Type": "NodeCodeBlockCode",
-					"Data": "List\u003cStudent\u003e studentList1 = mapper.readValue(studentListStr , new TypeReference\u003c\u003e() {});\n或者\nList\u003cStudent\u003e studentList2 = Arrays.asList(mapper.readValue(studentListStr, Student[].class));\n"
+					"Data": "// TypeReference 可以指定类型\nList\u003cStudent\u003e studentList1 = mapper.readValue(studentListStr , new TypeReference\u003c\u003e() {});\n或者\nList\u003cStudent\u003e studentList2 = Arrays.asList(mapper.readValue(studentListStr, Student[].class));\n"
 				},
 				{
 					"Type": "NodeCodeBlockFenceCloseMarker",
