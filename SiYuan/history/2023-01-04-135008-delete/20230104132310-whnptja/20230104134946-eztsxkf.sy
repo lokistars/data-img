@@ -1,0 +1,19 @@
+{
+	"ID": "20230104134946-eztsxkf",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230104134946-eztsxkf",
+		"title": "daily note",
+		"updated": "20230104134946"
+	},
+	"Children": [
+		{
+			"ID": "20230104134946-34mto0a",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230104134946-34mto0a",
+				"updated": "20230104134946"
+			}
+		}
+	]
+}
