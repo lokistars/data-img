@@ -1,0 +1,2621 @@
+{
+	"ID": "20230107153926-vjk0wle",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230107153926-vjk0wle",
+		"title": "运维管理",
+		"updated": "20230107153926"
+	},
+	"Children": [
+		{
+			"ID": "20230107153926-fdc9khe",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153926-fdc9khe",
+				"updated": "20230107153926"
+			}
+		},
+		{
+			"ID": "20230107153951-5ooo495",
+			"Type": "NodeHeading",
+			"HeadingLevel": 1,
+			"Properties": {
+				"id": "20230107153951-5ooo495",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "运维管理"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-t2w48bg",
+			"Type": "NodeThematicBreak",
+			"Properties": {
+				"id": "20230107153951-t2w48bg",
+				"updated": "20230107153951"
+			}
+		},
+		{
+			"ID": "20230107153951-591a6jf",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230107153951-591a6jf",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1   集群搭建"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-rdz5tq1",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230107153951-rdz5tq1",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.1 单Master模式"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-pgdhzpp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-pgdhzpp",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "这种方式风险较大，一旦Broker重启或者宕机时，会导致整个服务不可用。不建议线上环境使用,可以用于本地测试。"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-231wjvr",
+			"Type": "NodeHeading",
+			"HeadingLevel": 5,
+			"Properties": {
+				"id": "20230107153951-231wjvr",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1）启动 NameServer"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-nh3u80l",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230107153951-nh3u80l",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "### 首先启动Name Server\n$ nohup sh mqnamesrv \u0026\n \n### 验证Name Server 是否启动成功\n$ tail -f ~/logs/rocketmqlogs/namesrv.log\nThe Name Server boot success...\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-5q4gwiu",
+			"Type": "NodeHeading",
+			"HeadingLevel": 5,
+			"Properties": {
+				"id": "20230107153951-5q4gwiu",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2）启动 Broker"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-llot3pp",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230107153951-llot3pp",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "### 启动Broker\n$ nohup sh bin/mqbroker -n localhost:9876 \u0026\n​\n### 验证Broker是否启动成功，例如Broker的IP为：192.168.1.2，且名称为broker-a\n$ tail -f ~/logs/rocketmqlogs/broker.log \nThe broker[broker-a, 192.169.1.2:10911] boot success...\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-obpfsmy",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230107153951-obpfsmy",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.2 多Master模式"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-qemybte",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-qemybte",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "一个集群无Slave，全是Master，例如2个Master或者3个Master，这种模式的优缺点如下："
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-d1nd4m8",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230107153951-d1nd4m8",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"ID": "20230107153951-xnyta7g",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230107153951-xnyta7g",
+						"updated": "20230107153951"
+					},
+					"Children": [
+						{
+							"ID": "20230107153951-6u6dg1j",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230107153951-6u6dg1j",
+								"updated": "20230107153951"
+							},
+							"Children": [
+								{
+									"Type": "NodeStrong",
+									"Data": "strong",
+									"Children": [
+										{
+											"Type": "NodeStrongA6kOpenMarker",
+											"Data": "**"
+										},
+										{
+											"Type": "NodeText",
+											"Data": "优点：配置简单，单个Master宕机或重启维护对应用无影响，在磁盘配置为RAID10时，即使机器宕机不可恢复情况下，由于RAID10磁盘非常可靠，消息也不会丢（异步刷盘丢失少量消息，同步刷盘一条不丢），性能最高；"
+										},
+										{
+											"Type": "NodeStrongA6kCloseMarker",
+											"Data": "**"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230107153951-egnzovk",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230107153951-egnzovk",
+						"updated": "20230107153951"
+					},
+					"Children": [
+						{
+							"ID": "20230107153951-3cpuwjq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230107153951-3cpuwjq",
+								"updated": "20230107153951"
+							},
+							"Children": [
+								{
+									"Type": "NodeStrong",
+									"Data": "strong",
+									"Children": [
+										{
+											"Type": "NodeStrongA6kOpenMarker",
+											"Data": "**"
+										},
+										{
+											"Type": "NodeText",
+											"Data": "缺点：单台机器宕机期间，这台机器上未被消费的消息在机器恢复之前不可订阅，消息实时性会受到影响。"
+										},
+										{
+											"Type": "NodeStrongA6kCloseMarker",
+											"Data": "**"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-g87ls3b",
+			"Type": "NodeHeading",
+			"HeadingLevel": 5,
+			"Properties": {
+				"id": "20230107153951-g87ls3b",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1）启动NameServer"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-ydr9k9m",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-ydr9k9m",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "NameServer需要先于Broker启动，且如果在生产环境使用，为了保证高可用，建议一般规模的集群启动3个NameServer，各节点的启动命令相同，如下："
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-0t8uxge",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230107153951-0t8uxge",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "### 首先启动Name Server\n$ nohup sh mqnamesrv \u0026\n \n### 验证Name Server 是否启动成功\n$ tail -f ~/logs/rocketmqlogs/namesrv.log\nThe Name Server boot success...\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-6mc2xl2",
+			"Type": "NodeHeading",
+			"HeadingLevel": 5,
+			"Properties": {
+				"id": "20230107153951-6mc2xl2",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2）启动Broker集群"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-bnyl568",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230107153951-bnyl568",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "### 在机器A，启动第一个Master，例如NameServer的IP为：192.168.1.1\n$ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-noslave/broker-a.properties \u0026\n \n### 在机器B，启动第二个Master，例如NameServer的IP为：192.168.1.1\n$ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-noslave/broker-b.properties \u0026\n​\n...\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-7tb8pja",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-7tb8pja",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "如上启动命令是在单个NameServer情况下使用的。对于多个NameServer的集群，Broker启动命令中"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "-n"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "后面的地址列表用分号隔开即可，例如 "
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "192.168.1.1:9876;192.161.2:9876"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "。"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-gt5740s",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230107153951-gt5740s",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.3 多Master多Slave模式-异步复制"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-2dllrb3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-2dllrb3",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "每个Master配置一个Slave，有多对Master-Slave，HA采用异步复制方式，主备有短暂消息延迟（毫秒级），这种模式的优缺点如下："
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-ich1tt4",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230107153951-ich1tt4",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"ID": "20230107153951-ybl2fwl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230107153951-ybl2fwl",
+						"updated": "20230107153951"
+					},
+					"Children": [
+						{
+							"ID": "20230107153951-lds45h9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230107153951-lds45h9",
+								"updated": "20230107153951"
+							},
+							"Children": [
+								{
+									"Type": "NodeStrong",
+									"Data": "strong",
+									"Children": [
+										{
+											"Type": "NodeStrongA6kOpenMarker",
+											"Data": "**"
+										},
+										{
+											"Type": "NodeText",
+											"Data": "优点：即使磁盘损坏，消息丢失的非常少，且消息实时性不会受影响，同时Master宕机后，消费者仍然可以从Slave消费，而且此过程对应用透明，不需要人工干预，性能同多Master模式几乎一样；"
+										},
+										{
+											"Type": "NodeStrongA6kCloseMarker",
+											"Data": "**"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230107153951-5ios5fa",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230107153951-5ios5fa",
+						"updated": "20230107153951"
+					},
+					"Children": [
+						{
+							"ID": "20230107153951-mdhnvv8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230107153951-mdhnvv8",
+								"updated": "20230107153951"
+							},
+							"Children": [
+								{
+									"Type": "NodeStrong",
+									"Data": "strong",
+									"Children": [
+										{
+											"Type": "NodeStrongA6kOpenMarker",
+											"Data": "**"
+										},
+										{
+											"Type": "NodeText",
+											"Data": "缺点：Master宕机，磁盘损坏情况下会丢失少量消息。"
+										},
+										{
+											"Type": "NodeStrongA6kCloseMarker",
+											"Data": "**"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-d8trpfh",
+			"Type": "NodeHeading",
+			"HeadingLevel": 5,
+			"Properties": {
+				"id": "20230107153951-d8trpfh",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1）启动NameServer"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-kqelr1l",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230107153951-kqelr1l",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "### 首先启动Name Server\n$ nohup sh mqnamesrv \u0026\n \n### 验证Name Server 是否启动成功\n$ tail -f ~/logs/rocketmqlogs/namesrv.log\nThe Name Server boot success...\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-dyoq9jm",
+			"Type": "NodeHeading",
+			"HeadingLevel": 5,
+			"Properties": {
+				"id": "20230107153951-dyoq9jm",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2）启动Broker集群"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-tp3dg4e",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230107153951-tp3dg4e",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "### 在机器A，启动第一个Master，例如NameServer的IP为：192.168.1.1\n$ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-async/broker-a.properties \u0026\n \n### 在机器B，启动第二个Master，例如NameServer的IP为：192.168.1.1\n$ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-async/broker-b.properties \u0026\n \n### 在机器C，启动第一个Slave，例如NameServer的IP为：192.168.1.1\n$ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-async/broker-a-s.properties \u0026\n \n### 在机器D，启动第二个Slave，例如NameServer的IP为：192.168.1.1\n$ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-async/broker-b-s.properties \u0026\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-eluqhtl",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230107153951-eluqhtl",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1.4 多Master多Slave模式-同步双写"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-nouixhj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-nouixhj",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "每个Master配置一个Slave，有多对Master-Slave，HA采用同步双写方式，即只有主备都写成功，才向应用返回成功，这种模式的优缺点如下："
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-aoj563r",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230107153951-aoj563r",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"ID": "20230107153951-8pkgimz",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230107153951-8pkgimz",
+						"updated": "20230107153951"
+					},
+					"Children": [
+						{
+							"ID": "20230107153951-5fp9yox",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230107153951-5fp9yox",
+								"updated": "20230107153951"
+							},
+							"Children": [
+								{
+									"Type": "NodeStrong",
+									"Data": "strong",
+									"Children": [
+										{
+											"Type": "NodeStrongA6kOpenMarker",
+											"Data": "**"
+										},
+										{
+											"Type": "NodeText",
+											"Data": "优点：数据与服务都无单点故障，Master宕机情况下，消息无延迟，服务可用性与数据可用性都非常高；"
+										},
+										{
+											"Type": "NodeStrongA6kCloseMarker",
+											"Data": "**"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230107153951-kacg4i8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230107153951-kacg4i8",
+						"updated": "20230107153951"
+					},
+					"Children": [
+						{
+							"ID": "20230107153951-bvs0f6f",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230107153951-bvs0f6f",
+								"updated": "20230107153951"
+							},
+							"Children": [
+								{
+									"Type": "NodeStrong",
+									"Data": "strong",
+									"Children": [
+										{
+											"Type": "NodeStrongA6kOpenMarker",
+											"Data": "**"
+										},
+										{
+											"Type": "NodeText",
+											"Data": "缺点：性能比异步复制模式略低（大约低10%左右），发送单个消息的RT会略高，且目前版本在主节点宕机后，备机不能自动切换为主机。"
+										},
+										{
+											"Type": "NodeStrongA6kCloseMarker",
+											"Data": "**"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-twv3xc6",
+			"Type": "NodeHeading",
+			"HeadingLevel": 5,
+			"Properties": {
+				"id": "20230107153951-twv3xc6",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1）启动NameServer"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-ua7durx",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230107153951-ua7durx",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "### 首先启动Name Server\n$ nohup sh mqnamesrv \u0026\n \n### 验证Name Server 是否启动成功\n$ tail -f ~/logs/rocketmqlogs/namesrv.log\nThe Name Server boot success...\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-x8r5bgd",
+			"Type": "NodeHeading",
+			"HeadingLevel": 5,
+			"Properties": {
+				"id": "20230107153951-x8r5bgd",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2）启动Broker集群"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-brzu85z",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230107153951-brzu85z",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "### 在机器A，启动第一个Master，例如NameServer的IP为：192.168.1.1\n$ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-sync/broker-a.properties \u0026\n \n### 在机器B，启动第二个Master，例如NameServer的IP为：192.168.1.1\n$ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-sync/broker-b.properties \u0026\n \n### 在机器C，启动第一个Slave，例如NameServer的IP为：192.168.1.1\n$ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-sync/broker-a-s.properties \u0026\n \n### 在机器D，启动第二个Slave，例如NameServer的IP为：192.168.1.1\n$ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-sync/broker-b-s.properties \u0026\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-c5dw1z4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-c5dw1z4",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "以上Broker与Slave配对是通过指定相同的BrokerName参数来配对，Master的BrokerId必须是0，Slave的BrokerId必须是大于0的数。另外一个Master下面可以挂载多个Slave，同一Master下的多个Slave通过指定不同的BrokerId来区分。$ROCKETMQ_HOME指的RocketMQ安装目录，需要用户自己设置此环境变量。"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-49i56g4",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230107153951-49i56g4",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2 mqadmin管理工具"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-qesbc0d",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230107153951-qesbc0d",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230107153951-hksqvyq",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230107153951-hksqvyq",
+						"updated": "20230107153951"
+					},
+					"Children": [
+						{
+							"Type": "NodeStrong",
+							"Data": "strong",
+							"Children": [
+								{
+									"Type": "NodeStrongA6kOpenMarker",
+									"Data": "**"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "注意："
+								},
+								{
+									"Type": "NodeStrongA6kCloseMarker",
+									"Data": "**"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230107153951-f1n9t39",
+					"Type": "NodeList",
+					"ListData": {
+						"Typ": 1
+					},
+					"Properties": {
+						"id": "20230107153951-f1n9t39",
+						"updated": "20230107153951"
+					},
+					"Children": [
+						{
+							"ID": "20230107153951-y3639bh",
+							"Type": "NodeListItem",
+							"ListData": {
+								"Typ": 1,
+								"Delimiter": 46,
+								"Marker": "MS4=",
+								"Num": 1
+							},
+							"Properties": {
+								"id": "20230107153951-y3639bh",
+								"updated": "20230107153951"
+							},
+							"Children": [
+								{
+									"ID": "20230107153951-xzch8nt",
+									"Type": "NodeParagraph",
+									"Properties": {
+										"id": "20230107153951-xzch8nt",
+										"updated": "20230107153951"
+									},
+									"Children": [
+										{
+											"Type": "NodeStrong",
+											"Data": "strong",
+											"Children": [
+												{
+													"Type": "NodeStrongA6kOpenMarker",
+													"Data": "**"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "执行命令方法："
+												},
+												{
+													"Type": "NodeStrongA6kCloseMarker",
+													"Data": "**"
+												}
+											]
+										},
+										{
+											"Type": "NodeCodeSpan",
+											"Data": "code",
+											"Children": [
+												{
+													"Type": "NodeCodeSpanOpenMarker"
+												},
+												{
+													"Type": "NodeCodeSpanContent",
+													"Data": "./mqadmin {command} {args}"
+												},
+												{
+													"Type": "NodeCodeSpanCloseMarker"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"ID": "20230107153951-4485q2y",
+							"Type": "NodeListItem",
+							"ListData": {
+								"Typ": 1,
+								"Delimiter": 46,
+								"Marker": "Mi4=",
+								"Num": 2
+							},
+							"Properties": {
+								"id": "20230107153951-4485q2y",
+								"updated": "20230107153951"
+							},
+							"Children": [
+								{
+									"ID": "20230107153951-5wegcuc",
+									"Type": "NodeParagraph",
+									"Properties": {
+										"id": "20230107153951-5wegcuc",
+										"updated": "20230107153951"
+									},
+									"Children": [
+										{
+											"Type": "NodeStrong",
+											"Data": "strong",
+											"Children": [
+												{
+													"Type": "NodeStrongA6kOpenMarker",
+													"Data": "**"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "几乎所有命令都需要配置-n表示NameServer地址，格式为ip:port"
+												},
+												{
+													"Type": "NodeStrongA6kCloseMarker",
+													"Data": "**"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"ID": "20230107153951-a06hz34",
+							"Type": "NodeListItem",
+							"ListData": {
+								"Typ": 1,
+								"Delimiter": 46,
+								"Marker": "My4=",
+								"Num": 3
+							},
+							"Properties": {
+								"id": "20230107153951-a06hz34",
+								"updated": "20230107153951"
+							},
+							"Children": [
+								{
+									"ID": "20230107153951-tk8q1sc",
+									"Type": "NodeParagraph",
+									"Properties": {
+										"id": "20230107153951-tk8q1sc",
+										"updated": "20230107153951"
+									},
+									"Children": [
+										{
+											"Type": "NodeStrong",
+											"Data": "strong",
+											"Children": [
+												{
+													"Type": "NodeStrongA6kOpenMarker",
+													"Data": "**"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "几乎所有命令都可以通过-h获取帮助"
+												},
+												{
+													"Type": "NodeStrongA6kCloseMarker",
+													"Data": "**"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"ID": "20230107153951-q117lnt",
+							"Type": "NodeListItem",
+							"ListData": {
+								"Typ": 1,
+								"Delimiter": 46,
+								"Marker": "NC4=",
+								"Num": 4
+							},
+							"Properties": {
+								"id": "20230107153951-q117lnt",
+								"updated": "20230107153951"
+							},
+							"Children": [
+								{
+									"ID": "20230107153951-73lf88c",
+									"Type": "NodeParagraph",
+									"Properties": {
+										"id": "20230107153951-73lf88c",
+										"updated": "20230107153951"
+									},
+									"Children": [
+										{
+											"Type": "NodeStrong",
+											"Data": "strong",
+											"Children": [
+												{
+													"Type": "NodeStrongA6kOpenMarker",
+													"Data": "**"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "如果既有Broker地址（-b）配置项又有clusterName（-c）配置项，则优先以Broker地址执行命令，如果不配置Broker地址，则对集群中所有主机执行命令，只支持一个Broker地址。-b格式为ip:port，port默认是10911"
+												},
+												{
+													"Type": "NodeStrongA6kCloseMarker",
+													"Data": "**"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"ID": "20230107153951-0j5kg6w",
+							"Type": "NodeListItem",
+							"ListData": {
+								"Typ": 1,
+								"Delimiter": 46,
+								"Marker": "NS4=",
+								"Num": 5
+							},
+							"Properties": {
+								"id": "20230107153951-0j5kg6w",
+								"updated": "20230107153951"
+							},
+							"Children": [
+								{
+									"ID": "20230107153951-e0xe0tv",
+									"Type": "NodeParagraph",
+									"Properties": {
+										"id": "20230107153951-e0xe0tv",
+										"updated": "20230107153951"
+									},
+									"Children": [
+										{
+											"Type": "NodeStrong",
+											"Data": "strong",
+											"Children": [
+												{
+													"Type": "NodeStrongA6kOpenMarker",
+													"Data": "**"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "在tools下可以看到很多命令，但并不是所有命令都能使用，只有在MQAdminStartup中初始化的命令才能使用，你也可以修改这个类，增加或自定义命令"
+												},
+												{
+													"Type": "NodeStrongA6kCloseMarker",
+													"Data": "**"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"ID": "20230107153951-spu5u83",
+							"Type": "NodeListItem",
+							"ListData": {
+								"Typ": 1,
+								"Delimiter": 46,
+								"Marker": "Ni4=",
+								"Num": 6
+							},
+							"Properties": {
+								"id": "20230107153951-spu5u83",
+								"updated": "20230107153951"
+							},
+							"Children": [
+								{
+									"ID": "20230107153951-rypo3t2",
+									"Type": "NodeParagraph",
+									"Properties": {
+										"id": "20230107153951-rypo3t2",
+										"updated": "20230107153951"
+									},
+									"Children": [
+										{
+											"Type": "NodeStrong",
+											"Data": "strong",
+											"Children": [
+												{
+													"Type": "NodeStrongA6kOpenMarker",
+													"Data": "**"
+												},
+												{
+													"Type": "NodeText",
+													"Data": "由于版本更新问题，少部分命令可能未及时更新，遇到错误请直接阅读相关命令源码"
+												},
+												{
+													"Type": "NodeStrongA6kCloseMarker",
+													"Data": "**"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-7fqk0wa",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230107153951-7fqk0wa",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.1 Topic相关"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-v19qkee",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-v19qkee",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​|名称|含义|命令选项|说明|\n| ------------------| --------------------------------------------------------------------------------------------------------------------| ----------| ----------------------------------------------------------------------|\n|updateTopic|创建更新Topic配置|-b|Broker 地址，表示 topic 所在 Broker，只支持单台Broker，地址为ip:port|\n|-c|cluster 名称，表示 topic 所在集群（集群可通过 clusterList 查询）|\n|-h-|打印帮助|\n|-n|NameServer服务地址，格式 ip:port|\n|-p|指定新topic的读写权限( W=2|R=4|WR=6 )|\n|-r|可读队列数（默认为 8）|\n|-w|可写队列数（默认为 8）|\n|-t|topic 名称（名称只能使用字符 ^[a-zA-Z0-9_-]+$ ）|\n|deleteTopic|删除Topic|-c|cluster 名称，表示删除某集群下的某个 topic （集群 可通过 clusterList 查询）|\n|-h|打印帮助|\n|-n|NameServer 服务地址，格式 ip:port|\n|-t|topic 名称（名称只能使用字符 ^[a-zA-Z0-9_-]+$ ）|\n|topicList|查看 Topic 列表信息|-h|打印帮助|\n|-c|不配置-c只返回topic列表，增加-c返回clusterName, topic, consumerGroup信息，即topic的所属集群和订阅关系，没有参数|\n|-n|NameServer 服务地址，格式 ip:port|\n|topicRoute|查看 Topic 路由信息|-t|topic 名称|\n|-h|打印帮助|\n|-n|NameServer 服务地址，格式 ip:port|\n|topicStatus|查看 Topic 消息队列offset|-t|topic 名称|\n|-h|打印帮助|\n|-n|NameServer 服务地址，格式 ip:port|\n|topicClusterList|查看 Topic 所在集群列表|-t|topic 名称|\n|-h|打印帮助|\n|-n|NameServer 服务地址，格式 ip:port|\n|updateTopicPerm|更新 Topic 读写权限|-t|topic 名称|\n|-h|打印帮助|\n|-n|NameServer 服务地址，格式 ip:port|\n|-b|Broker 地址，表示 topic 所在 Broker，只支持单台Broker，地址为ip:port|\n|-p|指定新 topic 的读写权限( W=2|R=4|WR=6 )|\n|-c|cluster 名称，表示 topic 所在集群（集群可通过 clusterList 查询），-b优先，如果没有-b，则对集群中所有Broker执行命令|\n|updateOrderConf|从NameServer上创建、删除、获取特定命名空间的kv配置，目前还未启用|-h|打印帮助|\n|-n|NameServer 服务地址，格式 ip:port|\n|-t|topic，键|\n|-v|orderConf，值|\n|-m|method，可选get、put、delete|\n|allocateMQ|以平均负载算法计算消费者列表负载消息队列的负载结果|-t|topic 名称|\n|-h|打印帮助|\n|-n|NameServer 服务地址，格式 ip:port|\n|-i|ipList，用逗号分隔，计算这些ip去负载Topic的消息队列|\n|statsAll|打印Topic订阅关系、TPS、积累量、24h读写总量等信息|-h|打印帮助|\n|-n|NameServer 服务地址，格式 ip:port|\n|-a|是否只打印活跃topic|\n|-t|指定topic|"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-d2rolz9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-d2rolz9",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-9wsbtxv",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230107153951-9wsbtxv",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.2 集群相关"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-bwxtktu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-bwxtktu",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​|名称|含义|命令选项|说明|\n| -------------| ------------------------------------------------------------| ----------| ----------------------------------------------------------------------------------------------|\n|clusterList|查看集群信息，集群、BrokerName、BrokerId、TPS等信息|-m|打印更多信息 (增加打印出如下信息 #InTotalYest, #OutTotalYest, "
+				},
+				{
+					"Type": "NodeTag",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeTagOpenMarker"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "InTotalToday ,"
+						},
+						{
+							"Type": "NodeTagCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "OutTotalToday)|\n|-h|打印帮助|\n|-n|NameServer 服务地址，格式 ip:port|\n|-i|打印间隔，单位秒|\n|clusterRT|发送消息检测集群各Broker RT。消息发往${BrokerName} Topic。|-a|amount，每次探测的总数，RT = 总时间 / amount|\n|-s|消息大小，单位B|\n|-c|探测哪个集群|\n|-p|是否打印格式化日志，以|分割，默认不打印|\n|-h|打印帮助|\n|-m|所属机房，打印使用|\n|-i|发送间隔，单位秒|\n|-n|NameServer 服务地址，格式 ip:port|"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-a9ub2a1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-a9ub2a1",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-yfm2udx",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230107153951-yfm2udx",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.3 Broker相关"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-nonirdf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-nonirdf",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​|名称|含义|命令选项|说明|\n| --------------------| -----------------------------------------------------------------------------------------------------------| ----------| ----------------------------|\n|updateBrokerConfig|更新 Broker 配置文件，会修改Broker.conf|-b|Broker 地址，格式为ip:port|\n|-c|cluster 名称|\n|-k|key 值|\n|-v|value 值|\n|-h|打印帮助|\n|-n|NameServer 服务地址，格式 ip:port|\n|brokerStatus|查看 Broker 统计信息、运行状态（你想要的信息几乎都在里面）|-b|Broker 地址，地址为ip:port|\n|-h|打印帮助|\n|-n|NameServer 服务地址，格式 ip:port|\n|brokerConsumeStats|Broker中各个消费者的消费情况，按Message Queue维度返回Consume Offset，Broker Offset，Diff，TImestamp等信息|-b|Broker 地址，地址为ip:port|\n|-t|请求超时时间|\n|-l|diff阈值，超过阈值才打印|\n|-o|是否为顺序topic，一般为false|\n|-h|打印帮助|\n|-n|NameServer 服务地址，格式 ip:port|\n|getBrokerConfig|获取Broker配置|-b|Broker 地址，地址为ip:port|\n|-n|NameServer 服务地址，格式 ip:port|\n|wipeWritePerm|从NameServer上清除 Broker写权限|-b|BrokerName|\n|addWritePerm|从NameServer上添加 Broker写权限|-b|BrokerName|\n|-n|NameServer 服务地址，格式 ip:port|\n|-h|打印帮助|\n|cleanExpiredCQ|清理Broker上过期的Consume Queue，如果手动减少对列数可能产生过期队列|-n|NameServer 服务地址，格式 ip:port|\n|-h|打印帮助|\n|-b|Broker 地址，地址为ip:port|\n|-c|集群名称|\n|cleanUnusedTopic|清理Broker上不使用的Topic，从内存中释放Topic的Consume Queue，如果手动删除Topic会产生不使用的Topic|-n|NameServer 服务地址，格式 ip:port|\n|-h|打印帮助|\n|-b|Broker 地址，地址为ip:port|\n|-c|集群名称|\n|sendMsgStatus|向Broker发消息，返回发送状态和RT|-n|NameServer 服务地址，格式 ip:port|\n|-h|打印帮助|\n|-b|BrokerName，注意不同于Broker地址|\n|-s|消息大小，单位B|\n|-c|发送次数|"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-tocku47",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-tocku47",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-50qhqq5",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230107153951-50qhqq5",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.4 消息相关"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-hvo5bla",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-hvo5bla",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​|名称|含义|命令选项|说明|\n| ---------------------| ---------------------------------------------------------------------------------------------------------------------------------| ----------| -------|\n|queryMsgById|根据offsetMsgId查询msg，如果使用开源控制台，应使用offsetMsgId，此命令还有其他参数，具体作用请阅读QueryMsgByIdSubCommand。|-i|msgId|\n|-h|打印帮助|\n|-n|NameServer 服务地址，格式 ip:port|\n|queryMsgByKey|根据消息 Key 查询消息|-k|msgKey|\n|-t|Topic 名称|\n|-h|打印帮助|\n|-n|NameServer 服务地址，格式 ip:port|\n|queryMsgByOffset|根据 Offset 查询消息|-b|Broker 名称，（这里需要注意 填写的是 Broker 的名称，不是 Broker 的地址，Broker 名称可以在 clusterList 查到）|\n|-i|query 队列 id|\n|-o|offset 值|\n|-t|topic 名称|\n|-h|打印帮助|\n|-n|NameServer 服务地址，格式 ip:port|\n|queryMsgByUniqueKey|根据msgId查询，msgId不同于offsetMsgId，区别详见常见运维问题。-g，-d配合使用，查到消息后尝试让特定的消费者消费消息并返回消费结果|-h|打印帮助|\n|-n|NameServer 服务地址，格式 ip:port|\n|-i|uniqe msg id|\n|-g|consumerGroup|\n|-d|clientId|\n|-t|topic名称|\n|checkMsgSendRT|检测向topic发消息的RT，功能类似clusterRT|-h|打印帮助|\n|-n|NameServer 服务地址，格式 ip:port|\n|-t|topic名称|\n|-a|探测次数|\n|-s|消息大小|\n|sendMessage|发送一条消息，可以根据配置发往特定Message Queue，或普通发送。|-h|打印帮助|\n|-n|NameServer 服务地址，格式 ip:port|\n|-t|topic名称|\n|-p|body，消息体|\n|-k|keys|\n|-c|tags|\n|-b|BrokerName|\n|-i|queueId|\n|consumeMessage|消费消息。可以根据offset、开始\u0026结束时间戳、消息队列消费消息，配置不同执行不同消费逻辑，详见ConsumeMessageCommand。|-h|打印帮助|\n|-n|NameServer 服务地址，格式 ip:port|\n|-t|topic名称|\n|-b|BrokerName|\n|-o|从offset开始消费|\n|-i|queueId|\n|-g|消费者分组|\n|-s|开始时间戳，格式详见-h|\n|-d|结束时间戳|\n|-c|消费多少条消息|\n|printMsg|从Broker消费消息并打印，可选时间段|-h|打印帮助|\n|-n|NameServer 服务地址，格式 ip:port|\n|-t|topic名称|\n|-c|字符集，例如UTF-8|\n|-s|subExpress，过滤表达式|\n|-b|开始时间戳，格式参见-h|\n|-e|结束时间戳|\n|-d|是否打印消息体|\n|printMsgByQueue|类似printMsg，但指定Message Queue|-h|打印帮助|\n|-n|NameServer 服务地址，格式 ip:port|\n|-t|topic名称|\n|-i|queueId|\n|-a|BrokerName|\n|-c|字符集，例如UTF-8|\n|-s|subExpress，过滤表达式|\n|-b|开始时间戳，格式参见-h|\n|-e|结束时间戳|\n|-p|是否打印消息|\n|-d|是否打印消息体|\n|-f|是否统计tag数量并打印|\n|resetOffsetByTime|按时间戳重置offset，Broker和consumer都会重置|-h|打印帮助|\n|-n|NameServer 服务地址，格式 ip:port|\n|-g|消费者分组|\n|-t|topic名称|\n|-s|重置为此时间戳对应的offset|\n|-f|是否强制重置，如果false，只支持回溯offset，如果true，不管时间戳对应offset与consumeOffset关系|\n|-c|是否重置c++客户端offset|"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-vjinynu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-vjinynu",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-g6nw704",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230107153951-g6nw704",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.5 消费者、消费组相关"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-808ki9f",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-808ki9f",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​|名称|含义|命令选项|说明|\n| ------------------| ---------------------------------------------------------------------------------------------------------------------------------------------------| ----------| ----------------|\n|consumerProgress|查看订阅组消费状态，可以查看具体的client IP的消息积累量|-g|消费者所属组名|\n|-s|是否打印client IP|\n|-h|打印帮助|\n|-n|NameServer 服务地址，格式 ip:port|\n|consumerStatus|查看消费者状态，包括同一个分组中是否都是相同的订阅，分析Process Queue是否堆积，返回消费者jstack结果，内容较多，使用者参见ConsumerStatusSubCommand|-h|打印帮助|\n|-n|NameServer 服务地址，格式 ip:port|\n|-g|consumer group|\n|-i|clientId|\n|-s|是否执行jstack|\n|updateSubGroup|更新或创建订阅关系|-n|NameServer 服务地址，格式 ip:port|\n|-h|打印帮助|\n|-b|Broker地址|\n|-c|集群名称|\n|-g|消费者分组名称|\n|-s|分组是否允许消费|\n|-m|是否从最小offset开始消费|\n|-d|是否是广播模式|\n|-q|重试队列数量|\n|-r|最大重试次数|\n|-i|当slaveReadEnable开启时有效，且还未达到从slave消费时建议从哪个BrokerId消费，可以配置备机id，主动从备机消费|\n|-w|如果Broker建议从slave消费，配置决定从哪个slave消费，配置BrokerId，例如1|\n|-a|当消费者数量变化时是否通知其他消费者负载均衡|\n|deleteSubGroup|从Broker删除订阅关系|-n|NameServer 服务地址，格式 ip:port|\n|-h|打印帮助|\n|-b|Broker地址|\n|-c|集群名称|\n|-g|消费者分组名称|\n|cloneGroupOffset|在目标群组中使用源群组的offset|-n|NameServer 服务地址，格式 ip:port|\n|-h|打印帮助|\n|-s|源消费者组|\n|-d|目标消费者组|\n|-t|topic名称|\n|-o|暂未使用|"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-o74zl0y",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-o74zl0y",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-32ryzzm",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230107153951-32ryzzm",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.6 连接相关"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-70fxkds",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-70fxkds",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​|名称|含义|命令选项|说明|\n| --------------------| -----------------------------------| ----------| ----------------|\n|consumerConnection|查询 Consumer 的网络连接|-g|消费者所属组名|\n|-n|NameServer 服务地址，格式 ip:port|\n|-h|打印帮助|\n|producerConnection|查询 Producer 的网络连接|-g|生产者所属组名|\n|-t|主题名称|\n|-n|NameServer 服务地址，格式 ip:port|\n|-h|打印帮助|"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-6ijkuqq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-6ijkuqq",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-htchxrq",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230107153951-htchxrq",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.7 NameServer相关"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-g8hd4g6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-g8hd4g6",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​|名称|含义|命令选项|说明|\n| ---------------------| --------------------------------------| ----------| ----------|\n|updateKvConfig|更新NameServer的kv配置，目前还未使用|-s|命名空间|\n|-k|key|\n|-v|value|\n|-n|NameServer 服务地址，格式 ip:port|\n|-h|打印帮助|\n|deleteKvConfig|删除NameServer的kv配置|-s|命名空间|\n|-k|key|\n|-n|NameServer 服务地址，格式 ip:port|\n|-h|打印帮助|\n|getNamesrvConfig|获取NameServer配置|-n|NameServer 服务地址，格式 ip:port|\n|-h|打印帮助|\n|updateNamesrvConfig|修改NameServer配置|-n|NameServer 服务地址，格式 ip:port|\n|-h|打印帮助|\n|-k|key|\n|-v|value|"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-acmz3h8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-acmz3h8",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-u6vpuf9",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230107153951-u6vpuf9",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2.8 其他"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-utrdmve",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-utrdmve",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​|名称|含义|命令选项|说明|\n| -----------------| ----------------------------------------------| ----------| -----------------------------------|\n|startMonitoring|开启监控进程，监控消息误删、重试队列消息数等|-n|NameServer 服务地址，格式 ip:port|\n|-h|打印帮助|"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-hec9rnc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-hec9rnc",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-r63wo50",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230107153951-r63wo50",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3   运维常见问题"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-fgfqhev",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230107153951-fgfqhev",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3.1 RocketMQ的mqadmin命令报错问题"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-42ynjak",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230107153951-42ynjak",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230107153951-ckso6q8",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230107153951-ckso6q8",
+						"updated": "20230107153951"
+					},
+					"Children": [
+						{
+							"Type": "NodeStrong",
+							"Data": "strong",
+							"Children": [
+								{
+									"Type": "NodeStrongA6kOpenMarker",
+									"Data": "**"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "问题描述：有时候在部署完RocketMQ集群后，尝试执行“mqadmin”一些运维命令，会出现下面的异常信息："
+								},
+								{
+									"Type": "NodeStrongA6kCloseMarker",
+									"Data": "**"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230107153951-5lv3kpr",
+					"Type": "NodeCodeBlock",
+					"IsFencedCodeBlock": true,
+					"Properties": {
+						"id": "20230107153951-5lv3kpr",
+						"updated": "20230107153951"
+					},
+					"Children": [
+						{
+							"Type": "NodeCodeBlockFenceOpenMarker",
+							"Data": "```"
+						},
+						{
+							"Type": "NodeCodeBlockFenceInfoMarker"
+						},
+						{
+							"Type": "NodeCodeBlockCode",
+							"Data": "org.apache.rocketmq.remoting.exception.RemotingConnectException: connect to \u003cnull\u003e failed\n"
+						},
+						{
+							"Type": "NodeCodeBlockFenceCloseMarker",
+							"Data": "```"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-18dmcrt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-18dmcrt",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "解决方法：可以在部署RocketMQ集群的虚拟机上执行"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "export NAMESRV_ADDR=ip:9876"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "（ip指的是集群中部署NameServer组件的机器ip地址）命令之后再使用“mqadmin”的相关命令进行查询，即可得到结果。"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-wlf1981",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230107153951-wlf1981",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3.2 RocketMQ生产端和消费端版本不一致导致不能正常消费的问题"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-0uddoe6",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230107153951-0uddoe6",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230107153951-l7y2upt",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230107153951-l7y2upt",
+						"updated": "20230107153951"
+					},
+					"Children": [
+						{
+							"Type": "NodeStrong",
+							"Data": "strong",
+							"Children": [
+								{
+									"Type": "NodeStrongA6kOpenMarker",
+									"Data": "**"
+								},
+								{
+									"Type": "NodeText",
+									"Data": "问题描述：同一个生产端发出消息，A消费端可消费，B消费端却无法消费，rocketMQ Console中出现："
+								},
+								{
+									"Type": "NodeStrongA6kCloseMarker",
+									"Data": "**"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230107153951-ojxpj7s",
+					"Type": "NodeCodeBlock",
+					"IsFencedCodeBlock": true,
+					"Properties": {
+						"id": "20230107153951-ojxpj7s",
+						"updated": "20230107153951"
+					},
+					"Children": [
+						{
+							"Type": "NodeCodeBlockFenceOpenMarker",
+							"Data": "```"
+						},
+						{
+							"Type": "NodeCodeBlockFenceInfoMarker"
+						},
+						{
+							"Type": "NodeCodeBlockCode",
+							"Data": "Not found the consumer group consume stats, because return offset table is empty, maybe the consumer not consume any message的异常消息。\n"
+						},
+						{
+							"Type": "NodeCodeBlockFenceCloseMarker",
+							"Data": "```"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-4722v66",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-4722v66",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "**  解决方案：RocketMQ 的jar包：rocketmq-client等包应该保持生产端，消费端使用相同的version。**"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-ogu9l7x",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230107153951-ogu9l7x",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3.3  新增一个topic的消费组时，无法消费历史消息的问题"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-wjwqox8",
+			"Type": "NodeBlockquote",
+			"Properties": {
+				"id": "20230107153951-wjwqox8",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeBlockquoteMarker",
+					"Data": "\u003e"
+				},
+				{
+					"ID": "20230107153951-a5fb549",
+					"Type": "NodeParagraph",
+					"Properties": {
+						"id": "20230107153951-a5fb549",
+						"updated": "20230107153951"
+					},
+					"Children": [
+						{
+							"Type": "NodeText",
+							"Data": "**问题描述：当同一个topic的新增消费组启动时，消费的消息是当前的offset的消息，并未获取历史消息。    **"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-msz3ydu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-msz3ydu",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "解决方案：rocketmq默认策略是从消息队列尾部，即跳过历史消息。如果想消费历史消息，则需要设置："
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "org.apache.rocketmq.client.consumer.DefaultMQPushConsumer#setConsumeFromWhere"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "。常用的有以下三种配置："
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-9ao1mr9",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230107153951-9ao1mr9",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"ID": "20230107153951-ytrxgil",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230107153951-ytrxgil",
+						"updated": "20230107153951"
+					},
+					"Children": [
+						{
+							"ID": "20230107153951-m15f5ch",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230107153951-m15f5ch",
+								"updated": "20230107153951"
+							},
+							"Children": [
+								{
+									"Type": "NodeStrong",
+									"Data": "strong",
+									"Children": [
+										{
+											"Type": "NodeStrongA6kOpenMarker",
+											"Data": "**"
+										},
+										{
+											"Type": "NodeText",
+											"Data": "默认配置,一个新的订阅组第一次启动从队列的最后位置开始消费，后续再启动接着上次消费的进度开始消费,即跳过历史消息；"
+										},
+										{
+											"Type": "NodeStrongA6kCloseMarker",
+											"Data": "**"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-idq4tfw",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230107153951-idq4tfw",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_LAST_OFFSET);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-s3hq8qp",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230107153951-s3hq8qp",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"ID": "20230107153951-6v0x3ac",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230107153951-6v0x3ac",
+						"updated": "20230107153951"
+					},
+					"Children": [
+						{
+							"ID": "20230107153951-jynv1m2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230107153951-jynv1m2",
+								"updated": "20230107153951"
+							},
+							"Children": [
+								{
+									"Type": "NodeStrong",
+									"Data": "strong",
+									"Children": [
+										{
+											"Type": "NodeStrongA6kOpenMarker",
+											"Data": "**"
+										},
+										{
+											"Type": "NodeText",
+											"Data": "一个新的订阅组第一次启动从队列的最前位置开始消费，后续再启动接着上次消费的进度开始消费,即消费Broker未过期的历史消息；"
+										},
+										{
+											"Type": "NodeStrongA6kCloseMarker",
+											"Data": "**"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-jts1dli",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230107153951-jts1dli",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-s29qu4o",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230107153951-s29qu4o",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"ID": "20230107153951-ez1mgeg",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230107153951-ez1mgeg",
+						"updated": "20230107153951"
+					},
+					"Children": [
+						{
+							"ID": "20230107153951-2nxx77h",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230107153951-2nxx77h",
+								"updated": "20230107153951"
+							},
+							"Children": [
+								{
+									"Type": "NodeStrong",
+									"Data": "strong",
+									"Children": [
+										{
+											"Type": "NodeStrongA6kOpenMarker",
+											"Data": "**"
+										},
+										{
+											"Type": "NodeText",
+											"Data": "一个新的订阅组第一次启动从指定时间点开始消费，后续再启动接着上次消费的进度开始消费，和consumer.setConsumeTimestamp()配合使用，默认是半个小时以前；"
+										},
+										{
+											"Type": "NodeStrongA6kCloseMarker",
+											"Data": "**"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-otvcyls",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230107153951-otvcyls",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_TIMESTAMP);\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-hoshuud",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230107153951-hoshuud",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3.4 如何开启从Slave读数据功能"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-bfyxphv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-bfyxphv",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "在某些情况下，Consumer需要将消费位点重置到1-2天前，这时在内存有限的Master Broker上，CommitLog会承载比较重的IO压力，影响到该Broker的其它消息的读与写。可以开启"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "slaveReadEnable=true"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "，当Master Broker发现Consumer的消费位点与CommitLog的最新值的差值的容量超过该机器内存的百分比（"
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "accessMessageInMemoryMaxRatio=40%"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "），会推荐Consumer从Slave Broker中去读取数据，降低Master Broker的IO。"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-7n4u7gd",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230107153951-7n4u7gd",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3.5 性能调优问题"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-bq963nj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-bq963nj",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "异步刷盘建议使用自旋锁，同步刷盘建议使用重入锁，调整Broker配置项"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "useReentrantLockWhenPutMessage"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "，默认为false；异步刷盘建议开启"
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "TransientStorePoolEnable"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "；建议关闭transferMsgByHeap，提高拉消息效率；同步刷盘建议适当增大"
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "sendMessageThreadPoolNums"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "，具体配置需要经过压测。"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-6r6ejxy",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230107153951-6r6ejxy",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3.6 在RocketMQ中msgId和offsetMsgId的含义与区别"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-57fyyqi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153951-57fyyqi",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "使用RocketMQ完成生产者客户端消息发送后，通常会看到如下日志打印信息："
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-h2u53vy",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230107153951-h2u53vy",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "SendResult [sendStatus=SEND_OK, msgId=0A42333A0DC818B4AAC246C290FD0000, offsetMsgId=0A42333A00002A9F000000000134F1F5, messageQueue=MessageQueue [topic=topicTest1, BrokerName=mac.local, queueId=3], queueOffset=4]\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230107153951-99i9svl",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230107153951-99i9svl",
+				"updated": "20230107153951"
+			},
+			"Children": [
+				{
+					"ID": "20230107153951-vcxn90v",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230107153951-vcxn90v",
+						"updated": "20230107153951"
+					},
+					"Children": [
+						{
+							"ID": "20230107153951-btug8na",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230107153951-btug8na",
+								"updated": "20230107153951"
+							},
+							"Children": [
+								{
+									"Type": "NodeStrong",
+									"Data": "strong",
+									"Children": [
+										{
+											"Type": "NodeStrongA6kOpenMarker",
+											"Data": "**"
+										},
+										{
+											"Type": "NodeText",
+											"Data": "msgId，对于客户端来说msgId是由客户端producer实例端生成的，具体来说，调用方法"
+										},
+										{
+											"Type": "NodeStrongA6kCloseMarker",
+											"Data": "**"
+										}
+									]
+								},
+								{
+									"Type": "NodeCodeSpan",
+									"Data": "code",
+									"Children": [
+										{
+											"Type": "NodeCodeSpanOpenMarker"
+										},
+										{
+											"Type": "NodeCodeSpanContent",
+											"Data": "MessageClientIDSetter.createUniqIDBuffer()"
+										},
+										{
+											"Type": "NodeCodeSpanCloseMarker"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": "生成唯一的Id；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230107153951-rirxwll",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230107153951-rirxwll",
+						"updated": "20230107153951"
+					},
+					"Children": [
+						{
+							"ID": "20230107153951-i8rqeeq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230107153951-i8rqeeq",
+								"updated": "20230107153951"
+							},
+							"Children": [
+								{
+									"Type": "NodeStrong",
+									"Data": "strong",
+									"Children": [
+										{
+											"Type": "NodeStrongA6kOpenMarker",
+											"Data": "**"
+										},
+										{
+											"Type": "NodeText",
+											"Data": "offsetMsgId，offsetMsgId是由Broker服务端在写入消息时生成的（采用”IP地址+Port端口”与“CommitLog的物理偏移量地址”做了一个字符串拼接），其中offsetMsgId就是在RocketMQ控制台直接输入查询的那个messageId。"
+										},
+										{
+											"Type": "NodeStrongA6kCloseMarker",
+											"Data": "**"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

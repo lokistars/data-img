@@ -1,0 +1,20 @@
+{
+	"ID": "20230107152352-c2vmd8r",
+	"Type": "NodeDocument",
+	"Properties": {
+		"icon": "1f4c1",
+		"id": "20230107152352-c2vmd8r",
+		"title": "RocketMQ",
+		"updated": "20230107152635"
+	},
+	"Children": [
+		{
+			"ID": "20230107152352-hegqxy2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107152352-hegqxy2",
+				"updated": "20230107152352"
+			}
+		}
+	]
+}

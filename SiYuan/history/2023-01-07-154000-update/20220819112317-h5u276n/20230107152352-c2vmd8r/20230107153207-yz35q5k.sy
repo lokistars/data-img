@@ -1,0 +1,1819 @@
+{
+	"ID": "20230107153207-yz35q5k",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230107153207-yz35q5k",
+		"title": "部署架构和设置步骤",
+		"updated": "20230107153335"
+	},
+	"Children": [
+		{
+			"ID": "20230107153335-71r5f13",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230107153335-71r5f13",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "集群的设置"
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-tre0wyc",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230107153335-tre0wyc",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1 单master模式"
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-c60l7n3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153335-c60l7n3",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "这是最简单但也是最危险的模式，一旦broker服务器重启或宕机，整个服务将不可用。 建议在生产环境中不要使用这种部署方式，在本地测试和开发可以选择这种模式。 以下是构建的步骤。"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-4wvc1sn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153335-4wvc1sn",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "1）启动NameServer"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-j8482sj",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230107153335-j8482sj",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "### 第一步启动namesrv\n$ nohup sh mqnamesrv \u0026\n \n### 验证namesrv是否启动成功\n$ tail -f ~/logs/rocketmqlogs/namesrv.log\nThe Name Server boot success...\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-w9u2o3j",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153335-w9u2o3j",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "我们可以在namesrv.log 中看到'The Name Server boot success..'，表示NameServer 已成功启动。"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-rx2va61",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153335-rx2va61",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "2）启动Broker"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-dviukfu",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230107153335-dviukfu",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "### 第一步先启动broker\n$ nohup sh bin/mqbroker -n localhost:9876 \u0026\n​\n### 验证broker是否启动成功, 比如, broker的ip是192.168.1.2 然后名字是broker-a\n$ tail -f ~/logs/rocketmqlogs/Broker.log \nThe broker[broker-a,192.169.1.2:10911] boot success...\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-ngwmewr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153335-ngwmewr",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "我们可以在 Broker.log 中看到“The broker[brokerName,ip:port] boot success..”，这表明 broker 已成功启动。"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-i2vk04d",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230107153335-i2vk04d",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2 多Master模式"
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-82sc2t5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153335-82sc2t5",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "该模式是指所有节点都是master主节点（比如2个或3个主节点），没有slave从节点的模式。 这种模式的优缺点如下："
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-j4gqumx",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230107153335-j4gqumx",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"ID": "20230107153335-qocn5j5",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230107153335-qocn5j5",
+						"updated": "20230107153335"
+					},
+					"Children": [
+						{
+							"ID": "20230107153335-3q6ac7u",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230107153335-3q6ac7u",
+								"updated": "20230107153335"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "**优点: **"
+								}
+							]
+						},
+						{
+							"ID": "20230107153335-2v42ufl",
+							"Type": "NodeList",
+							"ListData": {
+								"Typ": 1
+							},
+							"Properties": {
+								"id": "20230107153335-2v42ufl",
+								"updated": "20230107153335"
+							},
+							"Children": [
+								{
+									"ID": "20230107153335-nl2024g",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "MS4=",
+										"Num": 1
+									},
+									"Properties": {
+										"id": "20230107153335-nl2024g",
+										"updated": "20230107153335"
+									},
+									"Children": [
+										{
+											"ID": "20230107153335-g0vqy8g",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230107153335-g0vqy8g",
+												"updated": "20230107153335"
+											},
+											"Children": [
+												{
+													"Type": "NodeStrong",
+													"Data": "strong",
+													"Children": [
+														{
+															"Type": "NodeStrongA6kOpenMarker",
+															"Data": "**"
+														},
+														{
+															"Type": "NodeText",
+															"Data": "配置简单。"
+														},
+														{
+															"Type": "NodeStrongA6kCloseMarker",
+															"Data": "**"
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230107153335-ch5hpr2",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "Mi4=",
+										"Num": 2
+									},
+									"Properties": {
+										"id": "20230107153335-ch5hpr2",
+										"updated": "20230107153335"
+									},
+									"Children": [
+										{
+											"ID": "20230107153335-19mm3ck",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230107153335-19mm3ck",
+												"updated": "20230107153335"
+											},
+											"Children": [
+												{
+													"Type": "NodeStrong",
+													"Data": "strong",
+													"Children": [
+														{
+															"Type": "NodeStrongA6kOpenMarker",
+															"Data": "**"
+														},
+														{
+															"Type": "NodeText",
+															"Data": "一个master节点的宕机或者重启（维护）对应用程序没有影响。"
+														},
+														{
+															"Type": "NodeStrongA6kCloseMarker",
+															"Data": "**"
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230107153335-xgxwvw3",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "My4=",
+										"Num": 3
+									},
+									"Properties": {
+										"id": "20230107153335-xgxwvw3",
+										"updated": "20230107153335"
+									},
+									"Children": [
+										{
+											"ID": "20230107153335-itq7w07",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230107153335-itq7w07",
+												"updated": "20230107153335"
+											},
+											"Children": [
+												{
+													"Type": "NodeStrong",
+													"Data": "strong",
+													"Children": [
+														{
+															"Type": "NodeStrongA6kOpenMarker",
+															"Data": "**"
+														},
+														{
+															"Type": "NodeText",
+															"Data": "当磁盘配置为RAID10时，消息不会丢失，因为RAID10磁盘非常可靠，即使机器不可恢复（消息异步刷盘模式的情况下，会丢失少量消息；如果消息是同步刷盘模式，不会丢失任何消息）。"
+														},
+														{
+															"Type": "NodeStrongA6kCloseMarker",
+															"Data": "**"
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230107153335-1kqgk32",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "NC4=",
+										"Num": 4
+									},
+									"Properties": {
+										"id": "20230107153335-1kqgk32",
+										"updated": "20230107153335"
+									},
+									"Children": [
+										{
+											"ID": "20230107153335-n4x8iaw",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230107153335-n4x8iaw",
+												"updated": "20230107153335"
+											},
+											"Children": [
+												{
+													"Type": "NodeStrong",
+													"Data": "strong",
+													"Children": [
+														{
+															"Type": "NodeStrongA6kOpenMarker",
+															"Data": "**"
+														},
+														{
+															"Type": "NodeText",
+															"Data": "在这种模式下，性能是最高的。"
+														},
+														{
+															"Type": "NodeStrongA6kCloseMarker",
+															"Data": "**"
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230107153335-ctw9pis",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230107153335-ctw9pis",
+						"updated": "20230107153335"
+					},
+					"Children": [
+						{
+							"ID": "20230107153335-6uaipgy",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230107153335-6uaipgy",
+								"updated": "20230107153335"
+							},
+							"Children": [
+								{
+									"Type": "NodeStrong",
+									"Data": "strong",
+									"Children": [
+										{
+											"Type": "NodeStrongA6kOpenMarker",
+											"Data": "**"
+										},
+										{
+											"Type": "NodeText",
+											"Data": "缺点:"
+										},
+										{
+											"Type": "NodeStrongA6kCloseMarker",
+											"Data": "**"
+										}
+									]
+								}
+							]
+						},
+						{
+							"ID": "20230107153335-udve8n1",
+							"Type": "NodeList",
+							"ListData": {
+								"Typ": 1
+							},
+							"Properties": {
+								"id": "20230107153335-udve8n1",
+								"updated": "20230107153335"
+							},
+							"Children": [
+								{
+									"ID": "20230107153335-upmrwcj",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "MS4=",
+										"Num": 1
+									},
+									"Properties": {
+										"id": "20230107153335-upmrwcj",
+										"updated": "20230107153335"
+									},
+									"Children": [
+										{
+											"ID": "20230107153335-t8fn3sg",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230107153335-t8fn3sg",
+												"updated": "20230107153335"
+											},
+											"Children": [
+												{
+													"Type": "NodeStrong",
+													"Data": "strong",
+													"Children": [
+														{
+															"Type": "NodeStrongA6kOpenMarker",
+															"Data": "**"
+														},
+														{
+															"Type": "NodeText",
+															"Data": "单台机器宕机时，本机未消费的消息，直到机器恢复后才会订阅，影响消息实时性。"
+														},
+														{
+															"Type": "NodeStrongA6kCloseMarker",
+															"Data": "**"
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-3gz3v1h",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153335-3gz3v1h",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "多Master模式的启动步骤如下："
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-tg6led1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153335-tg6led1",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "1）启动 NameServer"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-zkoj3wx",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230107153335-zkoj3wx",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "### 第一步先启动broker\n$ nohup sh mqnamesrv \u0026\n \n### 验证namesrv是否启动成功\n$ tail -f ~/logs/rocketmqlogs/namesrv.log\nThe Name Server boot success...\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-b3u97vu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153335-b3u97vu",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "2）启动 Broker 集群"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-11s9fcg",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230107153335-11s9fcg",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "### 比如在A机器上启动第一个Master，假设配置的NameServer IP为：192.168.1.1\n$ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-noslave/broker-a.properties \u0026\n \n### 然后在机器B上启动第二个Master，假设配置的NameServer IP是：192.168.1.1\n$ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-noslave/broker-b.properties \u0026\n​\n...\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-1ippele",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153335-1ippele",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "上面显示的boot命令用于单个NameServer的情况。对于多个NameServer的集群，broker boot命令中-n参数后面的地址列表用分号隔开，例如 192.168.1.1 : 9876; 192.161.2 : 9876"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-ri4qly2",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230107153335-ri4qly2",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3 多Master多Slave模式-异步复制"
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-m61ixvm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153335-m61ixvm",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "每个主节点配置多个从节点，多对主从。HA采用异步复制，主节点和从节点之间有短消息延迟（毫秒）。这种模式的优缺点如下："
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-e19s5kh",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230107153335-e19s5kh",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"ID": "20230107153335-vhh9r63",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230107153335-vhh9r63",
+						"updated": "20230107153335"
+					},
+					"Children": [
+						{
+							"ID": "20230107153335-pim5rb0",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230107153335-pim5rb0",
+								"updated": "20230107153335"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "**优点: **"
+								}
+							]
+						},
+						{
+							"ID": "20230107153335-twc7889",
+							"Type": "NodeList",
+							"ListData": {
+								"Typ": 1
+							},
+							"Properties": {
+								"id": "20230107153335-twc7889",
+								"updated": "20230107153335"
+							},
+							"Children": [
+								{
+									"ID": "20230107153335-edsl2kc",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "MS4=",
+										"Num": 1
+									},
+									"Properties": {
+										"id": "20230107153335-edsl2kc",
+										"updated": "20230107153335"
+									},
+									"Children": [
+										{
+											"ID": "20230107153335-r2gy39b",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230107153335-r2gy39b",
+												"updated": "20230107153335"
+											},
+											"Children": [
+												{
+													"Type": "NodeStrong",
+													"Data": "strong",
+													"Children": [
+														{
+															"Type": "NodeStrongA6kOpenMarker",
+															"Data": "**"
+														},
+														{
+															"Type": "NodeText",
+															"Data": "即使磁盘损坏，也不会丢失极少的消息，不影响消息的实时性能。"
+														},
+														{
+															"Type": "NodeStrongA6kCloseMarker",
+															"Data": "**"
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230107153335-amw1xm9",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "Mi4=",
+										"Num": 2
+									},
+									"Properties": {
+										"id": "20230107153335-amw1xm9",
+										"updated": "20230107153335"
+									},
+									"Children": [
+										{
+											"ID": "20230107153335-v11eyso",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230107153335-v11eyso",
+												"updated": "20230107153335"
+											},
+											"Children": [
+												{
+													"Type": "NodeStrong",
+													"Data": "strong",
+													"Children": [
+														{
+															"Type": "NodeStrongA6kOpenMarker",
+															"Data": "**"
+														},
+														{
+															"Type": "NodeText",
+															"Data": "同时，当主节点宕机时，消费者仍然可以消费从节点的消息，这个过程对应用本身是透明的，不需要人为干预。"
+														},
+														{
+															"Type": "NodeStrongA6kCloseMarker",
+															"Data": "**"
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230107153335-8nyg099",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "My4=",
+										"Num": 3
+									},
+									"Properties": {
+										"id": "20230107153335-8nyg099",
+										"updated": "20230107153335"
+									},
+									"Children": [
+										{
+											"ID": "20230107153335-bo5zdfi",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230107153335-bo5zdfi",
+												"updated": "20230107153335"
+											},
+											"Children": [
+												{
+													"Type": "NodeStrong",
+													"Data": "strong",
+													"Children": [
+														{
+															"Type": "NodeStrongA6kOpenMarker",
+															"Data": "**"
+														},
+														{
+															"Type": "NodeText",
+															"Data": "性能几乎与多Master模式一样高。"
+														},
+														{
+															"Type": "NodeStrongA6kCloseMarker",
+															"Data": "**"
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230107153335-wpa9c68",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230107153335-wpa9c68",
+						"updated": "20230107153335"
+					},
+					"Children": [
+						{
+							"ID": "20230107153335-afxna8e",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230107153335-afxna8e",
+								"updated": "20230107153335"
+							},
+							"Children": [
+								{
+									"Type": "NodeStrong",
+									"Data": "strong",
+									"Children": [
+										{
+											"Type": "NodeStrongA6kOpenMarker",
+											"Data": "**"
+										},
+										{
+											"Type": "NodeText",
+											"Data": "缺点:"
+										},
+										{
+											"Type": "NodeStrongA6kCloseMarker",
+											"Data": "**"
+										}
+									]
+								}
+							]
+						},
+						{
+							"ID": "20230107153335-sjrr4ac",
+							"Type": "NodeList",
+							"ListData": {
+								"Typ": 1
+							},
+							"Properties": {
+								"id": "20230107153335-sjrr4ac",
+								"updated": "20230107153335"
+							},
+							"Children": [
+								{
+									"ID": "20230107153335-3cc3c7c",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "MS4=",
+										"Num": 1
+									},
+									"Properties": {
+										"id": "20230107153335-3cc3c7c",
+										"updated": "20230107153335"
+									},
+									"Children": [
+										{
+											"ID": "20230107153335-6wgtb9w",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230107153335-6wgtb9w",
+												"updated": "20230107153335"
+											},
+											"Children": [
+												{
+													"Type": "NodeStrong",
+													"Data": "strong",
+													"Children": [
+														{
+															"Type": "NodeStrongA6kOpenMarker",
+															"Data": "**"
+														},
+														{
+															"Type": "NodeText",
+															"Data": "主节点宕机、磁盘损坏时，会丢失少量消息。"
+														},
+														{
+															"Type": "NodeStrongA6kCloseMarker",
+															"Data": "**"
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-k8cowb9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153335-k8cowb9",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "多主多从模式的启动步骤如下："
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-ehr20tg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153335-ehr20tg",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "1）启动 NameServer"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-fu34f7w",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230107153335-fu34f7w",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "### 第一步先启动broker\n$ nohup sh mqnamesrv \u0026\n \n### 验证namesrv是否启动成功\n$ tail -f ~/logs/rocketmqlogs/namesrv.log\nThe Name Server boot success...\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-l3dxl0v",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153335-l3dxl0v",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "2）启动 Broker 集群"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-fz8wi5f",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230107153335-fz8wi5f",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "### 例如在A机器上启动第一个Master，假设配置的NameServer IP为：192.168.1.1，端口为9876。\n$ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-async/broker-a.properties \u0026\n \n### 然后在机器B上启动第二个Master，假设配置的NameServer IP为：192.168.1.1，端口为9876。\n$ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-async/broker-b.properties \u0026\n \n### 然后在C机器上启动第一个Slave，假设配置的NameServer IP为：192.168.1.1，端口为9876。\n$ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-async/broker-a-s.properties \u0026\n \n### 最后在D机启动第二个Slave，假设配置的NameServer IP为：192.168.1.1，端口为9876。\n$ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-async/broker-b-s.properties \u0026\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-5b0kdts",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153335-5b0kdts",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "上图显示了 2M-2S-Async 模式的启动命令，类似于其他 nM-nS-Async 模式。"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-rlebm9z",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230107153335-rlebm9z",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4 多Master多Slave模式-同步双写"
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-fmsa9k2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153335-fmsa9k2",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "这种模式下，每个master节点配置多个slave节点，有多对Master-Slave。HA采用同步双写，即只有消息成功写入到主节点并复制到多个从节点，才会返回成功响应给应用程序。"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-kna1f69",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153335-kna1f69",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "这种模式的优缺点如下："
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-12dqo0s",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230107153335-12dqo0s",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"ID": "20230107153335-1077qvh",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230107153335-1077qvh",
+						"updated": "20230107153335"
+					},
+					"Children": [
+						{
+							"ID": "20230107153335-73vtlsn",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230107153335-73vtlsn",
+								"updated": "20230107153335"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "**优点: **"
+								}
+							]
+						},
+						{
+							"ID": "20230107153335-xu5syoe",
+							"Type": "NodeList",
+							"ListData": {
+								"Typ": 1
+							},
+							"Properties": {
+								"id": "20230107153335-xu5syoe",
+								"updated": "20230107153335"
+							},
+							"Children": [
+								{
+									"ID": "20230107153335-gnhm523",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "MS4=",
+										"Num": 1
+									},
+									"Properties": {
+										"id": "20230107153335-gnhm523",
+										"updated": "20230107153335"
+									},
+									"Children": [
+										{
+											"ID": "20230107153335-o8kse0e",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230107153335-o8kse0e",
+												"updated": "20230107153335"
+											},
+											"Children": [
+												{
+													"Type": "NodeStrong",
+													"Data": "strong",
+													"Children": [
+														{
+															"Type": "NodeStrongA6kOpenMarker",
+															"Data": "**"
+														},
+														{
+															"Type": "NodeText",
+															"Data": "数据和服务都没有单点故障。"
+														},
+														{
+															"Type": "NodeStrongA6kCloseMarker",
+															"Data": "**"
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230107153335-caw01zk",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "Mi4=",
+										"Num": 2
+									},
+									"Properties": {
+										"id": "20230107153335-caw01zk",
+										"updated": "20230107153335"
+									},
+									"Children": [
+										{
+											"ID": "20230107153335-ezp7apb",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230107153335-ezp7apb",
+												"updated": "20230107153335"
+											},
+											"Children": [
+												{
+													"Type": "NodeStrong",
+													"Data": "strong",
+													"Children": [
+														{
+															"Type": "NodeStrongA6kOpenMarker",
+															"Data": "**"
+														},
+														{
+															"Type": "NodeText",
+															"Data": "在master节点关闭的情况下，消息也没有延迟。"
+														},
+														{
+															"Type": "NodeStrongA6kCloseMarker",
+															"Data": "**"
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230107153335-8jkjtzd",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "My4=",
+										"Num": 3
+									},
+									"Properties": {
+										"id": "20230107153335-8jkjtzd",
+										"updated": "20230107153335"
+									},
+									"Children": [
+										{
+											"ID": "20230107153335-qrn5pf6",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230107153335-qrn5pf6",
+												"updated": "20230107153335"
+											},
+											"Children": [
+												{
+													"Type": "NodeStrong",
+													"Data": "strong",
+													"Children": [
+														{
+															"Type": "NodeStrongA6kOpenMarker",
+															"Data": "**"
+														},
+														{
+															"Type": "NodeText",
+															"Data": "服务可用性和数据可用性非常高；"
+														},
+														{
+															"Type": "NodeStrongA6kCloseMarker",
+															"Data": "**"
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230107153335-b6p6ypv",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230107153335-b6p6ypv",
+						"updated": "20230107153335"
+					},
+					"Children": [
+						{
+							"ID": "20230107153335-6kywp24",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230107153335-6kywp24",
+								"updated": "20230107153335"
+							},
+							"Children": [
+								{
+									"Type": "NodeStrong",
+									"Data": "strong",
+									"Children": [
+										{
+											"Type": "NodeStrongA6kOpenMarker",
+											"Data": "**"
+										},
+										{
+											"Type": "NodeText",
+											"Data": "缺点:"
+										},
+										{
+											"Type": "NodeStrongA6kCloseMarker",
+											"Data": "**"
+										}
+									]
+								}
+							]
+						},
+						{
+							"ID": "20230107153335-ym4tcyu",
+							"Type": "NodeList",
+							"ListData": {
+								"Typ": 1
+							},
+							"Properties": {
+								"id": "20230107153335-ym4tcyu",
+								"updated": "20230107153335"
+							},
+							"Children": [
+								{
+									"ID": "20230107153335-3jsm1xp",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "MS4=",
+										"Num": 1
+									},
+									"Properties": {
+										"id": "20230107153335-3jsm1xp",
+										"updated": "20230107153335"
+									},
+									"Children": [
+										{
+											"ID": "20230107153335-yjib4rn",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230107153335-yjib4rn",
+												"updated": "20230107153335"
+											},
+											"Children": [
+												{
+													"Type": "NodeStrong",
+													"Data": "strong",
+													"Children": [
+														{
+															"Type": "NodeStrongA6kOpenMarker",
+															"Data": "**"
+														},
+														{
+															"Type": "NodeText",
+															"Data": "这种模式下的性能略低于异步复制模式（大约低 10%）。"
+														},
+														{
+															"Type": "NodeStrongA6kCloseMarker",
+															"Data": "**"
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"ID": "20230107153335-tctibd4",
+									"Type": "NodeListItem",
+									"ListData": {
+										"Typ": 1,
+										"Delimiter": 46,
+										"Marker": "Mi4=",
+										"Num": 2
+									},
+									"Properties": {
+										"id": "20230107153335-tctibd4",
+										"updated": "20230107153335"
+									},
+									"Children": [
+										{
+											"ID": "20230107153335-242vnuh",
+											"Type": "NodeParagraph",
+											"Properties": {
+												"id": "20230107153335-242vnuh",
+												"updated": "20230107153335"
+											},
+											"Children": [
+												{
+													"Type": "NodeStrong",
+													"Data": "strong",
+													"Children": [
+														{
+															"Type": "NodeStrongA6kOpenMarker",
+															"Data": "**"
+														},
+														{
+															"Type": "NodeText",
+															"Data": "发送单条消息的RT略高，目前版本，master节点宕机后，slave节点无法自动切换到master。"
+														},
+														{
+															"Type": "NodeStrongA6kCloseMarker",
+															"Data": "**"
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-2o03qvx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153335-2o03qvx",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "启动步骤如下："
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-9ilrvpc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153335-9ilrvpc",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "1）启动NameServer"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-z87dblx",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230107153335-z87dblx",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "### 第一步启动broker\n$ nohup sh mqnamesrv \u0026\n \n### 验证namesrv是否启动成功\n$ tail -f ~/logs/rocketmqlogs/namesrv.log\nThe Name Server boot success...\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-hkne22q",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153335-hkne22q",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "2）启动 Broker 集群"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-8hxn5xh",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230107153335-8hxn5xh",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker"
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "### 例如在A机器上启动第一个Master，假设配置的NameServer IP为：192.168.1.1，端口为9876。\n$ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-sync/broker-a.properties \u0026\n \n### 然后在B机器上启动第二个Master，假设配置的NameServer IP为：192.168.1.1，端口为9876。\n$ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-sync/broker-b.properties \u0026\n \n### 然后在C机器上启动第一个Slave，假设配置的NameServer IP为：192.168.1.1，端口为9876。\n$ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-sync/broker-a-s.properties \u0026\n \n### 最后在D机启动第二个Slave，假设配置的NameServer IP为：192.168.1.1，端口为9876。\n$ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-sync/broker-b-s.properties \u0026\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230107153335-tb2iky7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230107153335-tb2iky7",
+				"updated": "20230107153335"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "上述Master和Slave是通过指定相同的config命名为“brokerName”来配对的，master节点的brokerId必须为0，slave节点的brokerId必须大于0。"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		}
+	]
+}

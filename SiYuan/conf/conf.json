@@ -196,108 +196,29 @@
                 {
                   "children": [
                     {
-                      "children": {
-                        "action": "",
-                        "blockId": "20230104132517-gato6h0",
-                        "instance": "Editor",
-                        "mode": "wysiwyg",
-                        "scrollAttr": {
-                          "endId": "20230104133733-84826op",
-                          "focusEnd": 0,
-                          "focusId": "20230104133733-84826op",
-                          "focusStart": 0,
-                          "scrollTop": 0,
-                          "startId": "20230104133733-84826op"
-                        }
-                      },
-                      "docIcon": "",
-                      "instance": "Tab",
-                      "pin": false,
-                      "title": "pod 应用"
-                    },
-                    {
                       "active": true,
                       "children": {
                         "action": "",
-                        "blockId": "20220827152140-qun0hng",
+                        "blockId": "20230107152616-qk8nrod",
                         "instance": "Editor",
                         "mode": "wysiwyg",
                         "scrollAttr": {
-                          "endId": "20220827152215-ck23lr8",
-                          "focusEnd": 105,
-                          "focusId": "20220827152215-oi41xzd",
-                          "focusStart": 105,
-                          "scrollTop": 2325.7353515625,
-                          "startId": "20220827152215-c4jgmte"
+                          "endId": "20230107152639-1bhav2q",
+                          "focusEnd": 288,
+                          "focusId": "20230107152639-ucdsh58",
+                          "focusStart": 288,
+                          "scrollTop": 1100,
+                          "startId": "20230107152639-x8648pr"
                         }
                       },
                       "docIcon": "",
                       "instance": "Tab",
                       "pin": false,
-                      "title": "Redis 内存优化"
-                    },
-                    {
-                      "children": {
-                        "action": "",
-                        "blockId": "20220824115619-4v28b3h",
-                        "instance": "Editor",
-                        "mode": "wysiwyg",
-                        "scrollAttr": {
-                          "endId": "20220824115619-m57qkux",
-                          "focusEnd": 0,
-                          "focusId": "20220824115619-4v28b3h",
-                          "focusStart": 0,
-                          "scrollTop": 2985,
-                          "startId": "20220824115619-1et4az5"
-                        }
-                      },
-                      "docIcon": "",
-                      "instance": "Tab",
-                      "pin": false,
-                      "title": "Redis 面试题"
+                      "title": "架构设计"
                     }
                   ],
                   "height": "",
                   "instance": "Wnd",
-                  "width": ""
-                },
-                {
-                  "children": [
-                    {
-                      "children": {
-                        "instance": "Search",
-                        "text": "淘汰策略"
-                      },
-                      "icon": "iconSearch",
-                      "instance": "Tab",
-                      "pin": false,
-                      "title": "淘汰策略"
-                    },
-                    {
-                      "active": true,
-                      "children": {
-                        "action": "",
-                        "blockId": "20220824115619-upc6hid",
-                        "instance": "Editor",
-                        "mode": "wysiwyg",
-                        "scrollAttr": {
-                          "endId": "20220824115619-ww4binj",
-                          "focusEnd": 0,
-                          "focusId": "20220824115619-upc6hid",
-                          "focusStart": 0,
-                          "scrollTop": 2283.823486328125,
-                          "startId": "20220824115619-ex9c7uz"
-                        }
-                      },
-                      "docIcon": "",
-                      "instance": "Tab",
-                      "pin": false,
-                      "title": "Redis 面试题"
-                    }
-                  ],
-                  "height": "",
-                  "instance": "Wnd",
-                  "resize": "lr",
                   "width": ""
                 }
               ],
@@ -456,19 +377,19 @@
   },
   "readonly": false,
   "localIPs": [
-    "172.16.11.159",
+    "192.168.10.2",
     "127.0.0.1"
   ],
   "accessAuthCode": "",
   "system": {
-    "id": "ec56ec85-b2e3-4d85-a264-e61c5bf1bead",
-    "kernelVersion": "2.1.8",
+    "id": "ad8ac2b0-ec5b-48dc-a254-d7cff8a50da1",
+    "kernelVersion": "2.1.9",
     "os": "windows",
     "container": "std",
     "isInsider": false,
     "homeDir": "C:\\Users\\53276",
     "workspaceDir": "D:\\data-img\\SiYuan",
-    "appDir": "F:\\Tools\\AppData\\siyuan\\resources",
+    "appDir": "E:\\tool\\AppData\\SiYuan\\resources",
     "confDir": "D:\\data-img\\SiYuan\\conf",
     "dataDir": "D:\\data-img\\SiYuan\\data",
     "networkServe": false,
@@ -922,7 +843,7 @@
     "virtualRefDoc": true
   },
   "stat": {
-    "docCount": 19
+    "docCount": 28
   },
   "api": {
     "token": "3j2g7w89jh5546x1"
