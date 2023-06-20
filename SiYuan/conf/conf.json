@@ -188,7 +188,7 @@
               ],
               "direction": "tb",
               "instance": "Layout",
-              "size": "240px",
+              "size": "252px",
               "type": "left"
             },
             {
@@ -196,7 +196,26 @@
                 {
                   "children": [
                     {
-                      "active": true,
+                      "children": {
+                        "action": "",
+                        "blockId": "20230107153637-wzx5wrm",
+                        "instance": "Editor",
+                        "mode": "wysiwyg",
+                        "scrollAttr": {
+                          "endId": "20230107154920-vbjafal",
+                          "focusEnd": 0,
+                          "focusId": "20230107154920-8zli6a9",
+                          "focusStart": 0,
+                          "scrollTop": 7715,
+                          "startId": "20230107153729-t0hwlo1"
+                        }
+                      },
+                      "docIcon": "",
+                      "instance": "Tab",
+                      "pin": false,
+                      "title": "Example"
+                    },
+                    {
                       "children": {
                         "action": "",
                         "blockId": "20230107152616-qk8nrod",
@@ -204,17 +223,129 @@
                         "mode": "wysiwyg",
                         "scrollAttr": {
                           "endId": "20230107152639-1bhav2q",
-                          "focusEnd": 288,
-                          "focusId": "20230107152639-ucdsh58",
-                          "focusStart": 288,
-                          "scrollTop": 1100,
-                          "startId": "20230107152639-x8648pr"
+                          "scrollTop": 0,
+                          "startId": "20230107152639-wqvphmt"
                         }
                       },
                       "docIcon": "",
                       "instance": "Tab",
                       "pin": false,
                       "title": "架构设计"
+                    },
+                    {
+                      "children": {
+                        "action": "",
+                        "blockId": "20230107153408-dapmi2l",
+                        "instance": "Editor",
+                        "mode": "wysiwyg",
+                        "scrollAttr": {
+                          "endId": "20230107153415-vnjhooi",
+                          "scrollTop": 1055,
+                          "startId": "20230107153415-gfccfps"
+                        }
+                      },
+                      "docIcon": "",
+                      "instance": "Tab",
+                      "pin": false,
+                      "title": "设计(design)"
+                    },
+                    {
+                      "children": {
+                        "action": "",
+                        "blockId": "20221022102338-lu0nphr",
+                        "instance": "Editor",
+                        "mode": "wysiwyg",
+                        "scrollAttr": {
+                          "endId": "20221022103140-ug5np4p",
+                          "focusEnd": 0,
+                          "focusId": "20221022102338-mv1nonx",
+                          "focusStart": 0,
+                          "scrollTop": 525,
+                          "startId": "20221022102338-mv1nonx"
+                        }
+                      },
+                      "docIcon": "",
+                      "instance": "Tab",
+                      "pin": false,
+                      "title": "Elastic 常见问题解决"
+                    },
+                    {
+                      "children": {
+                        "action": "",
+                        "blockId": "20221022093310-4uvw3bg",
+                        "instance": "Editor",
+                        "mode": "wysiwyg",
+                        "scrollAttr": {
+                          "endId": "20221022110351-18z2l58",
+                          "focusEnd": 0,
+                          "focusId": "20221022093310-tpgen88",
+                          "focusStart": 0,
+                          "scrollTop": 1522,
+                          "startId": "20221022093310-tpgen88"
+                        }
+                      },
+                      "docIcon": "",
+                      "instance": "Tab",
+                      "pin": false,
+                      "title": "Elastic 查询"
+                    },
+                    {
+                      "children": {
+                        "action": "",
+                        "blockId": "20220924171601-phc8ovl",
+                        "instance": "Editor",
+                        "mode": "wysiwyg",
+                        "scrollAttr": {
+                          "endId": "20220924171627-ver5blt",
+                          "scrollTop": 3892,
+                          "startId": "20220924171627-ovzek6e"
+                        }
+                      },
+                      "docIcon": "",
+                      "instance": "Tab",
+                      "pin": false,
+                      "title": "分布式原理"
+                    },
+                    {
+                      "children": {
+                        "action": "",
+                        "blockId": "20220827152140-qun0hng",
+                        "instance": "Editor",
+                        "mode": "wysiwyg",
+                        "scrollAttr": {
+                          "endId": "20220827152215-wu7q53z",
+                          "focusEnd": 139,
+                          "focusId": "20220827152215-kvi6e9t",
+                          "focusStart": 139,
+                          "scrollTop": 1205,
+                          "startId": "20220827152215-c4jgmte"
+                        }
+                      },
+                      "docIcon": "",
+                      "instance": "Tab",
+                      "pin": false,
+                      "title": "Redis 内存优化"
+                    },
+                    {
+                      "active": true,
+                      "children": {
+                        "action": "",
+                        "blockId": "20220824115603-juqypwe",
+                        "instance": "Editor",
+                        "mode": "wysiwyg",
+                        "scrollAttr": {
+                          "endId": "20220824115619-vobm00k",
+                          "focusEnd": 23,
+                          "focusId": "20220824115619-wrel701",
+                          "focusStart": 23,
+                          "scrollTop": 3925,
+                          "startId": "20220824115619-r3vx6s3"
+                        }
+                      },
+                      "docIcon": "",
+                      "instance": "Tab",
+                      "pin": false,
+                      "title": "Redis 面试题"
                     }
                   ],
                   "height": "",
@@ -281,7 +412,7 @@
         {
           "hotkeyLangId": "fileTree",
           "icon": "iconFiles",
-          "show": true,
+          "show": false,
           "size": {
             "height": 0,
             "width": 240
@@ -291,7 +422,7 @@
         {
           "hotkeyLangId": "outline",
           "icon": "iconAlignCenter",
-          "show": false,
+          "show": true,
           "size": {
             "height": 0,
             "width": 252
@@ -377,19 +508,19 @@
   },
   "readonly": false,
   "localIPs": [
-    "192.168.10.2",
+    "192.168.3.154",
     "127.0.0.1"
   ],
   "accessAuthCode": "",
   "system": {
-    "id": "ad8ac2b0-ec5b-48dc-a254-d7cff8a50da1",
-    "kernelVersion": "2.1.9",
+    "id": "ec56ec85-b2e3-4d85-a264-e61c5bf1bead",
+    "kernelVersion": "2.1.8",
     "os": "windows",
     "container": "std",
     "isInsider": false,
     "homeDir": "C:\\Users\\53276",
     "workspaceDir": "D:\\data-img\\SiYuan",
-    "appDir": "E:\\tool\\AppData\\SiYuan\\resources",
+    "appDir": "F:\\Tools\\AppData\\siyuan\\resources",
     "confDir": "D:\\data-img\\SiYuan\\conf",
     "dataDir": "D:\\data-img\\SiYuan\\data",
     "networkServe": false,
@@ -843,7 +974,7 @@
     "virtualRefDoc": true
   },
   "stat": {
-    "docCount": 28
+    "docCount": 33
   },
   "api": {
     "token": "3j2g7w89jh5546x1"

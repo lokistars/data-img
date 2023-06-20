@@ -1,0 +1,414 @@
+{
+	"ID": "20221022102338-lu0nphr",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20221022102338-lu0nphr",
+		"scroll": "{\u0026amp;quot;startId\u0026amp;quot;:\u0026amp;quot;20221022102338-mv1nonx\u0026amp;quot;,\u0026amp;quot;endId\u0026amp;quot;:\u0026amp;quot;20221022103140-ug5np4p\u0026amp;quot;,\u0026amp;quot;scrollTop\u0026amp;quot;:0}",
+		"title": "Elastic 常见问题解决",
+		"updated": "20221022104945"
+	},
+	"Children": [
+		{
+			"ID": "20221022102338-mv1nonx",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20221022102338-mv1nonx",
+				"updated": "20221022102408"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、深度分页问题"
+				}
+			]
+		},
+		{
+			"ID": "20221022102409-cjnvywk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221022102409-cjnvywk",
+				"updated": "20221022102527"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当from + size大于10000的时候，就会出现问题，Es限制最大查询前10000条数据，"
+				}
+			]
+		},
+		{
+			"ID": "20221022103042-n4qdoed",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221022103042-n4qdoed",
+				"updated": "20221022103046"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、分布式数据库不同于单机数据库，学员成绩是被分散保存在每个分片中的，你无法保证要查询的这一百位学员的成绩一定都在某一个分片中，结果很有可能是存在于每个分片。换句话说，你从任意一个分片中取出的"
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "前10100"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "位学员的成绩，都不一定是总成绩的"
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "前10100"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "。更不幸的是，唯一的解决办法是从每个分片中取出当前分片的"
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "前10100"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "名学员成绩，然后汇总成"
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "50500"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "条数据再次排序，然后从排序后的这"
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "50500"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "个成绩中查询前"
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "10100"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "的成绩，此时才能保证一定是整个索引中的成绩的前"
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "10100"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "名"
+				}
+			]
+		},
+		{
+			"ID": "20221022103050-zx5feyn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221022103050-zx5feyn",
+				"updated": "20221022103105"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2、每次有序的查询都会在每个分片中执行单独的查询，然后进行数据的二次排序，而这个二次排序的过程是发生在heap中的，也就是说当你单次查询的数量越大，那么堆内存中汇总的数据也就越多，对内存的压力也就越大。这里的单次查询的数据量取决于你查询的是第几条数据而不是查询了几条数据，比如你希望查询的是第"
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "10001-10100"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "这一百条数据，但是ES必须将前"
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "10100"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "全部取出进行二次查询。因此，如果查询的数据排序越靠后，就越容易导致OOM（Out Of Memory）情况的发生，频繁的深分页查询会导致频繁的FGC。ES为了避免用户在不了解其内部原理的情况下而做出错误的操作，设置了一个阈值，即"
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "max_result_window"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "，其默认值为"
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "10000"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "，其作用是为了保护堆内存不被错误操作导致溢出。"
+				}
+			]
+		},
+		{
+			"ID": "20221022103201-d2u1oyq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221022103201-d2u1oyq",
+				"updated": "20221022103203"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3、max_result_window参数"
+				}
+			]
+		},
+		{
+			"ID": "20221022103205-2tgmbqp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221022103205-2tgmbqp",
+				"updated": "20221022103224"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "max_result_window是分页返回的最大数值，默认值为10000。max_result_window本身是对JVM的一种保护机制，通过设定一个合理的阈值，避免初学者分页查询时由于单页数据过大而导致OOM。"
+				}
+			]
+		},
+		{
+			"ID": "20221022103224-fggu0ci",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221022103224-fggu0ci",
+				"updated": "20221022103246"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4、解决方案"
+				}
+			]
+		},
+		{
+			"ID": "20221022103247-f5w7t5y",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20221022103247-f5w7t5y",
+				"updated": "20221022104945"
+			},
+			"Children": [
+				{
+					"ID": "20221022103345-i8myf62",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221022103345-i8myf62",
+						"updated": "20221022103506"
+					},
+					"Children": [
+						{
+							"ID": "20221022103345-8ib69zp",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221022103345-8ib69zp",
+								"updated": "20221022103506"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "尝试避免深度分页，列如谷歌、百度搜索不允许跳页"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20221022103346-mhs0xw8",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221022103346-mhs0xw8",
+						"updated": "20221022104945"
+					},
+					"Children": [
+						{
+							"ID": "20221022103346-fy70x15",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221022103346-fy70x15",
+								"updated": "20221022104945"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "滚动查询：Scroll Search"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20221022103127-2vd202j",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"fold": "1",
+				"heading-fold": "1",
+				"id": "20221022103127-2vd202j"
+			}
+		},
+		{
+			"ID": "20221022103140-ug5np4p",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221022103140-ug5np4p"
+			}
+		}
+	]
+}

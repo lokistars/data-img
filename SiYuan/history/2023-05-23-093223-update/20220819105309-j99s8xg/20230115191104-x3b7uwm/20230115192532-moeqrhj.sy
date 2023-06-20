@@ -1,0 +1,2637 @@
+{
+	"ID": "20230115192532-moeqrhj",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230115192532-moeqrhj",
+		"scroll": "{\u0026amp;quot;startId\u0026amp;quot;:\u0026amp;quot;20230115192532-ve15jsy\u0026amp;quot;,\u0026amp;quot;endId\u0026amp;quot;:\u0026amp;quot;20230115194029-05rtm69\u0026amp;quot;,\u0026amp;quot;scrollTop\u0026amp;quot;:14908,\u0026amp;quot;focusId\u0026amp;quot;:\u0026amp;quot;20230115205019-16mqf2q\u0026amp;quot;,\u0026amp;quot;focusStart\u0026amp;quot;:94,\u0026amp;quot;focusEnd\u0026amp;quot;:94}",
+		"title": "ArrayList还是LinkedList？使用不当性能差千倍",
+		"updated": "20230115205052"
+	},
+	"Children": [
+		{
+			"ID": "20230115192532-ve15jsy",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230115192532-ve15jsy",
+				"updated": "20230115192716"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、初识 List 接口"
+				}
+			]
+		},
+		{
+			"ID": "20230115192554-nhfr7ca",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115192554-nhfr7ca",
+				"updated": "20230115192559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在学习 List 集合类之前，我们先来通过这张图，看下 List 集合类的接口和类的实现关系"
+				}
+			]
+		},
+		{
+			"ID": "20230115192559-iqvswx3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115192559-iqvswx3",
+				"updated": "20230115192602"
+			},
+			"Children": [
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230115192602-b8bdtk4.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230115192602-y3hbhct",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115192602-y3hbhct",
+				"updated": "20230115192607"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们可以看到 ArrayList、Vector、LinkedList 集合类继承了 AbstractList 抽象类，而 AbstractList 实现了 List 接口，同时也继承了 AbstractCollection 抽象类。ArrayList、Vector、LinkedList 又根据自我定位，分别实现了各自的功能。"
+				}
+			]
+		},
+		{
+			"ID": "20230115192607-m877ct4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115192607-m877ct4",
+				"updated": "20230115192611"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ArrayList 和 Vector 使用了数组实现，这两者的实现原理差不多，LinkedList 使用了双向链表实现。基础铺垫就到这里，接下来，我们就详细地分析下 ArrayList 和 LinkedList 的源码实现"
+				}
+			]
+		},
+		{
+			"ID": "20230115192612-k5ct1ei",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230115192612-k5ct1ei",
+				"updated": "20230115192719"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、ArrayList 是如何实现的？"
+				}
+			]
+		},
+		{
+			"ID": "20230115192619-qu8fp32",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115192619-qu8fp32",
+				"updated": "20230115192624"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ArrayList 很常用，先来几道测试题，自检下你对 ArrayList 的了解程度。"
+				}
+			]
+		},
+		{
+			"ID": "20230115192625-6qpl32d",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230115192625-6qpl32d",
+				"updated": "20230115192645"
+			},
+			"Children": [
+				{
+					"ID": "20230115192646-s6b4jde",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230115192646-s6b4jde",
+						"updated": "20230115192646"
+					},
+					"Children": [
+						{
+							"ID": "20230115192646-rngglsu",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230115192646-rngglsu",
+								"updated": "20230115192647"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "问题 1：我们在查看 ArrayList 的实现类源码时，你会发现对象数组 elementData 使用了 transient 修饰，我们知道 transient 关键字修饰该属性，则表示该属性不会被序列化，然而我们并没有看到文档中说明 ArrayList 不能被序列化，这是为什么？"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230115192647-k1gm4sq",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230115192647-k1gm4sq"
+					},
+					"Children": [
+						{
+							"ID": "20230115192647-gbh0eze",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230115192647-gbh0eze",
+								"updated": "20230115192652"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "问题 2：我们在使用 ArrayList 进行新增、删除时，经常被提醒“使用 ArrayList 做新增删除操作会影响效率”。那是不是 ArrayList 在大量新增元素的场景下效率就一定会变慢呢？"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230115192652-k7xnyrf",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230115192652-k7xnyrf"
+					},
+					"Children": [
+						{
+							"ID": "20230115192652-pa9ecrt",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230115192652-pa9ecrt",
+								"updated": "20230115192656"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "问题 3：如果让你使用 for 循环以及迭代循环遍历一个 ArrayList，你会使用哪种方式呢？原因是什么？"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230115192656-9vq3v8y",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115192656-9vq3v8y",
+				"updated": "20230115192701"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果你对这几道测试都没有一个全面的了解，那就跟我一起从数据结构、实现原理以及源码角度重新认识下 ArrayList 吧。"
+				}
+			]
+		},
+		{
+			"ID": "20230115192701-m1mv02r",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115192701-m1mv02r",
+				"updated": "20230115192756"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、ArrayList 实现类"
+				}
+			]
+		},
+		{
+			"ID": "20230115192721-kva0d9w",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115192721-kva0d9w",
+				"updated": "20230115192726"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ArrayList 实现了 List 接口，继承了 AbstractList 抽象类，底层是数组实现的，并且实现了自增扩容数组大小。"
+				}
+			]
+		},
+		{
+			"ID": "20230115192726-w318p4u",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115192726-w318p4u",
+				"updated": "20230115192730"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ArrayList 还实现了 Cloneable 接口和 Serializable 接口，所以他可以实现克隆和序列化。"
+				}
+			]
+		},
+		{
+			"ID": "20230115192731-d19udzu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115192731-d19udzu",
+				"updated": "20230115192735"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ArrayList 还实现了 RandomAccess 接口。你可能对这个接口比较陌生，不知道具体的用处。通过代码我们可以发现，这个接口其实是一个空接口，什么也没有实现，那 ArrayList 为什么要去实现它呢？"
+				}
+			]
+		},
+		{
+			"ID": "20230115192735-bqy8cj4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115192735-bqy8cj4",
+				"updated": "20230115192739"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "其实 RandomAccess 接口是一个标志接口，他标志着“只要实现该接口的 List 类，都能实现快速随机访问”。"
+				}
+			]
+		},
+		{
+			"ID": "20230115192739-hko8p9z",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230115192739-hko8p9z",
+				"updated": "20230115192748"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class ArrayList\u003cE\u003e extends AbstractList\u003cE\u003e\n        implements List\u003cE\u003e, RandomAccess, Cloneable, java.io.Serializable\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230115192748-00i0tum",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115192748-00i0tum",
+				"updated": "20230115192803"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2、ArrayList 属性"
+				}
+			]
+		},
+		{
+			"ID": "20230115192803-cep79tk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115192803-cep79tk",
+				"updated": "20230115192807"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ArrayList 属性主要由数组长度 size、对象数组 elementData、初始化容量 default_capacity 等组成， 其中初始化容量默认大小为 10。"
+				}
+			]
+		},
+		{
+			"ID": "20230115192808-wb2a672",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230115192808-wb2a672",
+				"updated": "20230115192820"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "  //默认初始化容量\n    private static final int DEFAULT_CAPACITY = 10;\n    //对象数组\n    transient Object[] elementData; \n    //数组长度\n    private int size;\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230115192822-yc9gu5t",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115192822-yc9gu5t",
+				"updated": "20230115192827"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "从 ArrayList 属性来看，它没有被任何的多线程关键字修饰，但 elementData 被关键字 transient 修饰了。这就是我在上面提到的第一道测试题：transient 关键字修饰该字段则表示该属性不会被序列化，但 ArrayList 其实是实现了序列化接口，这到底是怎么回事呢？"
+				}
+			]
+		},
+		{
+			"ID": "20230115192828-vthv1w2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115192828-vthv1w2",
+				"updated": "20230115192831"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这还得从“ArrayList 是基于数组实现“开始说起，由于 ArrayList 的数组是基于动态扩增的，所以并不是所有被分配的内存空间都存储了数据。"
+				}
+			]
+		},
+		{
+			"ID": "20230115192832-920ixs4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115192832-920ixs4",
+				"updated": "20230115192840"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果采用外部序列化法实现数组的序列化，会序列化整个数组。ArrayList 为了避免这些没有存储数据的内存空间被序列化，内部提供了两个私有方法 writeObject 以及 readObject 来自我完成序列化与反序列化，从而在序列化与反序列化数组时节省了空间和时间。"
+				}
+			]
+		},
+		{
+			"ID": "20230115192840-uosm640",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115192840-uosm640",
+				"updated": "20230115192844"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "因此使用 transient 修饰数组，是防止对象数组被其他外部方法序列化。"
+				}
+			]
+		},
+		{
+			"ID": "20230115192844-a0go37a",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115192844-a0go37a",
+				"updated": "20230115192855"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3、ArrayList 构造函数"
+				}
+			]
+		},
+		{
+			"ID": "20230115192857-zpfvj00",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115192857-zpfvj00",
+				"updated": "20230115192906"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ArrayList 类实现了三个构造函数，第一个是创建 ArrayList 对象时，传入一个初始化值；第二个是默认创建一个空数组对象；第三个是传入一个集合类型进行初始化。"
+				}
+			]
+		},
+		{
+			"ID": "20230115192906-keo0j4v",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115192906-keo0j4v",
+				"updated": "20230115192920"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当 ArrayList 新增元素时，如果所存储的元素已经超过其已有大小，它会计算元素大小后再进行动态扩容，数组的扩容会导致整个数组进行一次内存复制。因此，我们在初始化 ArrayList 时，可以通过第一个构造函数合理指定数组初始大小，这样有助于减少数组的扩容次数，从而提高系统性能。"
+				}
+			]
+		},
+		{
+			"ID": "20230115192920-f3rymv0",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230115192920-f3rymv0",
+				"updated": "20230115192935"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "    public ArrayList(int initialCapacity) {\n        //初始化容量不为零时，将根据初始化值创建数组大小\n        if (initialCapacity \u003e 0) {\n            this.elementData = new Object[initialCapacity];\n        } else if (initialCapacity == 0) {//初始化容量为零时，使用默认的空数组\n            this.elementData = EMPTY_ELEMENTDATA;\n        } else {\n            throw new IllegalArgumentException(\"Illegal Capacity: \"+\n                                               initialCapacity);\n        }\n    }\n    public ArrayList() {\n        //初始化默认为空数组\n        this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230115192947-fmaegag",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115192947-fmaegag",
+				"updated": "20230115192950"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4、ArrayList 新增元素"
+				}
+			]
+		},
+		{
+			"ID": "20230115192951-maxvs91",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115192951-maxvs91",
+				"updated": "20230115192955"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ArrayList 新增元素的方法有两种，一种是直接将元素加到数组的末尾，另外一种是添加元素到任意位置。"
+				}
+			]
+		},
+		{
+			"ID": "20230115192956-i5udcf9",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230115192956-i5udcf9",
+				"updated": "20230115193016"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "    public boolean add(E e) {\n        ensureCapacityInternal(size + 1);  // Increments modCount!!\n        elementData[size++] = e;\n        return true;\n    }\n    public void add(int index, E element) {\n        rangeCheckForAdd(index);\n\n        ensureCapacityInternal(size + 1);  // Increments modCount!!\n        System.arraycopy(elementData, index, elementData, index + 1,\n                         size - index);\n        elementData[index] = element;\n        size++;\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230115193051-e4b0pd9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115193051-e4b0pd9",
+				"updated": "20230115193100"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "两个方法的相同之处是在添加元素之前，都会先确认容量大小，如果容量够大，就不用进行扩容；如果容量不够大，就会按照原来数组的 1.5 倍大小进行扩容，在扩容之后需要将数组复制到新分配的内存地址。"
+				}
+			]
+		},
+		{
+			"ID": "20230115193100-tkm06qy",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230115193100-tkm06qy",
+				"updated": "20230115193109"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "  private void ensureExplicitCapacity(int minCapacity) {\n        modCount++;\n\n        // overflow-conscious code\n        if (minCapacity - elementData.length \u003e 0)\n            grow(minCapacity);\n    }\n    private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;\n\n    private void grow(int minCapacity) {\n        // overflow-conscious code\n        int oldCapacity = elementData.length;\n        int newCapacity = oldCapacity + (oldCapacity \u003e\u003e 1);\n        if (newCapacity - minCapacity \u003c 0)\n            newCapacity = minCapacity;\n        if (newCapacity - MAX_ARRAY_SIZE \u003e 0)\n            newCapacity = hugeCapacity(minCapacity);\n        // minCapacity is usually close to size, so this is a win:\n        elementData = Arrays.copyOf(elementData, newCapacity);\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230115193115-xjrxddn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115193115-xjrxddn",
+				"updated": "20230115193115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当然，两个方法也有不同之处，添加元素到任意位置，会导致在该位置后的所有元素都需要重新排列，而将元素添加到数组的末尾，在没有发生扩容的前提下，是不会有元素复制排序过程的。"
+				}
+			]
+		},
+		{
+			"ID": "20230115193116-g9meb9r",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230115193116-g9meb9r",
+				"updated": "20230115193150"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "  private void ensureExplicitCapacity(int minCapacity) {\n        modCount++;\n\n        // overflow-conscious code\n        if (minCapacity - elementData.length \u003e 0)\n            grow(minCapacity);\n    }\n    private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;\n\n    private void grow(int minCapacity) {\n        // overflow-conscious code\n        int oldCapacity = elementData.length;\n        int newCapacity = oldCapacity + (oldCapacity \u003e\u003e 1);\n        if (newCapacity - minCapacity \u003c 0)\n            newCapacity = minCapacity;\n        if (newCapacity - MAX_ARRAY_SIZE \u003e 0)\n            newCapacity = hugeCapacity(minCapacity);\n        // minCapacity is usually close to size, so this is a win:\n        elementData = Arrays.copyOf(elementData, newCapacity);\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230115193159-j0j5sfg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115193159-j0j5sfg",
+				"updated": "20230115193203"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当然，两个方法也有不同之处，添加元素到任意位置，会导致在该位置后的所有元素都需要重新排列，而将元素添加到数组的末尾，在没有发生扩容的前提下，是不会有元素复制排序过程的。"
+				}
+			]
+		},
+		{
+			"ID": "20230115193220-q688jx3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115193220-q688jx3",
+				"updated": "20230115193221"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里你就可以找到第二道测试题的答案了。如果我们在初始化时就比较清楚存储数据的大小，就可以在 ArrayList 初始化时指定数组容量大小，并且在添加元素时，只在数组末尾添加元素，那么 ArrayList 在大量新增元素的场景下，性能并不会变差，反而比其他 List 集合的性能要好。"
+				}
+			]
+		},
+		{
+			"ID": "20230115193229-yksktac",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115193229-yksktac",
+				"updated": "20230115193232"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "5、ArrayList 删除元素"
+				}
+			]
+		},
+		{
+			"ID": "20230115193233-rmo44y7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115193233-rmo44y7",
+				"updated": "20230115193310"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ArrayList 的删除方法和添加任意位置元素的方法是有些相同的。ArrayList 在每一次有效的删除元素操作之后，都要进行数组的重组，并且删除的元素位置越靠前，数组重组的开销就越大。"
+				}
+			]
+		},
+		{
+			"ID": "20230115193311-noaht64",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230115193311-noaht64",
+				"updated": "20230115193327"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": " public E remove(int index) {\n        rangeCheck(index);\n        modCount++;\n        E oldValue = elementData(index);\n        int numMoved = size - index - 1;\n        if (numMoved \u003e 0)\n            System.arraycopy(elementData, index+1, elementData, index,numMoved);\n        elementData[--size] = null; // clear to let GC do its work\n        return oldValue;\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230115193325-9dh7eze",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115193325-9dh7eze",
+				"updated": "20230115193337"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "6、ArrayList 遍历元素"
+				}
+			]
+		},
+		{
+			"ID": "20230115193338-efveqaq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115193338-efveqaq",
+				"updated": "20230115193344"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "由于 ArrayList 是基于数组实现的，所以在获取元素的时候是非常快捷的。"
+				}
+			]
+		},
+		{
+			"ID": "20230115193344-csgvuig",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230115193344-csgvuig",
+				"updated": "20230115193353"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "  public E get(int index) {\n        rangeCheck(index);\n        return elementData(index);\n    }\n    E elementData(int index) {\n        return (E) elementData[index];\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230115193355-h67ofbh",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230115193355-h67ofbh",
+				"updated": "20230115193404"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、LinkedList 是如何实现的？"
+				}
+			]
+		},
+		{
+			"ID": "20230115193405-u7qnynn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115193405-u7qnynn",
+				"updated": "20230115193410"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "虽然 LinkedList 与 ArrayList 都是 List 类型的集合，但 LinkedList 的实现原理却和 ArrayList 大相径庭，使用场景也不太一样。"
+				}
+			]
+		},
+		{
+			"ID": "20230115193410-hwc0kif",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115193410-hwc0kif",
+				"updated": "20230115193419"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "LinkedList 是基于双向链表数据结构实现的，LinkedList 定义了一个 Node 结构，Node 结构中包含了 3 个部分：元素内容 item、前指针 prev 以及后指针 next，代码如下。"
+				}
+			]
+		},
+		{
+			"ID": "20230115193419-6nng5i9",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230115193419-6nng5i9",
+				"updated": "20230115193427"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": " private static class Node\u003cE\u003e {\n        E item;\n        Node\u003cE\u003e next;\n        Node\u003cE\u003e prev;\n\n        Node(Node\u003cE\u003e prev, E element, Node\u003cE\u003e next) {\n            this.item = element;\n            this.next = next;\n            this.prev = prev;\n        }\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230115193430-2fds2vj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115193430-2fds2vj",
+				"updated": "20230115193444"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "总结一下，LinkedList 就是由 Node 结构对象连接而成的一个双向链表。在 JDK1.7 之前，LinkedList 中只包含了一个 Entry 结构的 header 属性，并在初始化的时候默认创建一个空的 Entry，用来做 header，前后指针指向自己，形成一个循环双向链表。"
+				}
+			]
+		},
+		{
+			"ID": "20230115193444-rvv5brw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115193444-rvv5brw",
+				"updated": "20230115193501"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 JDK1.7 之后，LinkedList 做了很大的改动，对链表进行了优化。链表的 Entry 结构换成了 Node，内部组成基本没有改变，但 LinkedList 里面的 header 属性去掉了，新增了一个 Node 结构的 first 属性和一个 Node 结构的 last 属性。这样做有以下几点好处："
+				}
+			]
+		},
+		{
+			"ID": "20230115193501-y0y8k11",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230115193501-y0y8k11",
+				"updated": "20230115193508"
+			},
+			"Children": [
+				{
+					"ID": "20230115193509-m58wnaj",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230115193509-m58wnaj",
+						"updated": "20230115193509"
+					},
+					"Children": [
+						{
+							"ID": "20230115193509-w3aq4g3",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230115193509-w3aq4g3",
+								"updated": "20230115193510"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "first/last 属性能更清晰地表达链表的链头和链尾概念；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230115193510-9jqsbo2",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230115193510-9jqsbo2"
+					},
+					"Children": [
+						{
+							"ID": "20230115193510-yj6fxb8",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230115193510-yj6fxb8",
+								"updated": "20230115193518"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "first/last 方式可以在初始化 LinkedList 的时候节省 new 一个 Entry；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230115193518-2iccrae",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230115193518-2iccrae"
+					},
+					"Children": [
+						{
+							"ID": "20230115193518-ynpvit2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230115193518-ynpvit2",
+								"updated": "20230115193524"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "first/last 方式最重要的性能优化是链头和链尾的插入删除操作更加快捷了。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230115193524-vbkvexk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115193524-vbkvexk",
+				"updated": "20230115193530"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里同 ArrayList 的讲解一样，我将从数据结构、实现原理以及源码分析等几个角度带你深入了解 LinkedList。"
+				}
+			]
+		},
+		{
+			"ID": "20230115193530-gwpqzkd",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115193530-gwpqzkd",
+				"updated": "20230115193542"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、LinkedList 实现类"
+				}
+			]
+		},
+		{
+			"ID": "20230115193543-os7c687",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115193543-os7c687",
+				"updated": "20230115193549"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "LinkedList 类实现了 List 接口、Deque 接口，同时继承了 AbstractSequentialList 抽象类，LinkedList 既实现了 List 类型又有 Queue 类型的特点；LinkedList 也实现了 Cloneable 和 Serializable 接口，同 ArrayList 一样，可以实现克隆和序列化。"
+				}
+			]
+		},
+		{
+			"ID": "20230115193550-yc3vvk7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115193550-yc3vvk7",
+				"updated": "20230115193559"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "由于 LinkedList 存储数据的内存地址是不连续的，而是通过指针来定位不连续地址，因此，LinkedList 不支持随机快速访问，LinkedList 也就不能实现 RandomAccess 接口。"
+				}
+			]
+		},
+		{
+			"ID": "20230115193559-9uj6x7m",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230115193559-9uj6x7m",
+				"updated": "20230115193608"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "public class LinkedList\u003cE\u003e\n    extends AbstractSequentialList\u003cE\u003e\n    implements List\u003cE\u003e, Deque\u003cE\u003e, Cloneable, java.io.Serializable\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230115193632-06r1xtm",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115193632-06r1xtm",
+				"updated": "20230115193635"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2、LinkedList 属性"
+				}
+			]
+		},
+		{
+			"ID": "20230115193636-v66nl9t",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115193636-v66nl9t",
+				"updated": "20230115193640"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们前面讲到了 LinkedList 的两个重要属性 first/last 属性，其实还有一个 size 属性。我们可以看到这三个属性都被 transient 修饰了，原因很简单，我们在序列化的时候不会只对头尾进行序列化，所以 LinkedList 也是自行实现 readObject 和 writeObject 进行序列化与反序列化。"
+				}
+			]
+		},
+		{
+			"ID": "20230115193641-xvt7bci",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230115193641-xvt7bci",
+				"updated": "20230115193701"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "  transient int size = 0;\n    transient Node\u003cE\u003e first;\n    transient Node\u003cE\u003e last;\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230115193702-8uf7br2",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115193702-8uf7br2",
+				"updated": "20230115193712"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3、LinkedList 新增元素"
+				}
+			]
+		},
+		{
+			"ID": "20230115193713-mu96pt6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115193713-mu96pt6",
+				"updated": "20230115193719"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "LinkedList 添加元素的实现很简洁，但添加的方式却有很多种。默认的 add (Ee) 方法是将添加的元素加到队尾，首先是将 last 元素置换到临时变量中，生成一个新的 Node 节点对象，然后将 last 引用指向新节点对象，之前的 last 对象的前指针指向新节点对象。"
+				}
+			]
+		},
+		{
+			"ID": "20230115193731-19t5x9f",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230115193731-19t5x9f",
+				"updated": "20230115193740"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": " public boolean add(E e) {\n        linkLast(e);\n        return true;\n    }\n    void linkLast(E e) {\n        final Node\u003cE\u003e l = last;\n        final Node\u003cE\u003e newNode = new Node\u003c\u003e(l, e, null);\n        last = newNode;\n        if (l == null)\n            first = newNode;\n        else\n            l.next = newNode;\n        size++;\n        modCount++;\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230115193742-rn5hqa3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115193742-rn5hqa3",
+				"updated": "20230115193750"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "LinkedList 也有添加元素到任意位置的方法，如果我们是将元素添加到任意两个元素的中间位置，添加元素操作只会改变前后元素的前后指针，指针将会指向添加的新元素，所以相比 ArrayList 的添加操作来说，LinkedList 的性能优势明显。"
+				}
+			]
+		},
+		{
+			"ID": "20230115193751-yk7k8lt",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230115193751-yk7k8lt",
+				"updated": "20230115193857"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "   public void add(int index, E element) {\n        checkPositionIndex(index);\n\n        if (index == size)\n            linkLast(element);\n        else\n            linkBefore(element, node(index));\n    }\n    void linkBefore(E e, Node\u003cE\u003e succ) {\n        // assert succ != null;\n        final Node\u003cE\u003e pred = succ.prev;\n        final Node\u003cE\u003e newNode = new Node\u003c\u003e(pred, e, succ);\n        succ.prev = newNode;\n        if (pred == null)\n            first = newNode;\n        else\n            pred.next = newNode;\n        size++;\n        modCount++;\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230115193904-wow1uio",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115193904-wow1uio",
+				"updated": "20230115193919"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4、LinkedList 删除元素"
+				}
+			]
+		},
+		{
+			"ID": "20230115193919-kqmqffg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115193919-kqmqffg",
+				"updated": "20230115193925"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 LinkedList 删除元素的操作中，我们首先要通过循环找到要删除的元素，如果要删除的位置处于 List 的前半段，就从前往后找；若其位置处于后半段，就从后往前找。"
+				}
+			]
+		},
+		{
+			"ID": "20230115193926-e2wc7dn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115193926-e2wc7dn",
+				"updated": "20230115193934"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这样做的话，无论要删除较为靠前或较为靠后的元素都是非常高效的，但如果 List 拥有大量元素，移除的元素又在 List 的中间段，那效率相对来说会很低。"
+				}
+			]
+		},
+		{
+			"ID": "20230115193938-0tccc6e",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115193938-0tccc6e",
+				"updated": "20230115193951"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "5、LinkedList 遍历元素"
+				}
+			]
+		},
+		{
+			"ID": "20230115193953-eqs6xkp",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115193953-eqs6xkp",
+				"updated": "20230115193958"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "LinkedList 的获取元素操作实现跟 LinkedList 的删除元素操作基本类似，通过分前后半段来循环查找到对应的元素。但是通过这种方式来查询元素是非常低效的，特别是在 for 循环遍历的情况下，每一次循环都会去遍历半个 List。"
+				}
+			]
+		},
+		{
+			"ID": "20230115194015-u0vxati",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115194015-u0vxati",
+				"updated": "20230115194016"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "所以在 LinkedList 循环遍历时，我们可以使用 iterator 方式迭代循环，直接拿到我们的元素，而不需要通过循环查找 List。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-ekaag6s",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230115205019-ekaag6s",
+				"updated": "20230115205035"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "四、什么是 Stream？"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-ajkbtph",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-ajkbtph",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 Java8 之前，我们通常是通过 for 循环或者 Iterator 迭代来重新排序合并数据，又或者通过重新定义 Collections.sorts 的 Comparator 方法来实现，这两种方式对于大数据量系统来说，效率并不是很理想。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-focxmph",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-focxmph",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Java8 中添加了一个新的接口类 Stream，他和我们之前接触的字节流概念不太一样，Java8 集合中的 Stream 相当于高级版的 Iterator，他可以通过 Lambda 表达式对集合进行各种非常便利、高效的聚合操作（Aggregate Operation），或者大批量数据操作 (Bulk Data Operation)。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-ci8c0oi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-ci8c0oi",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Stream 的聚合操作与数据库 SQL 的聚合操作 sorted、filter、map 等类似。我们在应用层就可以高效地实现类似数据库 SQL 的聚合操作了，而在数据操作方面，Stream 不仅可以通过串行的方式实现数据操作，还可以通过并行的方式处理大批量数据，提高数据的处理效率。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-bonl6e6",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115205019-bonl6e6",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、Stream 如何优化遍历？"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-h2w7u6u",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-h2w7u6u",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "上面我们初步了解了 Java8 中的 Stream API，那 Stream 是如何做到优化迭代的呢？并行又是如何实现的？下面我们就透过 Stream 源码剖析 Stream 的实现原理。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-dr3hpi1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-dr3hpi1",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "官方将 Stream 中的操作分为两大类：中间操作（Intermediate operations）和终结操作（Terminal operations）。中间操作只对操作进行了记录，即只会返回一个流，不会进行计算操作，而终结操作是实现了计算操作。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-pgmy88b",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-pgmy88b",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "终结操作又可以分为短路（Short-circuiting）与非短路（Unshort-circuiting）操作，前者是指遇到某些符合条件的元素就可以得到最终结果，后者是指必须处理完所有元素才能得到最终结果。操作分类详情如下图所示："
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-2rfzain",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-2rfzain",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230115203051-cjroxl1.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-b7yethz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-b7yethz",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们通常还会将中间操作称为懒操作，也正是由这种懒操作结合终结操作、数据源构成的处理管道（Pipeline），实现了 Stream 的高效。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-xre0vs0",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230115205019-xre0vs0",
+				"updated": "20230115205042"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "五、Stream 源码实现"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-9c2bdfs",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-9c2bdfs",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在了解 Stream 如何工作之前，我们先来了解下 Stream 包是由哪些主要结构类组合而成的，各个类的职责是什么。参照下图："
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-anl1ypu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-anl1ypu",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230115203128-gsj1apl.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-4zvvk63",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-4zvvk63",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "BaseStream 和 Stream 为最顶端的接口类。BaseStream 主要定义了流的基本接口方法，例如，spliterator、isParallel 等；Stream 则定义了一些流的常用操作方法，例如，map、filter 等。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-18jr618",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-18jr618",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ReferencePipeline 是一个结构类，他通过定义内部类组装了各种操作流。他定义了 Head、StatelessOp、StatefulOp 三个内部类，实现了 BaseStream 与 Stream 的接口方法。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-pqa6uil",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-pqa6uil",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Sink 接口是定义每个 Stream 操作之间关系的协议，他包含 begin()、end()、cancellationRequested()、accpt() 四个方法。ReferencePipeline 最终会将整个 Stream 流操作组装成一个调用链，而这条调用链上的各个 Stream 操作的上下关系就是通过 Sink 接口协议来定义实现的。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-6wktuew",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115205019-6wktuew",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、Stream 操作叠加"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-y370kk7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-y370kk7",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们知道，一个 Stream 的各个操作是由处理管道组装，并统一完成数据处理的。在 JDK 中每次的中断操作会以使用阶段（Stage）命名。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-8r9xyya",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-8r9xyya",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "管道结构通常是由 ReferencePipeline 类实现的，前面讲解 Stream 包结构时，我提到过 ReferencePipeline 包含了 Head、StatelessOp、StatefulOp 三种内部类。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-4aegvzr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-4aegvzr",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Head 类主要用来定义数据源操作，在我们初次调用 names.stream() 方法时，会初次加载 Head 对象，此时为加载数据源操作；接着加载的是中间操作，分别为无状态中间操作 StatelessOp 对象和有状态操作 StatefulOp 对象，此时的 Stage 并没有执行，而是通过 AbstractPipeline 生成了一个中间操作 Stage 链表；当我们调用终结操作时，会生成一个最终的 Stage，通过这个 Stage 触发之前的中间操作，从最后一个 Stage 开始，递归产生一个 Sink 链。如下图所示："
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-mllst8x",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-mllst8x",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230115203637-y0f9qsx.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-99ya6pf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-99ya6pf",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面我们再通过一个例子来感受下 Stream 的操作分类是如何实现高效迭代大数据集合的。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-77shhtt",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230115205019-77shhtt",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "List\u003cString\u003e names = Arrays.asList(\"张三\", \"李四\", \"王老五\", \"李三\", \"刘老四\", \"王小二\", \"张四\");\n\nString maxLenStartWithZ = names.stream()\n                  .filter(name -\u003e name.startsWith(\"张\"))\n                  .mapToInt(String::length)\n                  .max()\n                  .toString();\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-6a6mt07",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-6a6mt07",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这个例子的需求是查找出一个长度最长，并且以张为姓氏的名字。从代码角度来看，你可能会认为是这样的操作流程：首先遍历一次集合，得到以“张”开头的所有名字；然后遍历一次 filter 得到的集合，将名字转换成数字长度；最后再从长度集合中找到最长的那个名字并且返回。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-qmexago",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-qmexago",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里我要很明确地告诉你，实际情况并非如此。我们来逐步分析下这个方法里所有的操作是如何执行的。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-kvaqdms",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-kvaqdms",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "首先 ，因为 names 是 ArrayList 集合，所以 names.stream() 方法将会调用集合类基础接口 Collection 的 Stream 方法："
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-xm6d9jw",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230115205019-xm6d9jw",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "    default Stream\u003cE\u003e stream() {\n        return StreamSupport.stream(spliterator(), false);\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-a6t9p6e",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-a6t9p6e",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "然后，Stream 方法就会调用 StreamSupport 类的 Stream 方法，方法中初始化了一个 ReferencePipeline 的 Head 内部类对象："
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-olwpz4q",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230115205019-olwpz4q",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": " public static \u003cT\u003e Stream\u003cT\u003e stream(Spliterator\u003cT\u003e spliterator, boolean parallel) {\n        Objects.requireNonNull(spliterator);\n        return new ReferencePipeline.Head\u003c\u003e(spliterator,\n                                            StreamOpFlag.fromCharacteristics(spliterator),\n                                            parallel);\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-b3xl1hj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-b3xl1hj",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "再调用 filter 和 map 方法，这两个方法都是无状态的中间操作，所以执行 filter 和 map 操作时，并没有进行任何的操作，而是分别创建了一个 Stage 来标识用户的每一次操作。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-lsxgd3o",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-lsxgd3o",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "而通常情况下 Stream 的操作又需要一个回调函数，所以一个完整的 Stage 是由数据来源、操作、回调函数组成的三元组来表示。如下图所示，分别是 ReferencePipeline 的 filter 方法和 map 方法："
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-oxumdkv",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230115205019-oxumdkv",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "  @Override\n    public final Stream\u003cP_OUT\u003e filter(Predicate\u003c? super P_OUT\u003e predicate) {\n        Objects.requireNonNull(predicate);\n        return new StatelessOp\u003cP_OUT, P_OUT\u003e(this, StreamShape.REFERENCE,\n                                     StreamOpFlag.NOT_SIZED) {\n            @Override\n            Sink\u003cP_OUT\u003e opWrapSink(int flags, Sink\u003cP_OUT\u003e sink) {\n                return new Sink.ChainedReference\u003cP_OUT, P_OUT\u003e(sink) {\n                    @Override\n                    public void begin(long size) {\n                        downstream.begin(-1);\n                    }\n                    @Override\n                    public void accept(P_OUT u) {\n                        if (predicate.test(u))\n                            downstream.accept(u);\n                    }\n                };\n            }\n        };\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-4dm7fxx",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230115205019-4dm7fxx",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "   @Override\n    @SuppressWarnings(\"unchecked\")\n    public final \u003cR\u003e Stream\u003cR\u003e map(Function\u003c? super P_OUT, ? extends R\u003e mapper) {\n        Objects.requireNonNull(mapper);\n        return new StatelessOp\u003cP_OUT, R\u003e(this, StreamShape.REFERENCE,\n                                     StreamOpFlag.NOT_SORTED | StreamOpFlag.NOT_DISTINCT) {\n            @Override\n            Sink\u003cP_OUT\u003e opWrapSink(int flags, Sink\u003cR\u003e sink) {\n                return new Sink.ChainedReference\u003cP_OUT, R\u003e(sink) {\n                    @Override\n                    public void accept(P_OUT u) {\n                        downstream.accept(mapper.apply(u));\n                    }\n                };\n            }\n        };\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-bcah3ke",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-bcah3ke",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "new StatelessOp 将会调用父类 AbstractPipeline 的构造函数，这个构造函数将前后的 Stage 联系起来，生成一个 Stage 链表："
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-3b6mshb",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230115205019-3b6mshb",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": " AbstractPipeline(AbstractPipeline\u003c?, E_IN, ?\u003e previousStage, int opFlags) {\n        if (previousStage.linkedOrConsumed)\n            throw new IllegalStateException(MSG_STREAM_LINKED);\n        previousStage.linkedOrConsumed = true;\n        previousStage.nextStage = this;//将当前的stage的next指针指向之前的stage\n\n        this.previousStage = previousStage;//赋值当前stage当全局变量previousStage \n        this.sourceOrOpFlags = opFlags \u0026 StreamOpFlag.OP_MASK;\n        this.combinedFlags = StreamOpFlag.combineOpFlags(opFlags, previousStage.combinedFlags);\n        this.sourceStage = previousStage.sourceStage;\n        if (opIsStateful())\n            sourceStage.sourceAnyStateful = true;\n        this.depth = previousStage.depth + 1;\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-7h6w14u",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-7h6w14u",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "为在创建每一个 Stage 时，都会包含一个 opWrapSink() 方法，该方法会把一个操作的具体实现封装在 Sink 类中，Sink 采用（处理 -\u003e 转发）的模式来叠加操作。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-wz6hli1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-wz6hli1",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当执行 max 方法时，会调用 ReferencePipeline 的 max 方法，此时由于 max 方法是终结操作，所以会创建一个 TerminalOp 操作，同时创建一个 ReducingSink，并且将操作封装在 Sink 类中。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-vamjn8r",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230115205019-vamjn8r",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": " @Override\n    public final Optional\u003cP_OUT\u003e max(Comparator\u003c? super P_OUT\u003e comparator) {\n        return reduce(BinaryOperator.maxBy(comparator));\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-6sfo1ga",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-6sfo1ga",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "最后，调用 AbstractPipeline 的 wrapSink 方法，该方法会调用 opWrapSink 生成一个 Sink 链表，Sink 链表中的每一个 Sink 都封装了一个操作的具体实现。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-m6o46c8",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230115205019-m6o46c8",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "  @Override\n    @SuppressWarnings(\"unchecked\")\n    final \u003cP_IN\u003e Sink\u003cP_IN\u003e wrapSink(Sink\u003cE_OUT\u003e sink) {\n        Objects.requireNonNull(sink);\n\n        for ( @SuppressWarnings(\"rawtypes\") AbstractPipeline p=AbstractPipeline.this; p.depth \u003e 0; p=p.previousStage) {\n            sink = p.opWrapSink(p.previousStage.combinedFlags, sink);\n        }\n        return (Sink\u003cP_IN\u003e) sink;\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-lk2ejwk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-lk2ejwk",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "当 Sink 链表生成完成后，Stream 开始执行，通过 spliterator 迭代集合，执行 Sink 链表中的具体操作。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-0wcsn1p",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230115205019-0wcsn1p",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": " @Override\n    final \u003cP_IN\u003e void copyInto(Sink\u003cP_IN\u003e wrappedSink, Spliterator\u003cP_IN\u003e spliterator) {\n        Objects.requireNonNull(wrappedSink);\n\n        if (!StreamOpFlag.SHORT_CIRCUIT.isKnown(getStreamAndOpFlags())) {\n            wrappedSink.begin(spliterator.getExactSizeIfKnown());\n            spliterator.forEachRemaining(wrappedSink);\n            wrappedSink.end();\n        }\n        else {\n            copyIntoWithCancel(wrappedSink, spliterator);\n        }\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-42nodsl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-42nodsl",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Java8 中的 Spliterator 的 forEachRemaining 会迭代集合，每迭代一次，都会执行一次 filter 操作，如果 filter 操作通过，就会触发 map 操作，然后将结果放入到临时数组 object 中，再进行下一次的迭代。完成中间操作后，就会触发终结操作 max。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-5mqccym",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-5mqccym",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这就是串行处理方式了，那么 Stream 的另一种处理数据的方式又是怎么操作的呢？"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-k5myght",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230115205019-k5myght",
+				"updated": "20230115205047"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "六、Stream 并行处理"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-pvoqsqd",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-pvoqsqd",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Stream 处理数据的方式有两种，串行处理和并行处理。要实现并行处理，我们只需要在例子的代码中新增一个 Parallel() 方法，代码如下所示："
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-gnqbcu9",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230115205019-gnqbcu9",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "List\u003cString\u003e names = Arrays.asList(\"张三\", \"李四\", \"王老五\", \"李三\", \"刘老四\", \"王小二\", \"张四\");\n\nString maxLenStartWithZ = names.stream()\n                    .parallel()\n                  .filter(name -\u003e name.startsWith(\"张\"))\n                  .mapToInt(String::length)\n                  .max()\n                  .toString();\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-ikukc4a",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-ikukc4a",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Stream 的并行处理在执行终结操作之前，跟串行处理的实现是一样的。而在调用终结方法之后，实现的方式就有点不太一样，会调用 TerminalOp 的 evaluateParallel 方法进行并行处理。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-psv37m2",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230115205019-psv37m2",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": " final \u003cR\u003e R evaluate(TerminalOp\u003cE_OUT, R\u003e terminalOp) {\n        assert getOutputShape() == terminalOp.inputShape();\n        if (linkedOrConsumed)\n            throw new IllegalStateException(MSG_STREAM_LINKED);\n        linkedOrConsumed = true;\n\n        return isParallel()\n               ? terminalOp.evaluateParallel(this, sourceSpliterator(terminalOp.getOpFlags()))\n               : terminalOp.evaluateSequential(this, sourceSpliterator(terminalOp.getOpFlags()));\n    }\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-16mqf2q",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-16mqf2q",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里的并行处理指的是，Stream 结合了 ForkJoin 框架，对 Stream 处理进行了分片，Splititerator 中的 estimateSize 方法会估算出分片的数据量。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-nqck2p9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-nqck2p9",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "ForkJoin 框架和估算算法，在这里我就不具体讲解了，如果感兴趣，你可以深入源码分析下该算法的实现。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-sx9368e",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-sx9368e",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "通过预估的数据量获取最小处理单元的阈值，如果当前分片大小大于最小处理单元的阈值，就继续切分集合。每个分片将会生成一个 Sink 链表，当所有的分片操作完成后，ForkJoin 框架将会合并分片任何结果集。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-loqurev",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230115205019-loqurev",
+				"updated": "20230115205052"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "七、合理使用 Stream"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-77dxo94",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-77dxo94",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "看到这里，你应该对 Stream API 是如何优化集合遍历有个清晰的认知了。Stream API 用起来简洁，还能并行处理，那是不是使用 Stream API，系统性能就更好呢？通过一组测试，我们一探究竟。"
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-ol9z95d",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-ol9z95d",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们将对常规的迭代、Stream 串行迭代以及 Stream 并行迭代进行性能测试对比，迭代循环中，我们将对数据进行过滤、分组等操作。分别进行以下几组测试："
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-qwxggnw",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230115205019-qwxggnw",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"ID": "20230115205019-tyr636p",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230115205019-tyr636p",
+						"updated": "20230115205019"
+					},
+					"Children": [
+						{
+							"ID": "20230115205019-46v62u3",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230115205019-46v62u3",
+								"updated": "20230115205019"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "多核 CPU 服务器配置环境下，对比长度 100 的 int 数组的性能；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230115205019-e8a5wjl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230115205019-e8a5wjl"
+					},
+					"Children": [
+						{
+							"ID": "20230115205019-n257ceh",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230115205019-n257ceh",
+								"updated": "20230115205019"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "多核 CPU 服务器配置环境下，对比长度 1.00E+8 的 int 数组的性能；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230115205019-fl4rjos",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230115205019-fl4rjos"
+					},
+					"Children": [
+						{
+							"ID": "20230115205019-wyhxd27",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230115205019-wyhxd27",
+								"updated": "20230115205019"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "多核 CPU 服务器配置环境下，对比长度 1.00E+8 对象数组过滤分组的性能；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230115205019-lbhdv4z",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230115205019-lbhdv4z"
+					},
+					"Children": [
+						{
+							"ID": "20230115205019-w05qlhl",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230115205019-w05qlhl",
+								"updated": "20230115205019"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "单核 CPU 服务器配置环境下，对比长度 1.00E+8 对象数组过滤分组的性能。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-lg4ildf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-lg4ildf",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "结果："
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-c6x0u8c",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230115205019-c6x0u8c",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"ID": "20230115205019-iefm0ht",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230115205019-iefm0ht",
+						"updated": "20230115205019"
+					},
+					"Children": [
+						{
+							"ID": "20230115205019-0xtnkdz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230115205019-0xtnkdz",
+								"updated": "20230115205019"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "常规的迭代 \u003cStream 并行迭代 \u003cStream 串行迭代"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230115205019-e8w776y",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230115205019-e8w776y"
+					},
+					"Children": [
+						{
+							"ID": "20230115205019-dvow5bi",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230115205019-dvow5bi",
+								"updated": "20230115205019"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Stream 并行迭代 \u003c 常规的迭代 \u003cStream 串行迭代"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230115205019-jqoc0zv",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230115205019-jqoc0zv"
+					},
+					"Children": [
+						{
+							"ID": "20230115205019-cwom0fn",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230115205019-cwom0fn",
+								"updated": "20230115205019"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Stream 并行迭代 \u003c 常规的迭代 \u003cStream 串行迭代"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230115205019-qcghh2p",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230115205019-qcghh2p"
+					},
+					"Children": [
+						{
+							"ID": "20230115205019-vwco9yz",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230115205019-vwco9yz",
+								"updated": "20230115205019"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "常规的迭代 \u003cStream 串行迭代 \u003cStream 并行迭代"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230115205019-40n8t7x",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115205019-40n8t7x",
+				"updated": "20230115205019"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在循环迭代次数较少的情况下，常规的迭代方式性能反而更好；在单核 CPU 服务器配置环境中，也是常规迭代方式更有优势；而在大数据循环迭代中，如果服务器是多核 CPU 的情况下，Stream 的并行迭代优势明显。所以我们在平时处理大数据的集合时，应该尽量考虑将应用部署在多核 CPU 环境下，并且使用 Stream 的并行迭代方式进行处理。"
+				}
+			]
+		},
+		{
+			"ID": "20230115194016-phlf174",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230115194016-phlf174",
+				"updated": "20230115194021"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "总结"
+				}
+			]
+		},
+		{
+			"ID": "20230115194023-hdmer0g",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115194023-hdmer0g",
+				"updated": "20230115194028"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "前面我们已经从源码的实现角度深入了解了 ArrayList 和 LinkedList 的实现原理以及各自的特点。如果你能充分理解这些内容，很多实际应用中的相关性能问题也就迎刃而解了。"
+				}
+			]
+		},
+		{
+			"ID": "20230115194029-05rtm69",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115194029-05rtm69",
+				"updated": "20230115194035"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "像如果现在还有人跟你说，“ArrayList 和 LinkedList 在新增、删除元素时，LinkedList 的效率要高于 ArrayList，而在遍历的时候，ArrayList 的效率要高于 LinkedList”，你还会表示赞同吗？"
+				}
+			]
+		}
+	]
+}

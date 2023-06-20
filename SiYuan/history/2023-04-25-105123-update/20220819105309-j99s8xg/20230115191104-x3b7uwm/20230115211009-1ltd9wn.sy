@@ -1,0 +1,2741 @@
+{
+	"ID": "20230115211009-1ltd9wn",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20230115211009-1ltd9wn",
+		"scroll": "{\u0026amp;quot;startId\u0026amp;quot;:\u0026amp;quot;20230115211009-d2oa8an\u0026amp;quot;,\u0026amp;quot;endId\u0026amp;quot;:\u0026amp;quot;20230115220558-2348vkf\u0026amp;quot;,\u0026amp;quot;scrollTop\u0026amp;quot;:14913,\u0026amp;quot;focusId\u0026amp;quot;:\u0026amp;quot;20230115220558-2348vkf\u0026amp;quot;,\u0026amp;quot;focusStart\u0026amp;quot;:0,\u0026amp;quot;focusEnd\u0026amp;quot;:0}",
+		"title": "网络通信优化之IO模型：如何解决高并发下IO瓶颈",
+		"updated": "20230115220558"
+	},
+	"Children": [
+		{
+			"ID": "20230115211009-d2oa8an",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230115211009-d2oa8an",
+				"updated": "20230115211028"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、什么是 I/O"
+				}
+			]
+		},
+		{
+			"ID": "20230115211028-tmdnosn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211028-tmdnosn",
+				"updated": "20230115211032"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "/O 是机器获取和交换信息的主要渠道，而流是完成 I/O 操作的主要方式。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211033-ac7ju3l",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211033-ac7ju3l",
+				"updated": "20230115211037"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在计算机中，流是一种信息的转换。流是有序的，因此相对于某一机器或者应用程序而言，我们通常把机器或者应用程序接收外界的信息称为输入流（InputStream），从机器或者应用程序向外输出的信息称为输出流（OutputStream），合称为输入 / 输出流（I/O Streams）。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211037-u4wdv75",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211037-u4wdv75",
+				"updated": "20230115211042"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "机器间或程序间在进行信息交换或者数据交换时，总是先将对象或数据转换为某种形式的流，再通过流的传输，到达指定机器或程序后，再将流转换为对象数据。因此，流就可以被看作是一种数据的载体，通过它可以实现数据交换和传输。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211042-rufjluv",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211042-rufjluv",
+				"updated": "20230115211046"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Java 的 I/O 操作类在包 java.io 下，其中 InputStream、OutputStream 以及 Reader、Writer 类是 I/O 包中的 4 个基本类，它们分别处理字节流和字符流。如下图所示："
+				}
+			]
+		},
+		{
+			"ID": "20230115211046-11xa5sw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211046-11xa5sw",
+				"updated": "20230115211050"
+			},
+			"Children": [
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230115211050-ix3f248.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230115211050-7wig24x",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230115211050-7wig24x",
+				"updated": "20230115211151"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、字节流"
+				}
+			]
+		},
+		{
+			"ID": "20230115211157-6c8sbbz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211157-6c8sbbz",
+				"updated": "20230115211158"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "InputStream/OutputStream 是字节流的抽象类，这两个抽象类又派生出了若干子类，不同的子类分别处理不同的操作类型。如果是文件的读写操作，就使用 FileInputStream/FileOutputStream；如果是数组的读写操作，就使用 ByteArrayInputStream/ByteArrayOutputStream；如果是普通字符串的读写操作，就使用 BufferedInputStream/BufferedOutputStream。具体内容如下图所示："
+				}
+			]
+		},
+		{
+			"ID": "20230115211158-ddh5vib",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211158-ddh5vib",
+				"updated": "20230115211202"
+			},
+			"Children": [
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230115211202-721korc.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230115211216-6745d7q",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230115211216-6745d7q",
+				"updated": "20230115211225"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、字符流"
+				}
+			]
+		},
+		{
+			"ID": "20230115211226-z8vvure",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211226-z8vvure",
+				"updated": "20230115211231"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Reader/Writer 是字符流的抽象类，这两个抽象类也派生出了若干子类，不同的子类分别处理不同的操作类型，具体内容如下图所示："
+				}
+			]
+		},
+		{
+			"ID": "20230115211232-7zxjg21",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211232-7zxjg21",
+				"updated": "20230115211234"
+			},
+			"Children": [
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230115211234-9bp133j.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230115211240-w1pn1ml",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230115211240-w1pn1ml",
+				"updated": "20230115211250"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "四、传统 I/O 的性能问题"
+				}
+			]
+		},
+		{
+			"ID": "20230115211251-osii9zm",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211251-osii9zm",
+				"updated": "20230115211257"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们知道，I/O 操作分为磁盘 I/O 操作和网络 I/O 操作。前者是从磁盘中读取数据源输入到内存中，之后将读取的信息持久化输出在物理磁盘上；后者是从网络中读取信息输入到内存，最终将信息输出到网络中。但不管是磁盘 I/O 还是网络 I/O，在传统 I/O 中都存在严重的性能问题。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211258-kwqedd6",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115211258-kwqedd6",
+				"updated": "20230115211304"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、多次内存复制"
+				}
+			]
+		},
+		{
+			"ID": "20230115211304-4ount32",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211304-4ount32",
+				"updated": "20230115211309"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在传统 I/O 中，我们可以通过 InputStream 从源数据中读取数据流输入到缓冲区里，通过 OutputStream 将数据输出到外部设备（包括磁盘、网络）。你可以先看下输入操作在操作系统中的具体流程，如下图所示："
+				}
+			]
+		},
+		{
+			"ID": "20230115211309-2cz8r96",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211309-2cz8r96",
+				"updated": "20230115211314"
+			},
+			"Children": [
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230115211314-rjx9fwm.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230115211315-vndjk7y",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230115211315-vndjk7y",
+				"updated": "20230115211322"
+			},
+			"Children": [
+				{
+					"ID": "20230115211324-7tdetrk",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230115211324-7tdetrk",
+						"updated": "20230115211324"
+					},
+					"Children": [
+						{
+							"ID": "20230115211324-cv8jrjc",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230115211324-cv8jrjc",
+								"updated": "20230115211325"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "JVM 会发出 read() 系统调用，并通过 read 系统调用向内核发起读请求；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230115211325-fuegyys",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230115211325-fuegyys"
+					},
+					"Children": [
+						{
+							"ID": "20230115211325-l9q662a",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230115211325-l9q662a",
+								"updated": "20230115211330"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "内核向硬件发送读指令，并等待读就绪；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230115211330-3mhlu57",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230115211330-3mhlu57"
+					},
+					"Children": [
+						{
+							"ID": "20230115211330-6csr4j2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230115211330-6csr4j2",
+								"updated": "20230115211334"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "内核把将要读取的数据复制到指向的内核缓存中；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230115211334-jgrddp0",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230115211334-jgrddp0"
+					},
+					"Children": [
+						{
+							"ID": "20230115211334-mk67xrh",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230115211334-mk67xrh",
+								"updated": "20230115211338"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "操作系统内核将数据复制到用户空间缓冲区，然后 read 系统调用返回。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230115211339-4mzczis",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211339-4mzczis",
+				"updated": "20230115211343"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在这个过程中，数据先从外部设备复制到内核空间，再从内核空间复制到用户空间，这就发生了两次内存复制操作。这种操作会导致不必要的数据拷贝和上下文切换，从而降低 I/O 的性能。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211343-2dm3oiq",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115211343-2dm3oiq",
+				"updated": "20230115211352"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2、阻塞"
+				}
+			]
+		},
+		{
+			"ID": "20230115211353-7dm97rk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211353-7dm97rk",
+				"updated": "20230115211357"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在传统 I/O 中，InputStream 的 read() 是一个 while 循环操作，它会一直等待数据读取，直到数据就绪才会返回。这就意味着如果没有数据就绪，这个读取操作将会一直被挂起，用户线程将会处于阻塞状态。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211358-9m8qqbw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211358-9m8qqbw",
+				"updated": "20230115211403"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在少量连接请求的情况下，使用这种方式没有问题，响应速度也很高。但在发生大量连接请求时，就需要创建大量监听线程，这时如果线程没有数据就绪就会被挂起，然后进入阻塞状态。一旦发生线程阻塞，这些线程将会不断地抢夺 CPU 资源，从而导致大量的 CPU 上下文切换，增加系统的性能开销。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211403-oncvp7p",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230115211403-oncvp7p",
+				"updated": "20230115211413"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "五、如何优化 I/O 操作"
+				}
+			]
+		},
+		{
+			"ID": "20230115211414-5qq6xuf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211414-5qq6xuf",
+				"updated": "20230115211417"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "面对以上两个性能问题，不仅编程语言对此做了优化，各个操作系统也进一步优化了 I/O。JDK1.4 发布了 java.nio 包（new I/O 的缩写），NIO 的发布优化了内存复制以及阻塞导致的严重性能问题。JDK1.7 又发布了 NIO2，提出了从操作系统层面实现的异步 I/O。下面我们就来了解下具体的优化实现。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211418-yrt5r18",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115211418-yrt5r18",
+				"updated": "20230115211424"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、使用缓冲区优化读写流操作"
+				}
+			]
+		},
+		{
+			"ID": "20230115211425-1ekcdjt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211425-1ekcdjt",
+				"updated": "20230115211432"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在传统 I/O 中，提供了基于流的 I/O 实现，即 InputStream 和 OutputStream，这种基于流的实现以字节为单位处理数据。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211433-u7593gi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211433-u7593gi",
+				"updated": "20230115211437"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "NIO 与传统 I/O 不同，它是基于块（Block）的，它以块为基本单位处理数据。在 NIO 中，最为重要的两个组件是缓冲区（Buffer）和通道（Channel）。Buffer 是一块连续的内存块，是 NIO 读写数据的中转地。Channel 表示缓冲数据的源头或者目的地，它用于读取缓冲或者写入数据，是访问缓冲的接口。传统 I/O 和 NIO 的最大区别"
+				}
+			]
+		},
+		{
+			"ID": "20230115211437-kc1mzfh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211437-kc1mzfh",
+				"updated": "20230115211441"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "传统 I/O 和 NIO 的最大区别就是传统 I/O 是面向流，NIO 是面向 Buffer。Buffer 可以将文件一次性读入内存再做后续处理，而传统的方式是边读文件边处理数据。虽然传统 I/O 后面也使用了缓冲块，例如 BufferedInputStream，但仍然不能和 NIO 相媲美。使用 NIO 替代传统 I/O 操作，可以提升系统的整体性能，效果立竿见影。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211442-m4z6l9i",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115211442-m4z6l9i",
+				"updated": "20230115211451"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2、使用 DirectBuffer 减少内存复制"
+				}
+			]
+		},
+		{
+			"ID": "20230115211451-euym37e",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211451-euym37e",
+				"updated": "20230115211457"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "NIO 的 Buffer 除了做了缓冲块优化之外，还提供了一个可以直接访问物理内存的类 DirectBuffer。普通的 Buffer 分配的是 JVM 堆内存，而 DirectBuffer 是直接分配物理内存 (非堆内存)。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211458-fls0cvz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211458-fls0cvz",
+				"updated": "20230115211502"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们知道数据要输出到外部设备，必须先从用户空间复制到内核空间，再复制到输出设备，而在 Java 中，在用户空间中又存在一个拷贝，那就是从 Java 堆内存中拷贝到临时的直接内存中，通过临时的直接内存拷贝到内存空间中去。此时的直接内存和堆内存都是属于用户空间。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211503-c38h8ki",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211503-c38h8ki",
+				"updated": "20230115211507"
+			},
+			"Children": [
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230115211507-4qosf9k.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230115211507-qz0u1if",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211507-qz0u1if",
+				"updated": "20230115211512"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "你肯定会在想，为什么 Java 需要通过一个临时的非堆内存来复制数据呢？如果单纯使用 Java 堆内存进行数据拷贝，当拷贝的数据量比较大的情况下，Java 堆的 GC 压力会比较大，而使用非堆内存可以减低 GC 的压力。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211512-be9rnq3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211512-be9rnq3",
+				"updated": "20230115211545"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "DirectBuffer 则是直接将步骤简化为数据直接保存到非堆内存，从而减少了一次数据拷贝。以下是 JDK 源码中 IOUtil.java 类中的 write 方法："
+				}
+			]
+		},
+		{
+			"ID": "20230115211546-7mwy2o4",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20230115211546-7mwy2o4",
+				"updated": "20230115211555"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "amF2YQ=="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "        if (src instanceof DirectBuffer)\n            return writeFromNativeBuffer(fd, src, position, nd);\n\n        // Substitute a native buffer\n        int pos = src.position();\n        int lim = src.limit();\n        assert (pos \u003c= lim);\n        int rem = (pos \u003c= lim ? lim - pos : 0); \n        ByteBuffer bb = Util.getTemporaryDirectBuffer(rem);\n        try {\n            bb.put(src);\n            bb.flip();\n        // ...............\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20230115211557-ohx20hl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211557-ohx20hl",
+				"updated": "20230115211604"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "这里拓展一点，由于 DirectBuffer 申请的是非 JVM 的物理内存，所以创建和销毁的代价很高。DirectBuffer 申请的内存并不是直接由 JVM 负责垃圾回收，但在 DirectBuffer 包装类被回收时，会通过 Java Reference 机制来释放该内存块。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211605-7qe7k3v",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211605-7qe7k3v",
+				"updated": "20230115211706"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "DirectBuffer 只优化了用户空间内部的拷贝，而之前我们是说优化用户空间和内核空间的拷贝，那 Java 的 NIO 中是否能做到减少用户空间和内核空间的拷贝优化呢？"
+				}
+			]
+		},
+		{
+			"ID": "20230115211728-877v4cx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211728-877v4cx",
+				"updated": "20230115211738"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "答案是可以的，DirectBuffer 是通过 unsafe.allocateMemory(size) 方法分配内存，也就是基于本地类 Unsafe 类调用 native 方法进行内存分配的。而在 NIO 中，还存在另外一个 Buffer 类：MappedByteBuffer，跟 DirectBuffer 不同的是，MappedByteBuffer 是通过本地类调用 mmap 进行文件内存映射的，map() 系统调用方法会直接将文件从硬盘拷贝到用户空间，只进行一次数据拷贝，从而减少了传统的 read() 方法从硬盘拷贝到内核空间这一步。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211739-fq6o48l",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230115211739-fq6o48l",
+				"updated": "20230115211750"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "六、避免阻塞，优化 I/O 操作"
+				}
+			]
+		},
+		{
+			"ID": "20230115211751-xky1ytr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211751-xky1ytr",
+				"updated": "20230115211756"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "NIO 很多人也称之为 Non-block I/O，即非阻塞 I/O，因为这样叫，更能体现它的特点。为什么这么说呢？"
+				}
+			]
+		},
+		{
+			"ID": "20230115211756-4s2q9cu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211756-4s2q9cu",
+				"updated": "20230115211802"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "传统的 I/O 即使使用了缓冲块，依然存在阻塞问题。由于线程池线程数量有限，一旦发生大量并发请求，超过最大数量的线程就只能等待，直到线程池中有空闲的线程可以被复用。而对 Socket 的输入流进行读取时，读取流会一直阻塞，直到发生以下三种情况的任意一种才会解除阻塞："
+				}
+			]
+		},
+		{
+			"ID": "20230115211805-4bft9q6",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20230115211805-4bft9q6",
+				"updated": "20230115211820"
+			},
+			"Children": [
+				{
+					"ID": "20230115211822-tn0mi0q",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230115211822-tn0mi0q",
+						"updated": "20230115211822"
+					},
+					"Children": [
+						{
+							"ID": "20230115211822-8pindwv",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230115211822-8pindwv",
+								"updated": "20230115211827"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "有数据可读；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230115211827-6u3odpt",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230115211827-6u3odpt"
+					},
+					"Children": [
+						{
+							"ID": "20230115211827-kc2l4k2",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230115211827-kc2l4k2",
+								"updated": "20230115211831"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "连接释放；"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20230115211832-g97otek",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20230115211832-g97otek"
+					},
+					"Children": [
+						{
+							"ID": "20230115211832-ecxdhnd",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20230115211832-ecxdhnd",
+								"updated": "20230115211836"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "空指针或 I/O 异常。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20230115211837-6d1qn7m",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211837-6d1qn7m",
+				"updated": "20230115211843"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "阻塞问题，就是传统 I/O 最大的弊端。NIO 发布后，通道和多路复用器这两个基本组件实现了 NIO 的非阻塞，下面我们就一起来了解下这两个组件的优化原理。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211844-4v1jslm",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20230115211844-4v1jslm",
+				"updated": "20230115211848"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "通道（Channel）"
+				}
+			]
+		},
+		{
+			"ID": "20230115211849-359e0qw",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211849-359e0qw",
+				"updated": "20230115211903"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "前面我们讨论过，传统 I/O 的数据读取和写入是从用户空间到内核空间来回复制，而内核空间的数据是通过操作系统层面的 I/O 接口从磁盘读取或写入。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211903-sxl8nj6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211903-sxl8nj6",
+				"updated": "20230115211912"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "最开始，在应用程序调用操作系统 I/O 接口时，是由 CPU 完成分配，这种方式最大的问题是“发生大量 I/O 请求时，非常消耗 CPU“；之后，操作系统引入了 DMA（直接存储器存储），内核空间与磁盘之间的存取完全由 DMA 负责，但这种方式依然需要向 CPU 申请权限，且需要借助 DMA 总线来完成数据的复制操作，如果 DMA 总线过多，就会造成总线冲突。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211912-x24h4hz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211912-x24h4hz",
+				"updated": "20230115211916"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "通道的出现解决了以上问题，Channel 有自己的处理器，可以完成内核空间和磁盘之间的 I/O 操作。在 NIO 中，我们读取和写入数据都要通过 Channel，由于 Channel 是双向的，所以读、写可以同时进行。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211917-fk5sg3y",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115211917-fk5sg3y",
+				"updated": "20230115211922"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "多路复用器（Selector）"
+				}
+			]
+		},
+		{
+			"ID": "20230115211922-rmxe9ry",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211922-rmxe9ry",
+				"updated": "20230115211927"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Selector 是 Java NIO 编程的基础。用于检查一个或多个 NIO Channel 的状态是否处于可读、可写。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211927-6ly0f7x",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211927-6ly0f7x",
+				"updated": "20230115211931"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Selector 是基于事件驱动实现的，我们可以在 Selector 中注册 accpet、read 监听事件，Selector 会不断轮询注册在其上的 Channel，如果某个 Channel 上面发生监听事件，这个 Channel 就处于就绪状态，然后进行 I/O 操作。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211931-aokcm8s",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211931-aokcm8s",
+				"updated": "20230115211935"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一个线程使用一个 Selector，通过轮询的方式，可以监听多个 Channel 上的事件。我们可以在注册 Channel 时设置该通道为非阻塞，当 Channel 上没有 I/O 操作时，该线程就不会一直等待了，而是会不断轮询所有 Channel，从而避免发生阻塞。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211936-w8inmai",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211936-w8inmai",
+				"updated": "20230115211940"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "目前操作系统的 I/O 多路复用机制都使用了 epoll，相比传统的 select 机制，epoll 没有最大连接句柄 1024 的限制。所以 Selector 在理论上可以轮询成千上万的客户端。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211940-044hvru",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211940-044hvru",
+				"updated": "20230115211945"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "下面我用一个生活化的场景来举例，看完你就更清楚 Channel 和 Selector 在非阻塞 I/O 中承担什么角色，发挥什么作用了。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211945-lmrmklr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211945-lmrmklr",
+				"updated": "20230115211950"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们可以把监听多个 I/O 连接请求比作一个火车站的进站口。以前检票只能让搭乘就近一趟发车的旅客提前进站，而且只有一个检票员，这时如果有其他车次的旅客要进站，就只能在站口排队。这就相当于最早没有实现线程池的 I/O 操作。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211950-74msw4m",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211950-74msw4m",
+				"updated": "20230115211954"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "后来火车站升级了，多了几个检票入口，允许不同车次的旅客从各自对应的检票入口进站。这就相当于用多线程创建了多个监听线程，同时监听各个客户端的 I/O 请求。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211954-lkd7gxr",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115211954-lkd7gxr",
+				"updated": "20230115211959"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "最后火车站进行了升级改造，可以容纳更多旅客了，每个车次载客更多了，而且车次也安排合理，乘客不再扎堆排队，可以从一个大的统一的检票口进站了，这一个检票口可以同时检票多个车次。这个大的检票口就相当于 Selector，车次就相当于 Channel，旅客就相当于 I/O 流。"
+				}
+			]
+		},
+		{
+			"ID": "20230115211959-p073xzv",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230115211959-p073xzv",
+				"updated": "20230115212007"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "总结"
+				}
+			]
+		},
+		{
+			"ID": "20230115212007-diq292k",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115212007-diq292k",
+				"updated": "20230115212012"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Java 的传统 I/O 开始是基于 InputStream 和 OutputStream 两个操作流实现的，这种流操作是以字节为单位，如果在高并发、大数据场景中，很容易导致阻塞，因此这种操作的性能是非常差的。还有，输出数据从用户空间复制到内核空间，再复制到输出设备，这样的操作会增加系统的性能开销。"
+				}
+			]
+		},
+		{
+			"ID": "20230115212012-p1jmf4p",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115212012-p1jmf4p",
+				"updated": "20230115212016"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "传统 I/O 后来使用了 Buffer 优化了“阻塞”这个性能问题，以缓冲块作为最小单位，但相比整体性能来说依然不尽人意。"
+				}
+			]
+		},
+		{
+			"ID": "20230115212016-kzcr7bi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115212016-kzcr7bi",
+				"updated": "20230115212021"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "于是 NIO 发布，它是基于缓冲块为单位的流操作，在 Buffer 的基础上，新增了两个组件“管道和多路复用器”，实现了非阻塞 I/O，NIO 适用于发生大量 I/O 连接请求的场景，这三个组件共同提升了 I/O 的整体性能。"
+				}
+			]
+		},
+		{
+			"ID": "20230115213252-64rghh5",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230115213252-64rghh5",
+				"updated": "20230115213307"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "七、网络通信优化之通信协议：如何优化RPC网络通信？"
+				}
+			]
+		},
+		{
+			"ID": "20230115213307-cht6ceu",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115213307-cht6ceu",
+				"updated": "20230115213323"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "SpringCloud 和 Dubbo 的使用最为广泛，行业内也一直存在着对两者的比较，很多技术人会为这两个框架哪个更好而争辩。"
+				}
+			]
+		},
+		{
+			"ID": "20230115213325-j2gn7l1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115213325-j2gn7l1",
+				"updated": "20230115213815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我记得我们部门在搭建微服务框架时，也在技术选型上纠结良久，还曾一度有过激烈的讨论。当前 SpringCloud 炙手可热，具备完整的微服务生态，得到了很多同事的票选，但我们最终的选择却是 Dubbo，这是为什么呢？"
+				}
+			]
+		},
+		{
+			"ID": "20230115213316-7p9tvi6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115213316-7p9tvi6",
+				"updated": "20230115213827"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "RPC 通信是大型服务框架的核心"
+				}
+			]
+		},
+		{
+			"ID": "20230115213828-w62wx8l",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115213828-w62wx8l",
+				"updated": "20230115213837"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们经常讨论微服务，首要应该了解的就是微服务的核心到底是什么，这样我们在做技术选型时，才能更准确地把握需求。"
+				}
+			]
+		},
+		{
+			"ID": "20230115213838-zauww7g",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115213838-zauww7g",
+				"updated": "20230115214139"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "就我个人理解，我认为微服务的核心是远程通信和服务治理。远程通信提供了服务之间通信的桥梁，服务治理则提供了服务的后勤保障。所以，我们在做技术选型时，更多要考虑的是这两个核心的需求。"
+				}
+			]
+		},
+		{
+			"ID": "20230115214141-1m1fnbz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115214141-1m1fnbz",
+				"updated": "20230115214159"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们知道服务的拆分增加了通信的成本，特别是在一些抢购或者促销的业务场景中，如果服务之间存在方法调用，比如，抢购成功之后需要调用订单系统、支付系统、券包系统等，这种远程通信就很容易成为系统的瓶颈。所以，在满足一定的服务治理需求的前提下，对远程通信的性能需求就是技术选型的主要影响因素。"
+				}
+			]
+		},
+		{
+			"ID": "20230115214215-x5o06xc",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115214215-x5o06xc",
+				"updated": "20230115214215"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "目前，很多微服务框架中的服务通信是基于 RPC 通信实现的，在没有进行组件扩展的前提下，SpringCloud 是基于 Feign 组件实现的 RPC 通信（基于 Http+Json 序列化实现），Dubbo 是基于 SPI 扩展了很多 RPC 通信框架，包括 RMI、Dubbo、Hessian 等 RPC 通信框架（默认是 Dubbo+Hessian 序列化）。不同的业务场景下，RPC 通信的选择和优化标准也不同。"
+				}
+			]
+		},
+		{
+			"ID": "20230115214225-ttuo38s",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115214225-ttuo38s",
+				"updated": "20230115214236"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "例如，开头我提到的我们部门在选择微服务框架时，选择了 Dubbo。当时的选择标准就是 RPC 通信可以支持抢购类的高并发，在这个业务场景中，请求的特点是瞬时高峰、请求量大和传入、传出参数数据包较小。而 Dubbo 中的 Dubbo 协议就很好地支持了这个请求。"
+				}
+			]
+		},
+		{
+			"ID": "20230115215051-6xldur1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115215051-6xldur1",
+				"updated": "20230115215113"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "以下是基于 Dubbo:2.6.4 版本进行的简单的性能测试。分别测试 Dubbo+Protobuf 序列化以及 Http+Json 序列化的通信性能（这里主要模拟单一 TCP 长连接 +Protobuf 序列化和短连接的 Http+Json 序列化的性能对比）。为了验证在数据量不同的情况下二者的性能表现，我分别准备了小对象和大对象的性能压测，通过这样的方式我们也可以间接地了解下二者在 RPC 通信方面的水平。"
+				}
+			]
+		},
+		{
+			"ID": "20230115215117-yjl1qpe",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115215117-yjl1qpe",
+				"updated": "20230115215121"
+			},
+			"Children": [
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230115215121-980zu5e.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230115215122-k7zp5jx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115215122-k7zp5jx",
+				"updated": "20230115215125"
+			},
+			"Children": [
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230115215125-bexazia.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230115215202-g1por9b",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115215202-g1por9b",
+				"updated": "20230115215218"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "通过以上测试结果可以发现：无论从响应时间还是吞吐量上来看，单一 TCP 长连接 +Protobuf 序列化实现的 RPC 通信框架都有着非常明显的优势。"
+				}
+			]
+		},
+		{
+			"ID": "20230115215228-1jkurjj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115215228-1jkurjj",
+				"updated": "20230115215228"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在高并发场景下，我们选择后端服务框架或者中间件部门自行设计服务框架时，RPC 通信是重点优化的对象。"
+				}
+			]
+		},
+		{
+			"ID": "20230115215229-xnaoki1",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230115215229-xnaoki1",
+				"updated": "20230115215249"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "八、什么是 RPC 通信"
+				}
+			]
+		},
+		{
+			"ID": "20230115215251-q6pg1ib",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115215251-q6pg1ib",
+				"updated": "20230115215257"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一提到 RPC，你是否还想到 MVC、SOA 这些概念呢？如果你没有经历过这些架构的演变，这些概念就很容易混淆。你可以通过下面这张图来了解下这些架构的演变史。"
+				}
+			]
+		},
+		{
+			"ID": "20230115215257-k9mnr4z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115215257-k9mnr4z",
+				"updated": "20230115215300"
+			},
+			"Children": [
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230115215300-n2h8y2x.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230115215301-wwv3d3t",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115215301-wwv3d3t",
+				"updated": "20230115215306"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "无论是微服务、SOA、还是 RPC 架构，它们都是分布式服务架构，都需要实现服务之间的互相通信，我们通常把这种通信统称为 RPC 通信"
+				}
+			]
+		},
+		{
+			"ID": "20230115215307-yejvudh",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115215307-yejvudh",
+				"updated": "20230115215312"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "RPC（Remote Process Call），即远程服务调用，是通过网络请求远程计算机程序服务的通信技术。RPC 框架封装好了底层网络通信、序列化等技术，我们只需要在项目中引入各个服务的接口包，就可以实现在代码中调用 RPC 服务同调用本地方法一样。正因为这种方便、透明的远程调用，RPC 被广泛应用于当下企业级以及互联网项目中，是实现分布式系统的核心。"
+				}
+			]
+		},
+		{
+			"ID": "20230115215312-dmkgt3s",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115215312-dmkgt3s",
+				"updated": "20230115215317"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "RMI（Remote Method Invocation）是 JDK 中最先实现了 RPC 通信的框架之一，RMI 的实现对建立分布式 Java 应用程序至关重要，是 Java 体系非常重要的底层技术，很多开源的 RPC 通信框架也是基于 RMI 实现原理设计出来的，包括 Dubbo 框架中也接入了 RMI 框架。接下来我们就一起了解下 RMI 的实现原理，看看它存在哪些性能瓶颈有待优化。"
+				}
+			]
+		},
+		{
+			"ID": "20230115215317-u3rjf5j",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115215317-u3rjf5j",
+				"updated": "20230115215322"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "RMI：JDK 自带的 RPC 通信框架"
+				}
+			]
+		},
+		{
+			"ID": "20230115215322-fmp4zo2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115215322-fmp4zo2",
+				"updated": "20230115215327"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "目前 RMI 已经很成熟地应用在了 EJB 以及 Spring 框架中，是纯 Java 网络分布式应用系统的核心解决方案。RMI 实现了一台虚拟机应用对远程方法的调用可以同对本地方法的调用一样，RMI 帮我们封装好了其中关于远程通信的内容。"
+				}
+			]
+		},
+		{
+			"ID": "20230115215328-g1wxwmq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115215328-g1wxwmq",
+				"updated": "20230115215332"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "RMI 的实现原理"
+				}
+			]
+		},
+		{
+			"ID": "20230115215332-qo75cys",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115215332-qo75cys",
+				"updated": "20230115215336"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "RMI 远程代理对象是 RMI 中最核心的组件，除了对象本身所在的虚拟机，其它虚拟机也可以调用此对象的方法。而且这些虚拟机可以不在同一个主机上，通过远程代理对象，远程应用可以用网络协议与服务进行通信。"
+				}
+			]
+		},
+		{
+			"ID": "20230115215337-om42h0c",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115215337-om42h0c",
+				"updated": "20230115215341"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们可以通过一张图来详细地了解下整个 RMI 的通信过程："
+				}
+			]
+		},
+		{
+			"ID": "20230115215401-tznncm5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115215401-tznncm5",
+				"updated": "20230115215409"
+			},
+			"Children": [
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230115215409-srdxobh.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230115215411-2kb64dy",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230115215411-2kb64dy",
+				"updated": "20230115215440"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "九、RMI 在高并发场景下的性能瓶颈"
+				}
+			]
+		},
+		{
+			"ID": "20230115215419-8o3cnvc",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115215419-8o3cnvc",
+				"updated": "20230115215441"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Java 默认序列化"
+				}
+			]
+		},
+		{
+			"ID": "20230115215447-gz8sxwi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115215447-gz8sxwi",
+				"updated": "20230115215452"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "RMI 的序列化采用的是 Java 默认的序列化方式，我在 09 讲中详细地介绍过 Java 序列化，我们深知它的性能并不是很好，而且其它语言框架也暂时不支持 Java 序列化。"
+				}
+			]
+		},
+		{
+			"ID": "20230115215452-beaiw13",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115215452-beaiw13",
+				"updated": "20230115215459"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "TCP 短连接"
+				}
+			]
+		},
+		{
+			"ID": "20230115215500-qjhd5aj",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115215500-qjhd5aj",
+				"updated": "20230115215505"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "由于 RMI 是基于 TCP 短连接实现，在高并发情况下，大量请求会带来大量连接的创建和销毁，这对于系统来说无疑是非常消耗性能的。"
+				}
+			]
+		},
+		{
+			"ID": "20230115215505-kmsarcd",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115215505-kmsarcd",
+				"updated": "20230115215510"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "阻塞式网络 I/O"
+				}
+			]
+		},
+		{
+			"ID": "20230115215516-3we8eh2",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115215516-3we8eh2",
+				"updated": "20230115215520"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 08 讲中，我提到了网络通信存在 I/O 瓶颈，如果在 Socket 编程中使用传统的 I/O 模型，在高并发场景下基于短连接实现的网络通信就很容易产生 I/O 阻塞，性能将会大打折扣。"
+				}
+			]
+		},
+		{
+			"ID": "20230115215521-uynx8dk",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230115215521-uynx8dk",
+				"updated": "20230115215534"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "十、一个高并发场景下的 RPC 通信优化路径"
+				}
+			]
+		},
+		{
+			"ID": "20230115215541-ewutrov",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115215541-ewutrov",
+				"updated": "20230115215923"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "SpringCloud 的 RPC 通信和 RMI 通信的性能瓶颈就非常相似。SpringCloud 是基于 Http 通信协议（短连接）和 Json 序列化实现的，在高并发场景下并没有优势。 那么，在瞬时高并发的场景下，我们又该如何去优化一个 RPC 通信呢？"
+				}
+			]
+		},
+		{
+			"ID": "20230115215924-0uqnil6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115215924-0uqnil6",
+				"updated": "20230115215935"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "RPC 通信包括了建立通信、实现报文、传输协议以及传输数据编解码等操作，接下来我们就从每一层的优化出发，逐步实现整体的性能优化。"
+				}
+			]
+		},
+		{
+			"ID": "20230115220020-hw0u61x",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115220020-hw0u61x",
+				"updated": "20230115220023"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、选择合适的通信协议"
+				}
+			]
+		},
+		{
+			"ID": "20230115220026-zsxwbhe",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220026-zsxwbhe",
+				"updated": "20230115220031"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "要实现不同机器间的网络通信，我们先要了解计算机系统网络通信的基本原理。网络通信是两台设备之间实现数据流交换的过程，是基于网络传输协议和传输数据的编解码来实现的。其中网络传输协议有 TCP、UDP 协议，这两个协议都是基于 Socket 编程接口之上，为某类应用场景而扩展出的传输协议。通过以下两张图，我们可以大概了解到基于 TCP 和 UDP 协议实现的 Socket 网络通信是怎样的一个流程。"
+				}
+			]
+		},
+		{
+			"ID": "20230115220032-fg8knao",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220032-fg8knao",
+				"updated": "20230115220037"
+			},
+			"Children": [
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230115220036-8boeiss.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230115220037-d99naj9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220037-d99naj9",
+				"updated": "20230115220043"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "基于 TCP 协议实现的 Socket 通信是有连接的，而传输数据是要通过三次握手来实现数据传输的可靠性，且传输数据是没有边界的，采用的是字节流模式。"
+				}
+			]
+		},
+		{
+			"ID": "20230115220044-77rx3o7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220044-77rx3o7",
+				"updated": "20230115220048"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "基于 UDP 协议实现的 Socket 通信，客户端不需要建立连接，只需要创建一个套接字发送数据报给服务端，这样就不能保证数据报一定会达到服务端，所以在传输数据方面，基于 UDP 协议实现的 Socket 通信具有不可靠性。UDP 发送的数据采用的是数据报模式，每个 UDP 的数据报都有一个长度，该长度将与数据一起发送到服务端。"
+				}
+			]
+		},
+		{
+			"ID": "20230115220048-l76l8sn",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220048-l76l8sn",
+				"updated": "20230115220055"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "通过对比，我们可以得出优化方法：为了保证数据传输的可靠性，通常情况下我们会采用 TCP 协议。如果在局域网且对数据传输的可靠性没有要求的情况下，我们也可以考虑使用 UDP 协议，毕竟这种协议的效率要比 TCP 协议高。"
+				}
+			]
+		},
+		{
+			"ID": "20230115220059-v86zt1c",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115220059-v86zt1c",
+				"updated": "20230115220115"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2、使用单一长连接"
+				}
+			]
+		},
+		{
+			"ID": "20230115220116-lr8g3ym",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220116-lr8g3ym",
+				"updated": "20230115220121"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果是基于 TCP 协议实现 Socket 通信，我们还能做哪些优化呢？"
+				}
+			]
+		},
+		{
+			"ID": "20230115220121-omm4gi1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220121-omm4gi1",
+				"updated": "20230115220126"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "服务之间的通信不同于客户端与服务端之间的通信。客户端与服务端由于客户端数量多，基于短连接实现请求可以避免长时间地占用连接，导致系统资源浪费。"
+				}
+			]
+		},
+		{
+			"ID": "20230115220126-kpme7ef",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220126-kpme7ef",
+				"updated": "20230115220130"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "但服务之间的通信，连接的消费端不会像客户端那么多，但消费端向服务端请求的数量却一样多，我们基于长连接实现，就可以省去大量的 TCP 建立和关闭连接的操作，从而减少系统的性能消耗，节省时间。"
+				}
+			]
+		},
+		{
+			"ID": "20230115220131-l0reycz",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115220131-l0reycz",
+				"updated": "20230115220138"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3、优化 Socket 通信"
+				}
+			]
+		},
+		{
+			"ID": "20230115220138-hrz5lyy",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220138-hrz5lyy",
+				"updated": "20230115220146"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "建立两台机器的网络通信，我们一般使用 Java 的 Socket 编程实现一个 TCP 连接。传统的 Socket 通信主要存在 I/O 阻塞、线程模型缺陷以及内存拷贝等问题。我们可以使用比较成熟的通信框架，比如 Netty。Netty4 对 Socket 通信编程做了很多方面的优化，具体见下方。"
+				}
+			]
+		},
+		{
+			"ID": "20230115220146-9h488k6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220146-9h488k6",
+				"updated": "20230115220207"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "实现非阻塞 I/O"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "：在 08 讲中，我们提到了多路复用器 Selector 实现了非阻塞 I/O 通信。"
+				}
+			]
+		},
+		{
+			"ID": "20230115220155-11hkjni",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220155-11hkjni",
+				"updated": "20230115220210"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "高效的 Reactor 线程模型"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "：Netty 使用了主从 Reactor 多线程模型，服务端接收客户端请求连接是用了一个主线程，这个主线程用于客户端的连接请求操作，一旦连接建立成功，将会监听 I/O 事件，监听到事件后会创建一个链路请求。"
+				}
+			]
+		},
+		{
+			"ID": "20230115215514-400a69d",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115215514-400a69d",
+				"updated": "20230115220218"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "链路请求将会注册到负责 I/O 操作的 I/O 工作线程上，由 I/O 工作线程负责后续的 I/O 操作。利用这种线程模型，可以解决在高负载、高并发的情况下，由于单个 NIO 线程无法监听海量客户端和满足大量 I/O 操作造成的问题。"
+				}
+			]
+		},
+		{
+			"ID": "20230115220218-c4ze1k9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220218-c4ze1k9",
+				"updated": "20230115220226"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "串行设计"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "：服务端在接收消息之后，存在着编码、解码、读取和发送等链路操作。如果这些操作都是基于并行去实现，无疑会导致严重的锁竞争，进而导致系统的性能下降。为了提升性能，Netty 采用了串行无锁化完成链路操作，Netty 提供了 Pipeline 实现链路的各个操作在运行期间不进行线程切换。"
+				}
+			]
+		},
+		{
+			"ID": "20230115220228-kb28eu8",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220228-kb28eu8",
+				"updated": "20230115220243"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "零拷贝"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "：在 08 讲中，我们提到了一个数据从内存发送到网络中，存在着两次拷贝动作，先是从用户空间拷贝到内核空间，再是从内核空间拷贝到网络 I/O 中。而 NIO 提供的 ByteBuffer 可以使用 Direct Buffers 模式，直接开辟一个非堆物理内存，不需要进行字节缓冲区的二次拷贝，可以直接将数据写入到内核空间。"
+				}
+			]
+		},
+		{
+			"ID": "20230115220244-7g2394z",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220244-7g2394z",
+				"updated": "20230115220252"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "除了以上这些优化，我们还可以针对套接字编程提供的一些 TCP 参数配置项，提高网络吞吐量，Netty 可以基于 ChannelOption 来设置这些参数。"
+				}
+			]
+		},
+		{
+			"ID": "20230115220252-r5bqxdq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220252-r5bqxdq",
+				"updated": "20230115220302"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "TCP_NODELAY"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "：TCP_NODELAY 选项是用来控制是否开启 Nagle 算法。Nagle 算法通过缓存的方式将小的数据包组成一个大的数据包，从而避免大量的小数据包发送阻塞网络，提高网络传输的效率。我们可以关闭该算法，优化对于时延敏感的应用场景。"
+				}
+			]
+		},
+		{
+			"ID": "20230115220303-pu97iox",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220303-pu97iox",
+				"updated": "20230115220315"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "SO_RCVBUF 和 SO_SNDBUF"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "：可以根据场景调整套接字发送缓冲区和接收缓冲区的大小。"
+				}
+			]
+		},
+		{
+			"ID": "20230115220316-om9kjd5",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220316-om9kjd5",
+				"updated": "20230115220324"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "SO_BACKLOG"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "：backlog 参数指定了客户端连接请求缓冲队列的大小。服务端处理客户端连接请求是按顺序处理的，所以同一时间只能处理一个客户端连接，当有多个客户端进来的时候，服务端就会将不能处理的客户端连接请求放在队列中等待处理。"
+				}
+			]
+		},
+		{
+			"ID": "20230115220326-sl8t95b",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220326-sl8t95b",
+				"updated": "20230115220336"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "SO_KEEPALIVE"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "：当设置该选项以后，连接会检查长时间没有发送数据的客户端的连接状态，检测到客户端断开连接后，服务端将回收该连接。我们可以将该时间设置得短一些，来提高回收连接的效率。"
+				}
+			]
+		},
+		{
+			"ID": "20230115220338-s0z43vy",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115220338-s0z43vy",
+				"updated": "20230115220347"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4、量身定做报文格式"
+				}
+			]
+		},
+		{
+			"ID": "20230115220347-j81zbto",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220347-j81zbto",
+				"updated": "20230115220353"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "接下来就是实现报文，我们需要设计一套报文，用于描述具体的校验、操作、传输数据等内容。为了提高传输的效率，我们可以根据自己的业务和架构来考虑设计，尽量实现报体小、满足功能、易解析等特性。我们可以参考下面的数据格式"
+				}
+			]
+		},
+		{
+			"ID": "20230115220354-o88rjpk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220354-o88rjpk",
+				"updated": "20230115220357"
+			},
+			"Children": [
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230115220357-lwsc953.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230115220358-9sddqdg",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220358-9sddqdg",
+				"updated": "20230115220403"
+			},
+			"Children": [
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230115220403-o10ntqd.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230115220403-mfiv83n",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115220403-mfiv83n",
+				"updated": "20230115220413"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "5、编码、解码"
+				}
+			]
+		},
+		{
+			"ID": "20230115220413-vhmywso",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220413-vhmywso",
+				"updated": "20230115220418"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在 09 讲中，我们分析过序列化编码和解码的过程，对于实现一个好的网络通信协议来说，兼容优秀的序列化框架是非常重要的。如果只是单纯的数据对象传输，我们可以选择性能相对较好的 Protobuf 序列化，有利于提高网络通信的性能。"
+				}
+			]
+		},
+		{
+			"ID": "20230115220419-zwa6ail",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20230115220419-zwa6ail",
+				"updated": "20230115220425"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "6、调整 Linux 的 TCP 参数设置选项"
+				}
+			]
+		},
+		{
+			"ID": "20230115220426-lz8w55p",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220426-lz8w55p",
+				"updated": "20230115220430"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "如果 RPC 是基于 TCP 短连接实现的，我们可以通过修改 Linux TCP 配置项来优化网络通信。开始 TCP 配置项的优化之前，我们先来了解下建立 TCP 连接的三次握手和关闭 TCP 连接的四次握手，这样有助后面内容的理解。"
+				}
+			]
+		},
+		{
+			"ID": "20230115220430-y4jhgwx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220430-y4jhgwx",
+				"updated": "20230115220505"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三次握手："
+				}
+			]
+		},
+		{
+			"ID": "20230115220440-vxckhnk",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220440-vxckhnk",
+				"updated": "20230115220443"
+			},
+			"Children": [
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230115220443-eo7shpj.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230115220444-etasxyx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220444-etasxyx",
+				"updated": "20230115220502"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "四次握手："
+				}
+			]
+		},
+		{
+			"ID": "20230115220453-h9l7zk4",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220453-h9l7zk4",
+				"updated": "20230115220457"
+			},
+			"Children": [
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230115220456-vkjgrxh.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230115220457-wabbnfl",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220457-wabbnfl",
+				"updated": "20230115220516"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "我们可以通过 sysctl -a | grep net.xxx 命令运行查看 Linux 系统默认的的 TCP 参数设置，如果需要修改某项配置，可以通过编辑 vim/etc/sysctl.conf，加入需要修改的配置项， 并通过 sysctl -p 命令运行生效修改后的配置项设置。通常我们会通过修改以下几个配置项来提高网络吞吐量和降低延时。"
+				}
+			]
+		},
+		{
+			"ID": "20230115220516-xq9rj5l",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220516-xq9rj5l",
+				"updated": "20230115220523"
+			},
+			"Children": [
+				{
+					"Type": "NodeImage",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeBang"
+						},
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "image"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "assets/image-20230115220523-zt36ur2.png"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "​"
+				}
+			]
+		},
+		{
+			"ID": "20230115220524-t6nagrq",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220524-t6nagrq",
+				"updated": "20230115220529"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "以上就是我们从不同层次对 RPC 优化的详解，除了最后的 Linux 系统中 TCP 的配置项设置调优，其它的调优更多是从代码编程优化的角度出发，最终实现了一套 RPC 通信框架的优化路径。"
+				}
+			]
+		},
+		{
+			"ID": "20230115220529-rsojhe4",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20230115220529-rsojhe4",
+				"updated": "20230115220533"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "总结"
+				}
+			]
+		},
+		{
+			"ID": "20230115220545-dgo024a",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220545-dgo024a",
+				"updated": "20230115220545"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在现在的分布式系统中，特别是系统走向微服务化的今天，服务间的通信就显得尤为频繁，掌握服务间的通信原理和通信协议优化，是你的一项的必备技能。"
+				}
+			]
+		},
+		{
+			"ID": "20230115220545-n2zh1ir",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220545-n2zh1ir",
+				"updated": "20230115220550"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在一些并发场景比较多的系统中，我更偏向使用 Dubbo 实现的这一套 RPC 通信协议。Dubbo 协议是建立的单一长连接通信，网络 I/O 为 NIO 非阻塞读写操作，更兼容了 Kryo、FST、Protobuf 等性能出众的序列化框架，在高并发、小对象传输的业务场景中非常实用。"
+				}
+			]
+		},
+		{
+			"ID": "20230115220551-naiyhc9",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220551-naiyhc9",
+				"updated": "20230115220557"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "在企业级系统中，业务往往要比普通的互联网产品复杂，服务与服务之间可能不仅仅是数据传输，还有图片以及文件的传输，所以 RPC 的通信协议设计考虑更多是功能性需求，在性能方面不追求极致。其它通信框架在功能性、生态以及易用、易入门等方面更具有优势。"
+				}
+			]
+		},
+		{
+			"ID": "20230115220558-2348vkf",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20230115220558-2348vkf"
+			}
+		}
+	]
+}

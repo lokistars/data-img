@@ -1,0 +1,2039 @@
+{
+	"ID": "20221017123248-41xoh72",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20221017123248-41xoh72",
+		"scroll": "{\u0026amp;quot;startId\u0026amp;quot;:\u0026amp;quot;20221017123248-clm1l5s\u0026amp;quot;,\u0026amp;quot;endId\u0026amp;quot;:\u0026amp;quot;20221017134558-wgff2mi\u0026amp;quot;,\u0026amp;quot;scrollTop\u0026amp;quot;:5628}",
+		"title": "Minio",
+		"updated": "20221017134741"
+	},
+	"Children": [
+		{
+			"ID": "20221017123248-clm1l5s",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20221017123248-clm1l5s",
+				"updated": "20221017123302"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "一、概述"
+				}
+			]
+		},
+		{
+			"ID": "20221017123302-6wx6z0j",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221017123302-6wx6z0j",
+				"updated": "20221017123311"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "MinIO"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 是在 "
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "GNU Affero"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 通用公共许可证 v3.0 下发布的 "
+				},
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "高性能对象存储"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 。它与 Amazon S3 云存储服务 API 兼容。使用 "
+				},
+				{
+					"Type": "NodeLink",
+					"Data": "span",
+					"Children": [
+						{
+							"Type": "NodeOpenBracket"
+						},
+						{
+							"Type": "NodeLinkText",
+							"Data": "MinIO"
+						},
+						{
+							"Type": "NodeCloseBracket"
+						},
+						{
+							"Type": "NodeOpenParen"
+						},
+						{
+							"Type": "NodeLinkDest",
+							"Data": "https://min.io/"
+						},
+						{
+							"Type": "NodeCloseParen"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": " 为机器学习、分析和应用程序数据工作负载构建高性能基础架构"
+				}
+			]
+		},
+		{
+			"ID": "20221017123540-ek7v4zb",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221017123540-ek7v4zb",
+				"updated": "20221017123542"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "特点"
+				}
+			]
+		},
+		{
+			"ID": "20221017123540-mc01haw",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20221017123540-mc01haw",
+				"updated": "20221017123540"
+			},
+			"Children": [
+				{
+					"ID": "20221017123544-gf0rgpm",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221017123544-gf0rgpm"
+					},
+					"Children": [
+						{
+							"ID": "20221017123558-4k3gwuq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221017123558-4k3gwuq",
+								"updated": "20221017123558"
+							},
+							"Children": [
+								{
+									"Type": "NodeStrong",
+									"Data": "strong",
+									"Children": [
+										{
+											"Type": "NodeStrongA6kOpenMarker",
+											"Data": "**"
+										},
+										{
+											"Type": "NodeText",
+											"Data": "数据保护"
+										},
+										{
+											"Type": "NodeStrongA6kCloseMarker",
+											"Data": "**"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": " ——分布式 Minio 采用 纠删码来防范多个节点宕机和位衰减 bit rot。分布式 Minio 至少需要 4 个硬盘，使用分布式 Minio 自动引入了纠删码功能。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20221017123603-z8k3tf5",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221017123603-z8k3tf5"
+					},
+					"Children": [
+						{
+							"ID": "20221017123607-70zgvuc",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221017123607-70zgvuc",
+								"updated": "20221017123607"
+							},
+							"Children": [
+								{
+									"Type": "NodeStrong",
+									"Data": "strong",
+									"Children": [
+										{
+											"Type": "NodeStrongA6kOpenMarker",
+											"Data": "**"
+										},
+										{
+											"Type": "NodeText",
+											"Data": "高可用"
+										},
+										{
+											"Type": "NodeStrongA6kCloseMarker",
+											"Data": "**"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": " ——单机 Minio 服务存在单点故障，相反，如果是一个有 N 块硬盘的分布式 Minio,只要有 N/2 硬盘在线，你的数据就是安全的。不过你需要至少有 N/2+1 个硬盘来创建新的对象。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20221017123610-778wmqp",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221017123610-778wmqp"
+					},
+					"Children": [
+						{
+							"ID": "20221017123610-i863u8w",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221017123610-i863u8w",
+								"updated": "20221017123648"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "只要遵守分布式 Minio 的限制，你可以组合不同的节点和每个节点几块硬盘。比如，你可以使用 2 个节点，每个节点 4 块硬盘，也可以使用 4 个节点，每个节点两块硬盘"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20221017123806-83pde7k",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221017123806-83pde7k",
+				"updated": "20221017123815"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Minio的优点"
+				}
+			]
+		},
+		{
+			"ID": "20221017123815-cfpg64w",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20221017123815-cfpg64w",
+				"updated": "20221017123830"
+			},
+			"Children": [
+				{
+					"ID": "20221017123831-1b5v3in",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221017123831-1b5v3in",
+						"updated": "20221017123831"
+					},
+					"Children": [
+						{
+							"ID": "20221017123839-zpvydlq",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221017123839-zpvydlq",
+								"updated": "20221017123839"
+							},
+							"Children": [
+								{
+									"Type": "NodeStrong",
+									"Data": "strong",
+									"Children": [
+										{
+											"Type": "NodeStrongA6kOpenMarker",
+											"Data": "**"
+										},
+										{
+											"Type": "NodeText",
+											"Data": "部署简单"
+										},
+										{
+											"Type": "NodeStrongA6kCloseMarker",
+											"Data": "**"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": " ，一个二进制文件（minio）即是一切，还可以支持各种平台"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20221017123841-52xizts",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221017123841-52xizts"
+					},
+					"Children": [
+						{
+							"ID": "20221017123845-2m3tyg9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221017123845-2m3tyg9",
+								"updated": "20221017123845"
+							},
+							"Children": [
+								{
+									"Type": "NodeStrong",
+									"Data": "strong",
+									"Children": [
+										{
+											"Type": "NodeStrongA6kOpenMarker",
+											"Data": "**"
+										},
+										{
+											"Type": "NodeText",
+											"Data": "支持海量存储"
+										},
+										{
+											"Type": "NodeStrongA6kCloseMarker",
+											"Data": "**"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": " ，可以按 zone 扩展，支持单个对象最大 5TB"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20221017123922-obinekb",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221017123922-obinekb"
+					},
+					"Children": [
+						{
+							"ID": "20221017123931-6hbdzsj",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221017123931-6hbdzsj",
+								"updated": "20221017123931"
+							},
+							"Children": [
+								{
+									"Type": "NodeStrong",
+									"Data": "strong",
+									"Children": [
+										{
+											"Type": "NodeStrongA6kOpenMarker",
+											"Data": "**"
+										},
+										{
+											"Type": "NodeText",
+											"Data": "低冗余且磁盘损坏高容忍"
+										},
+										{
+											"Type": "NodeStrongA6kCloseMarker",
+											"Data": "**"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": " ，标准且最高的数据冗余系数为 2(即存储一个 1M 的数据对象，实际占用磁盘空间为 2M)。但在任意 n/2 块 disk 损坏的情况下依然可以读出数据(n 为一个纠删码集合中的 disk 数量)。并且这种损坏恢复是基于单个对象的，而不是基于整个存储卷的"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20221017123940-32agt9z",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221017123940-32agt9z",
+						"updated": "20221017123940"
+					},
+					"Children": [
+						{
+							"ID": "20221017123940-4usd28w",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221017123940-4usd28w",
+								"updated": "20221017124003"
+							},
+							"Children": [
+								{
+									"Type": "NodeStrong",
+									"Data": "strong",
+									"Children": [
+										{
+											"Type": "NodeStrongA6kOpenMarker",
+											"Data": "**"
+										},
+										{
+											"Type": "NodeText",
+											"Data": "读写性能优异"
+										},
+										{
+											"Type": "NodeStrongA6kCloseMarker",
+											"Data": "**"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": ", 每秒按G读写速度"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20221017124004-3jvvbe2",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20221017124004-3jvvbe2",
+				"updated": "20221017124017"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "二、基础概念"
+				}
+			]
+		},
+		{
+			"ID": "20221017124018-gx4rikv",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20221017124018-gx4rikv",
+				"updated": "20221017124104"
+			},
+			"Children": [
+				{
+					"ID": "20221017124022-iskonad",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221017124022-iskonad",
+						"updated": "20221017124022"
+					},
+					"Children": [
+						{
+							"ID": "20221017124026-0tw2tai",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221017124026-0tw2tai",
+								"updated": "20221017124026"
+							},
+							"Children": [
+								{
+									"Type": "NodeCodeSpan",
+									"Data": "code",
+									"Children": [
+										{
+											"Type": "NodeCodeSpanOpenMarker"
+										},
+										{
+											"Type": "NodeCodeSpanContent",
+											"Data": "S3"
+										},
+										{
+											"Type": "NodeCodeSpanCloseMarker"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": "——Simple Storage Service，简单存储服务，这个概念是 Amazon 在 2006 年推出的，"
+								},
+								{
+									"Type": "NodeCodeSpan",
+									"Data": "code",
+									"Children": [
+										{
+											"Type": "NodeCodeSpanOpenMarker"
+										},
+										{
+											"Type": "NodeCodeSpanContent",
+											"Data": "对象存储"
+										},
+										{
+											"Type": "NodeCodeSpanCloseMarker"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": "就是从那个时候诞生的。S3 提供了一个简单 Web 服务接口，可用于随时在 Web 上的任何位置存储和检索任何数量的数据。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20221017124030-49hi1qo",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221017124030-49hi1qo"
+					},
+					"Children": [
+						{
+							"ID": "20221017124036-y5qub9n",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221017124036-y5qub9n",
+								"updated": "20221017124036"
+							},
+							"Children": [
+								{
+									"Type": "NodeCodeSpan",
+									"Data": "code",
+									"Children": [
+										{
+											"Type": "NodeCodeSpanOpenMarker"
+										},
+										{
+											"Type": "NodeCodeSpanContent",
+											"Data": "Object"
+										},
+										{
+											"Type": "NodeCodeSpanCloseMarker"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": "——存储到 Minio 的基本对象，如文件、字节流，Anything…"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20221017124038-2f9kf4r",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221017124038-2f9kf4r"
+					},
+					"Children": [
+						{
+							"ID": "20221017124046-6w5w7j1",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221017124046-6w5w7j1",
+								"updated": "20221017124046"
+							},
+							"Children": [
+								{
+									"Type": "NodeCodeSpan",
+									"Data": "code",
+									"Children": [
+										{
+											"Type": "NodeCodeSpanOpenMarker"
+										},
+										{
+											"Type": "NodeCodeSpanContent",
+											"Data": "Bucket"
+										},
+										{
+											"Type": "NodeCodeSpanCloseMarker"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": "——用来存储 Object 的逻辑空间。每个 Bucket 之间的数据是相互隔离的。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20221017124050-bt5aft0",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221017124050-bt5aft0"
+					},
+					"Children": [
+						{
+							"ID": "20221017124056-tb0lks9",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221017124056-tb0lks9",
+								"updated": "20221017124056"
+							},
+							"Children": [
+								{
+									"Type": "NodeCodeSpan",
+									"Data": "code",
+									"Children": [
+										{
+											"Type": "NodeCodeSpanOpenMarker"
+										},
+										{
+											"Type": "NodeCodeSpanContent",
+											"Data": "Drive"
+										},
+										{
+											"Type": "NodeCodeSpanCloseMarker"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": "——部署 Minio 时设置的磁盘，Minio 中所有的对象数据都会存储在 Drive 里。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20221017124104-h2g5via",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221017124104-h2g5via",
+						"updated": "20221017124104"
+					},
+					"Children": [
+						{
+							"ID": "20221017124104-z2mgn1w",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221017124104-z2mgn1w",
+								"updated": "20221017124104"
+							},
+							"Children": [
+								{
+									"Type": "NodeCodeSpan",
+									"Data": "code",
+									"Children": [
+										{
+											"Type": "NodeCodeSpanOpenMarker"
+										},
+										{
+											"Type": "NodeCodeSpanContent",
+											"Data": "Set"
+										},
+										{
+											"Type": "NodeCodeSpanCloseMarker"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": "——一组 Drive 的集合，分布式部署根据集群规模自动划分一个或多个 Set ，每个 Set 中的 Drive 分布在不同位置。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20221017123532-jdtisu3",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221017123532-jdtisu3",
+				"updated": "20221017124339"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "Set /Drive 的关系"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20221017124340-kp7wii1",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20221017124340-kp7wii1",
+				"updated": "20221017124346"
+			},
+			"Children": [
+				{
+					"ID": "20221017124350-1qghbj2",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221017124350-1qghbj2",
+						"updated": "20221017124350"
+					},
+					"Children": [
+						{
+							"ID": "20221017124436-rnvcsf1",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221017124436-rnvcsf1",
+								"updated": "20221017124436"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Set /Drive 这两个概念是 MINIO 里面最重要的两个概念，一个对象最终是存储在 Set 上面的。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20221017124440-gjfj37t",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221017124440-gjfj37t"
+					},
+					"Children": [
+						{
+							"ID": "20221017124445-vtls04v",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221017124445-vtls04v",
+								"updated": "20221017124445"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Set 是另外一个概念，Set 是一组 Drive 的集合，图中，所有蓝色、橙色背景的 Drive（硬盘）的就组成了一个 Set。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20221017124454-koeepi7",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20221017124454-koeepi7",
+				"updated": "20221017124501"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "三、纠删码（Erasure Code）"
+				}
+			]
+		},
+		{
+			"ID": "20221017124510-606wl3e",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221017124510-606wl3e",
+				"updated": "20221017124514"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "纠删码（Erasure Code）简称 EC，是一种数据保护方法，它将数据分割成片段，把冗余数据块扩展、编码，并将其存储在不同的位置，比如磁盘、存储节点或者其它地理位置。"
+				}
+			]
+		},
+		{
+			"ID": "20221017124515-n7m8k9u",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20221017124515-n7m8k9u",
+				"updated": "20221017124518"
+			},
+			"Children": [
+				{
+					"ID": "20221017124519-fgohpmq",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221017124519-fgohpmq",
+						"updated": "20221017124519"
+					},
+					"Children": [
+						{
+							"ID": "20221017124519-o5d0q3r",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221017124519-o5d0q3r",
+								"updated": "20221017124526"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "纠删码是一种恢复丢失和损坏数据的数学算法，目前，纠删码技术在分布式存储系统中的应用主要有三类，阵列纠删码（Array Code: RAID5、RAID6 等）、RS(Reed-Solomon)里德-所罗门类纠删码和LDPC(LowDensity Parity Check Code)低密度奇偶校验纠删码。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20221017124527-ysx25kx",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221017124527-ysx25kx"
+					},
+					"Children": [
+						{
+							"ID": "20221017124532-2j2cyrm",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221017124532-2j2cyrm",
+								"updated": "20221017124532"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Erasure Code 是一种编码技术，它可以将 n 份原始数据，增加 m 份校验数据，并能通过 n+m 份中的任意 n 份原始数据，还原为原始数据。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20221017124534-rt0h3tl",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221017124534-rt0h3tl"
+					},
+					"Children": [
+						{
+							"ID": "20221017124539-kbfapbs",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221017124539-kbfapbs",
+								"updated": "20221017124539"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "即如果有任意小于等于 m 份的校验数据失效，仍然能通过剩下的数据还原出来。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20221017124545-0y4kj8t",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221017124545-0y4kj8t"
+					},
+					"Children": [
+						{
+							"ID": "20221017124545-4dmfcmy",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221017124545-4dmfcmy",
+								"updated": "20221017124545"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "Minio 采用 Reed-Solomon code 将对象拆分成 N/2 数据和 N/2  "
+								},
+								{
+									"Type": "NodeStrong",
+									"Data": "strong",
+									"Children": [
+										{
+											"Type": "NodeStrongA6kOpenMarker",
+											"Data": "**"
+										},
+										{
+											"Type": "NodeText",
+											"Data": "奇偶校验块"
+										},
+										{
+											"Type": "NodeStrongA6kCloseMarker",
+											"Data": "**"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": " 。"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20221017124550-aslql6c",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221017124550-aslql6c"
+					},
+					"Children": [
+						{
+							"ID": "20221017124554-4k2js0u",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221017124554-4k2js0u",
+								"updated": "20221017124554"
+							},
+							"Children": [
+								{
+									"Type": "NodeText",
+									"Data": "在同一集群内，MinIO 自己会自动生成若干纠删组（Set），用于分布存放桶数据。一个纠删组中的一定数量的磁盘发生的故障（故障磁盘的数量小于等于校验盘的数量），通过纠删码校验算法可以恢复出正确的数据。"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20221017124603-qjpbzvf",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20221017124603-qjpbzvf",
+				"updated": "20221017124618"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "四、部署模式"
+				}
+			]
+		},
+		{
+			"ID": "20221017124619-1v4xiu4",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20221017124619-1v4xiu4",
+				"updated": "20221017124631"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4.1、单主机，单硬盘"
+				}
+			]
+		},
+		{
+			"ID": "20221017124639-glwdbw1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221017124639-glwdbw1",
+				"updated": "20221017124643"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "该模式下，Minio 只在一台服务器上搭建服务，且数据都存在单块磁盘上，该模式存在单点风险，主要用作开发、测试等使用"
+				}
+			]
+		},
+		{
+			"ID": "20221017124644-uqncbb5",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20221017124644-uqncbb5",
+				"updated": "20221017124653"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4.2、单主机，多硬盘"
+				}
+			]
+		},
+		{
+			"ID": "20221017124655-rq8dmen",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221017124655-rq8dmen",
+				"updated": "20221017124701"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "该模式下，Minio 在一台服务器上搭建服务，但数据分散在多块（大于 4 块）磁盘上，提供了数据上的安全保障。"
+				}
+			]
+		},
+		{
+			"ID": "20221017124702-9v9vhke",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20221017124702-9v9vhke",
+				"updated": "20221017124713"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4.3、多主机，多硬盘（分布式）"
+				}
+			]
+		},
+		{
+			"ID": "20221017124509-7x1tg2q",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221017124509-7x1tg2q",
+				"updated": "20221017124723"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "该模式是 Minio 服务最常用的架构，通过共享一个 access_key 和 secret_key,在多台服务器上搭建服务，且数据分散在多块（大于 4 块，无上限）磁盘上，提供了较为强大的数据冗余机制（Reed-Solomon 纠删码）。"
+				}
+			]
+		},
+		{
+			"ID": "20221017124724-hfilved",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20221017124724-hfilved",
+				"updated": "20221017131434"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "五、minio-client"
+				}
+			]
+		},
+		{
+			"ID": "20221017131443-1xp8vi0",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20221017131443-1xp8vi0",
+				"updated": "20221017131726"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "c2hlbGw="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "# 下载二进制文件\ncd /usr/local/bin/ \u0026\u0026 wget https://dl.min.io/client/mc/release/linux-amd64/mc \u0026\u0026 chmod +x mc\n# 查看 mc 版本\nmc version\n\nls       列出文件和文件夹\nmb       创建一个存储桶或一个文件夹\ncat      显示文件和对象内容\npipe     将一个STDIN重定向到一个对象或者文件或者STDOUT\nshare    生成用于共享的URL\ncp       拷贝文件和对象\nmirror   给存储桶和文件夹做镜像\nfind     基于参数查找文件\ndiff     对两个文件夹或者存储桶比较差异\nrm       删除文件和对象\nevents   管理对象通知\nwatch    监听文件和对象的事件\npolicy   管理访问策略\nsession  为cp命令管理保存的会话\nconfig   管理mc配置文件\nupdate   检查软件更新\nversion  输出版本信息\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20221017131733-zlzp67f",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20221017131733-zlzp67f",
+				"updated": "20221017131841"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "1、config"
+				}
+			]
+		},
+		{
+			"ID": "20221017131735-u5ymv41",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221017131735-u5ymv41",
+				"updated": "20221017131745"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "config host 命令提供了一个方便地管理~/.mc/config.json配置文件中的主机信息的方式，也可以用文本编辑器手动修改这个配置文件"
+				}
+			]
+		},
+		{
+			"ID": "20221017131746-53dhvwb",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20221017131746-53dhvwb",
+				"updated": "20221017134741"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "c2hlbGw="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "用法：\n  mc config host COMMAND [COMMAND FLAGS | -h] [ARGUMENTS...]\n\nCOMMANDS:\n  add, a      添加一个新的主机到配置文件\n  remove, rm  从配置文件中删除一个主机\n  list, ls    列出配置文件中的主机\n\nFLAGS:\n  --help, -h                       显示帮助\n\n# 明文输入\nmc config host add minio http://192.168.0.112:9005 minioadmin minioadmin\n\n# 密文输入（推荐）\nmc config host add minio http://192.168.0.112:9005\nEnter Access Key: minioadmin\nEnter Secret Key: minioadmin\n\n# 获取已配置别名 “ minio ” 的MinIO服务器信息\nmc admin info minio\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20221017131850-v1nompv",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20221017131850-v1nompv",
+				"updated": "20221017131921"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "2、mb"
+				}
+			]
+		},
+		{
+			"ID": "20221017131934-5lpd8ko",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221017131934-5lpd8ko",
+				"updated": "20221017131935"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "创建存储桶。MinIO对每个用户创建的存储桶数量没有限制。 在Amazon S3上，每个帐户被限制为100个存储桶"
+				}
+			]
+		},
+		{
+			"ID": "20221017131922-wfjytm5",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20221017131922-wfjytm5",
+				"updated": "20221017133722"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "c2hlbGw="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "用法：\n   mc mb [FLAGS] TARGET [TARGET...]\n\nFLAGS:\n  --help, -h                   显示帮助\n  --region \"us-east-1\"         指定存储桶的region，默认是‘us-east-1’\n\n# 在 minio1 上创建一个名为“bucket”的存储桶 \nmc mb minio1/bucket\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20221017131933-c1eaca6",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20221017131933-c1eaca6",
+				"updated": "20221017132015"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "3、ls"
+				}
+			]
+		},
+		{
+			"ID": "20221017132015-nvjz45p",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221017132015-nvjz45p",
+				"updated": "20221017132027"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "列出存储桶、对象"
+				}
+			]
+		},
+		{
+			"ID": "20221017132027-gp6ssxb",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20221017132027-gp6ssxb",
+				"updated": "20221017133719"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "c2hlbGw="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "用法：\n   mc ls [FLAGS] TARGET [TARGET ...]\n\nFLAGS:\n  --help, -h               显示帮助\n  --recursive, -r          递归\n  --incomplete, -I         列出未完整上传的对象\n# 列出所有桶\nmc ls minio1\nmc ls minio1/bucket/  #列出桶下所有文件\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20221017132057-84h8ngo",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20221017132057-84h8ngo",
+				"updated": "20221017132144"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "4、cp"
+				}
+			]
+		},
+		{
+			"ID": "20221017132144-ziommh6",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221017132144-ziommh6",
+				"updated": "20221017132148"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "拷贝本地的一个或多个源文件到对象存储。所有到对象存储的拷贝操作都进行了MD4SUM checkSUM校验。可以从故障点恢复中断或失败的复制操作"
+				}
+			]
+		},
+		{
+			"ID": "20221017132150-vyj7u61",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20221017132150-vyj7u61",
+				"updated": "20221017133715"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "c2hlbGw="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "用法：\n   mc cp [FLAGS] SOURCE [SOURCE...] TARGET\nFLAGS:\n  --help, -h               显示帮助\n  --recursive, -r          递归拷贝\n#拷贝一个本地文件 test.txt 到 minio1/bucket\nmc cp test.txt minio1/bucket/\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20221017132214-uj5p2xg",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20221017132214-uj5p2xg",
+				"updated": "20221017132228"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "5、pipe"
+				}
+			]
+		},
+		{
+			"ID": "20221017132227-h6x741r",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221017132227-h6x741r",
+				"updated": "20221017133623"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "pipe到对象。pipe命令拷贝stdin里的内容到目标输出，如果没有指定目标输出，则输出到stdout"
+				}
+			]
+		},
+		{
+			"ID": "20221017133623-h75fiqc",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20221017133623-h75fiqc",
+				"updated": "20221017133710"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "c2hlbGw="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "用法：\n   mc pipe [FLAGS] [TARGET]\n\nFLAGS:\n  --help, -h                    显示帮助\n# 将MySQL数据库dump文件输出到Amazon S3\nmysqldump -u root -p ******* accountsdb | mc pipe s3/sql-backups/backups/accountsdb-oct-9-2015.sql\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20221017133731-f240yuv",
+			"Type": "NodeHeading",
+			"HeadingLevel": 4,
+			"Properties": {
+				"id": "20221017133731-f240yuv",
+				"updated": "20221017133741"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "6、rm"
+				}
+			]
+		},
+		{
+			"ID": "20221017133741-x4g14at",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221017133741-x4g14at",
+				"updated": "20221017133745"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "删除文件对象或存储桶"
+				}
+			]
+		},
+		{
+			"ID": "20221017133745-efzuzzw",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20221017133745-efzuzzw",
+				"updated": "20221017134007"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "c2hlbGw="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "用法：\n   mc rm [FLAGS] TARGET [TARGET ...]\n\nFLAGS:\n  --help, -h            显示帮助\n  --recursive, -r       递归删除\n  --force               强制执行删除操作\n  --prefix              删除批配这个前缀的对象\n  --incomplete, -I      删除未完整上传的对象\n  --fake                模拟一个假的删除操作\n  --stdin               从STDIN中读对象列表\n  --older-than value    删除N天前的对象（默认是0天）\n#删除 minio1 下的 bucket 桶\nmc rm minio1/bucket\n#删除 minio1 下的 bucket 桶中的 test.txt 文件\nmc rm minio1/bucket/test.txt\n#递归删除 minio1 下的 bucket 桶中的所有内容 强制删除\nmc rm --recursive --force minio1/bucket/\n#从 bucket 里删除未完整上传的对象\nmc rm  --incomplete --recursive --force minio1/bucket/\n#删除1天前的对象\nmc rm --force --older-than=1 minio1/bucket/\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20221017134027-4irqkny",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20221017134027-4irqkny",
+				"updated": "20221017134107"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "六、Minio–分布式"
+				}
+			]
+		},
+		{
+			"ID": "20221017134108-4mykd48",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20221017134108-4mykd48",
+				"updated": "20221017134324"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "6.1、磁盘初始化"
+				}
+			]
+		},
+		{
+			"ID": "20221017134157-o4d8qya",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20221017134157-o4d8qya",
+				"updated": "20221017134220"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "c2hlbGw="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "# 不重启，直接刷新磁盘数据总线，获取新加的磁盘\nfor host in $(ls /sys/class/scsi_host) ; do echo \"- - -\" \u003e /sys/class/scsi_host/$host/scan; done\n# 查看磁盘\nfdisk -l\n# 格式化\nmkfs.ext4 /dev/sdb\nmkfs.ext4 /dev/sdc\nmkfs.ext4 /dev/sdd\nmkfs.ext4 /dev/sde\n# 分别在三个节点上创建存储目录\nmkdir -p /minio/data{1,2,3,4}\n# 挂载\nmount /dev/sdb /minio/data1\nmount /dev/sdc /minio/data2\nmount /dev/sdd /minio/data3\nmount /dev/sde /minio/data4\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20221017134106-m47yfme",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20221017134106-m47yfme",
+				"updated": "20221017134327"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "6.2、配置"
+				}
+			]
+		},
+		{
+			"ID": "20221017134304-eic0yvz",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221017134304-eic0yvz",
+				"updated": "20221017134311"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "Minio 默认"
+				},
+				{
+					"Type": "NodeCodeSpan",
+					"Data": "code",
+					"Children": [
+						{
+							"Type": "NodeCodeSpanOpenMarker"
+						},
+						{
+							"Type": "NodeCodeSpanContent",
+							"Data": "9000"
+						},
+						{
+							"Type": "NodeCodeSpanCloseMarker"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "端口，在配置文件中加入–address “127.0.0.1:9029” 可更改端口"
+				}
+			]
+		},
+		{
+			"ID": "20221017134330-21ss7x4",
+			"Type": "NodeList",
+			"ListData": {},
+			"Properties": {
+				"id": "20221017134330-21ss7x4",
+				"updated": "20221017134334"
+			},
+			"Children": [
+				{
+					"ID": "20221017134335-7mj4egf",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221017134335-7mj4egf",
+						"updated": "20221017134335"
+					},
+					"Children": [
+						{
+							"ID": "20221017134339-qugxahu",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221017134339-qugxahu",
+								"updated": "20221017134339"
+							},
+							"Children": [
+								{
+									"Type": "NodeCodeSpan",
+									"Data": "code",
+									"Children": [
+										{
+											"Type": "NodeCodeSpanOpenMarker"
+										},
+										{
+											"Type": "NodeCodeSpanContent",
+											"Data": "MINIO_ACCESS_KEY"
+										},
+										{
+											"Type": "NodeCodeSpanCloseMarker"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": "：用户名，长度最小是 5 个字符"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20221017134341-0wqfkc0",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221017134341-0wqfkc0"
+					},
+					"Children": [
+						{
+							"ID": "20221017134345-e4y83pk",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221017134345-e4y83pk",
+								"updated": "20221017134345"
+							},
+							"Children": [
+								{
+									"Type": "NodeCodeSpan",
+									"Data": "code",
+									"Children": [
+										{
+											"Type": "NodeCodeSpanOpenMarker"
+										},
+										{
+											"Type": "NodeCodeSpanContent",
+											"Data": "MINIO_SECRET_KEY"
+										},
+										{
+											"Type": "NodeCodeSpanCloseMarker"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": "：密码，密码不能设置过于简单，不然 minio 会启动失败，长度最小是 8 个字符"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20221017134347-50cyyyx",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221017134347-50cyyyx"
+					},
+					"Children": [
+						{
+							"ID": "20221017134352-h319th0",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221017134352-h319th0",
+								"updated": "20221017134352"
+							},
+							"Children": [
+								{
+									"Type": "NodeCodeSpan",
+									"Data": "code",
+									"Children": [
+										{
+											"Type": "NodeCodeSpanOpenMarker"
+										},
+										{
+											"Type": "NodeCodeSpanContent",
+											"Data": "–config-dir"
+										},
+										{
+											"Type": "NodeCodeSpanCloseMarker"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": "：指定集群配置文件目录"
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20221017134354-b2dxvab",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221017134354-b2dxvab"
+					},
+					"Children": [
+						{
+							"ID": "20221017134358-yf3neze",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221017134358-yf3neze",
+								"updated": "20221017134358"
+							},
+							"Children": [
+								{
+									"Type": "NodeCodeSpan",
+									"Data": "code",
+									"Children": [
+										{
+											"Type": "NodeCodeSpanOpenMarker"
+										},
+										{
+											"Type": "NodeCodeSpanContent",
+											"Data": "–address"
+										},
+										{
+											"Type": "NodeCodeSpanCloseMarker"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": "：api 的端口，默认是"
+								},
+								{
+									"Type": "NodeCodeSpan",
+									"Data": "code",
+									"Children": [
+										{
+											"Type": "NodeCodeSpanOpenMarker"
+										},
+										{
+											"Type": "NodeCodeSpanContent",
+											"Data": "9000"
+										},
+										{
+											"Type": "NodeCodeSpanCloseMarker"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"ID": "20221017134400-j9wvc9v",
+					"Type": "NodeListItem",
+					"ListData": {
+						"BulletChar": 42,
+						"Marker": "Kg=="
+					},
+					"Properties": {
+						"id": "20221017134400-j9wvc9v"
+					},
+					"Children": [
+						{
+							"ID": "20221017134403-e5cmjv3",
+							"Type": "NodeParagraph",
+							"Properties": {
+								"id": "20221017134403-e5cmjv3",
+								"updated": "20221017134403"
+							},
+							"Children": [
+								{
+									"Type": "NodeCodeSpan",
+									"Data": "code",
+									"Children": [
+										{
+											"Type": "NodeCodeSpanOpenMarker"
+										},
+										{
+											"Type": "NodeCodeSpanContent",
+											"Data": "--console-address"
+										},
+										{
+											"Type": "NodeCodeSpanCloseMarker"
+										}
+									]
+								},
+								{
+									"Type": "NodeText",
+									"Data": " ：web 端口，默认随机"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "20221017134410-moex7s7",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221017134410-moex7s7",
+				"updated": "20221017134420"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "6.3、编写启动脚本"
+				}
+			]
+		},
+		{
+			"ID": "20221017134420-kxg5ali",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20221017134420-kxg5ali",
+				"updated": "20221017134439"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "c2hlbGw="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "#!/bin/bash\n# 创建日志存储路径\nif [ ! -d \"/minio/logs\" ];then\n  mkdir -p /minio/logs\nfi\n# 创建配置目录\nif [ ! -d \"//minio/minio\" ];then\n  mkdir -p /minio/minio\nfi\n\n# 设置ak、sk\nexport MINIO_ROOT_USER=minioadmin\nexport MINIO_ROOT_PASSWORD=minioadmin\n\n# 在三台机器上都执行该文件，即以分布式的方式启动了MINIO\n# --address \"0.0.0.0:9005\" 挂载9001端口为api端口（如Java客户端）访问的端口\n# --console-address \":9006\" 挂载9000端口为web端口；\nminio server --address 0.0.0.0:9005 --console-address 0.0.0.0:9006 --config-dir /minio/minio \\\nhttp://192.168.0.109/minio/data1 \\\nhttp://192.168.0.109/minio/data2 \\\nhttp://192.168.0.109/minio/data3 \\\nhttp://192.168.0.109/minio/data4 \\\nhttp://192.168.0.110/minio/data1 \\\nhttp://192.168.0.110/minio/data2 \\\nhttp://192.168.0.110/minio/data3 \\\nhttp://192.168.0.110/minio/data4 \\\nhttp://192.168.0.111/minio/data1 \\\nhttp://192.168.0.111/minio/data2 \\\nhttp://192.168.0.111/minio/data3 \\\nhttp://192.168.0.111/minio/data4 \u003e /minio/logs/minio_server.log\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20221017134440-acnfn4n",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221017134440-acnfn4n",
+				"updated": "20221017134451"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "【温馨提示】下面脚本复制时 \\ 后不要有空格，还有就是上面的目录是对应的一块磁盘，而非简单的在/minio/data 目录下创建四个目录，要不然会报如下错误，看提示以为是 root 权限问题。part of root disk, will not be used (*errors.errorString)"
+				}
+			]
+		},
+		{
+			"ID": "20221017134452-zvo57zz",
+			"Type": "NodeHeading",
+			"HeadingLevel": 3,
+			"Properties": {
+				"id": "20221017134452-zvo57zz",
+				"updated": "20221017134506"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "6.4、启动服务"
+				}
+			]
+		},
+		{
+			"ID": "20221017134506-13ijij3",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20221017134506-13ijij3",
+				"updated": "20221017134517"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "c2hlbGw="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "# 在三台机器上都执行该文件，即以分布式的方式启动了MINIO\nsh /minio/run.sh\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20221017134518-rcaqmzx",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221017134518-rcaqmzx",
+				"updated": "20221017134524"
+			},
+			"Children": [
+				{
+					"Type": "NodeText",
+					"Data": "添加或修改 minio.service，通过 systemctl 启停服务（推荐）"
+				}
+			]
+		},
+		{
+			"ID": "20221017134525-3y4zqph",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"Properties": {
+				"id": "20221017134525-3y4zqph",
+				"updated": "20221017134547"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```"
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "c2hlbGw="
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "# 如果使用rpm安装，minio.service就会自动生成，只要修改就行\ncat \u003e /usr/lib/systemd/system/minio.service \u003c\u003cEOF\n[Unit]\nDescription=Minio service\nDocumentation=https://docs.minio.io/\nAfter=network.target\n\n[Service]\nType=forking\nExecStart=/minio/run.sh\n\nRestart=on-failure\nRestartSec=5\n\n[Install]\nWantedBy=multi-user.target\nEOF\n"
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```"
+				}
+			]
+		},
+		{
+			"ID": "20221017134547-es6ladt",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221017134547-es6ladt",
+				"updated": "20221017134600"
+			},
+			"Children": [
+				{
+					"Type": "NodeStrong",
+					"Data": "strong",
+					"Children": [
+						{
+							"Type": "NodeStrongA6kOpenMarker",
+							"Data": "**"
+						},
+						{
+							"Type": "NodeText",
+							"Data": "#重新加载服务"
+						},
+						{
+							"Type": "NodeStrongA6kCloseMarker",
+							"Data": "**"
+						}
+					]
+				},
+				{
+					"Type": "NodeText",
+					"Data": "\nsystemctl daemon-reload"
+				}
+			]
+		},
+		{
+			"ID": "20221017134558-wgff2mi",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20221017134558-wgff2mi"
+			}
+		}
+	]
+}

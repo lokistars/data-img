@@ -1,0 +1,93 @@
+{
+	"ID": "20220819105859-k2k05cq",
+	"Type": "NodeDocument",
+	"Properties": {
+		"id": "20220819105859-k2k05cq",
+		"scroll": "{\u0026amp;quot;startId\u0026amp;quot;:\u0026amp;quot;20220819105859-ng140nk\u0026amp;quot;,\u0026amp;quot;endId\u0026amp;quot;:\u0026amp;quot;20220819110753-fgbb1x1\u0026amp;quot;,\u0026amp;quot;scrollTop\u0026amp;quot;:0}",
+		"title": "Linux 命令",
+		"updated": "20220819111019"
+	},
+	"Children": [
+		{
+			"ID": "20220819105859-ng140nk",
+			"Type": "NodeHeading",
+			"HeadingLevel": 2,
+			"Properties": {
+				"id": "20220819105859-ng140nk",
+				"updated": "20220819110036"
+			},
+			"Children": [
+				{
+					"Type": "NodeHeadingC8hMarker",
+					"Data": "## ",
+					"Properties": {
+						"id": ""
+					}
+				},
+				{
+					"Type": "NodeText",
+					"Data": "一、Linux 创建用户",
+					"Properties": {
+						"id": ""
+					}
+				}
+			]
+		},
+		{
+			"ID": "20220819110037-i1frw1h",
+			"Type": "NodeCodeBlock",
+			"IsFencedCodeBlock": true,
+			"CodeBlockFenceChar": 96,
+			"CodeBlockFenceLen": 3,
+			"CodeBlockOpenFence": "YGBg",
+			"CodeBlockInfo": "c2hlbGw=",
+			"CodeBlockCloseFence": "YGBg",
+			"Properties": {
+				"id": "20220819110037-i1frw1h",
+				"ligatures": "false",
+				"linewrap": "false",
+				"updated": "20220819110743"
+			},
+			"Children": [
+				{
+					"Type": "NodeCodeBlockFenceOpenMarker",
+					"Data": "```",
+					"CodeBlockFenceLen": 3,
+					"Properties": {
+						"id": ""
+					}
+				},
+				{
+					"Type": "NodeCodeBlockFenceInfoMarker",
+					"CodeBlockInfo": "c2hlbGw=",
+					"Properties": {
+						"id": ""
+					}
+				},
+				{
+					"Type": "NodeCodeBlockCode",
+					"Data": "id 用户名           #查看用户\ngroupadd lucky  groupmod  groupdel    # 新增   修改  删除组\nuseradd  lucky     #添加用户 -u：指定账号的UID、-d：指定账户的家目录、 -g：指定账户的基本组、-G：指定账户的附加组、-s  指定账户的shell脚本 -s /bin/bash\npasswd             #设置密码 -l  锁定账号密码  -u 解锁用户、-S  查看密码信息、-d  删除账号密码\nwho                #查看登入记录\nuserdel -r         #删除用户 -r包含用户文件\ngroups mysql       #查看组信息\nchown mysql:mysql /usr/local/mysql -R; #设置所属\n",
+					"Properties": {
+						"id": ""
+					}
+				},
+				{
+					"Type": "NodeCodeBlockFenceCloseMarker",
+					"Data": "```",
+					"CodeBlockFenceLen": 3,
+					"Properties": {
+						"id": ""
+					}
+				}
+			]
+		},
+		{
+			"ID": "20220819110753-fgbb1x1",
+			"Type": "NodeParagraph",
+			"Properties": {
+				"id": "20220819110753-fgbb1x1",
+				"updated": "20220819110753"
+			}
+		}
+	]
+}
